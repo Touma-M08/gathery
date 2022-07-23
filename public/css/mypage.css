@@ -1,0 +1,41 @@
+.contents {
+    padding: 0 40px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-ttl {
+   border-bottom: 1px solid #000; 
+   display: inline-block;
+}
+
+.contents .profile {
+    width: 30%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+}
+
+.contents .profile img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50% ;
+}
+
+.contents .profile ul li {
+    list-style: none;
+}
+
+.schedule {
+    width: 65%;
+}
+
+.schedule ul {
+    border: 1px solid #000;
+}
+
+.schedule ul li {
+    list-style: none;
+}
