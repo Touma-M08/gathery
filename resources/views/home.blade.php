@@ -15,6 +15,14 @@
         @section("content")
         <div class="contents">
             <main>
+                <section class="name" id="name">
+                    <p class="section-ttl">名称で探す</p>
+                    <form>
+                        <input type="text" style="border:1px solid black" />
+                        <input type="submit" value="検索" />
+                    </form>
+                </section>
+                
                 <section class="area" id="area">
                     <p class="section-ttl">エリアから探す</p>
                     
@@ -69,21 +77,13 @@
                         </ul>
                     </div>
                 </section>
-                
-                <section class="name" id="name">
-                    <p class="section-ttl">名称で探す</p>
-                    <form>
-                        <input type="text" style="border:1px solid black" />
-                        <input type="submit" value="検索" />
-                    </form>
-                </section>
             </main>
             
             <aside>
                 <section class="profile">
-                    <img src="/img/prof.jpg">
+                    <img src="{{ Auth::user()->image }}">
                     <p>ログイン中のユーザー</p>
-                    <p>○○○○</p>
+                    <p>{{ Auth::user()->name }}</p>
                     <div class="mypage-btn">
                         <a href="/mypage">マイページ</a>
                     </div>

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -22,6 +22,31 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="age" class="form-control" name="age">
+                                    <option value="not selected">Please select your age</option>
+                                    @for ($i= 16; $i < 100; $i++) 
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('Sex') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="sex" class="form-control" name="sex">
+                                    <option value="not selected">Please select your sex</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+                                </select>
                             </div>
                         </div>
 
@@ -58,6 +83,15 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Icon Settings') }}</label>
+
+                            <div class="col-md-6">
+                                <!-- アップロードフォームの作成 -->
+                                <input type="file" name="image">
                             </div>
                         </div>
 

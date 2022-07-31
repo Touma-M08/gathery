@@ -19,7 +19,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -53,10 +52,20 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    メニュー <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/#name">名称で探す</a>
+                                    
+                                    <a class="dropdown-item" href="/#area">エリアから探す</a>
+                                    
+                                    <a class="dropdown-item" href="/#category">カテゴリーから探す</a>
+                                    
+                                    <a class="dropdown-item" href="">ランキング</a>
+                                     
+                                    <a class="dropdown-item" href="/mypage">マイページ</a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -74,35 +83,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="header">
-                <nav class="header-nav">
-                    <ul class="nav-list">|
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#area">エリアから探す</a>
-                        </li>
-                        |
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#category">カテゴリーから探す</a>
-                        </li>
-                        |
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#name">名称で探す</a>
-                        </li>
-                        |
-                        <li class="nav-item">
-                            <a class="nav-link" href="">ランキング</a>
-                        </li>
-                        |
-                        <li class="nav-item">
-                            <a class="nav-link" href="/mypage">マイページ</a>
-                        </li>
-                        |
-                    </ul>
-                </nav>
-            </div>
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
 </body>
 </html>

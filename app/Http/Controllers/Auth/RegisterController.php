@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Storage;
 
 class RegisterController extends Controller
 {
@@ -64,10 +65,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $image = $data['image'];
+        // バケットの`profile`フォルダへアップロード
+        $path = Storage::disk('s3')->putFile('profile', $image, 'public');
         return User::create([
             'name' => $data['name'],
+            'age' => $data['age'],
+            'sex' => $data['sex'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'image' => Storage::disk('s3')->url($path),
         ]);
     }
 }

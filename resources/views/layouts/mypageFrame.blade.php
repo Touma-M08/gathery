@@ -15,9 +15,9 @@
         @section("content")
         <div class="contents">
             <section class="profile">
-                <img src="/img/prof.jpg">
+                <img src="{{ auth::user()->image }}">
                 <p>ログイン中のユーザー</p>
-                <p>○○○○</p>
+                <p>{{ auth::user()->name }}</p>
                 <ul>
                     <li class="list-item">
                         <a href="/mypage">予定一覧</a>
