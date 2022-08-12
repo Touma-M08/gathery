@@ -1,3 +1,7 @@
+li {
+   list-style: none; 
+}
+
 .contents {
     margin: 50px auto 0;
     padding: 0 20px;
@@ -84,6 +88,53 @@ aside {
     right: 75.5%;
 }
 
+.prefecture {
+    width: 140px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+}
+
+.prefecture.active {
+    display: flex;
+}
+
+.prefecture a {
+    width: 58px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.tohoku .prefecture {
+    top: 36%;
+    right: 14%;
+}
+.kanto .prefecture {
+    top: 56%;
+    right: 14%;
+}
+.chubu .prefecture {
+    top: 22%;
+    right: 40%;
+}
+.kinki .prefecture {
+    top: 67%;
+    right: 43%;
+}
+.shikoku .prefecture {
+    top: 78%;
+    right: 61%;
+}
+.chugoku .prefecture {
+    top: 42%;
+    right: 63%;
+}
+.kyusyu .prefecture {
+    top: 59%;
+    right: 84%;
+}
+
 .map-bg.hokkaido {
     background-position: 0 calc(-5299px/ 9);
 }
@@ -115,11 +166,6 @@ aside {
     border: 1px solid #000;
     box-sizing: border-box;
     
-}
-
-/*name*/
-input {
-    border: 1px solid #000;
 }
 
 /*profile*/

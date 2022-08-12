@@ -11,18 +11,14 @@
 |
 */
 Route::group(['middleware' => ['auth']], function(){
-    Route::get('/', function () {
-        return view('home');
-    });
-    Route::get('/mypage', function () {
-        return view('mypage/schedule');
-    });
+    Route::get('/mypage', 'HomeController@want');
+    Route::get('/', 'HomeController@index'); //トップページ
     
-    Route::get('/mypage/want', function() {
-        return view('mypage/want');
-    });
-    
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/places/search', 'PlaceController@index'); //検索
+    Route::get('/places/search/{prefecture}', 'PlaceController@index');
+    Route::get('/places/create', 'PlaceController@create'); //場所登録
+    Route::post('/places', 'PlaceController@store'); //場所保存
+    Route::get('/places/{place}', 'PlaceController@show'); //場所詳細
 });
 
 Auth::routes();

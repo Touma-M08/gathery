@@ -1,7 +1,7 @@
+//地図ホバー時のカラー変更
 function getId(e) {
      return e.target.id;
 }
-
 
 function mouseOver(e) {
      const target = document.getElementById("map-bg");
@@ -47,3 +47,27 @@ function mouseOut(e) {
           target.classList.remove("kyusyu");
      }
 }
+
+//クリック時の県名表示
+const btn = document.getElementsByClassName('btn');
+console.log(btn[0]);
+
+btn[0].addEventListener("click", function(){
+　　console.log('クリックされました');
+});
+//const pref = document.getElementsByClassName('prefecture');
+// for (var i = btn.length - 1; i >= 0; i--) {
+//      btnAction(btn[i], i);
+// }
+
+// function btnAction(btnDom, btnId) {
+//      btnDom.addEventListener('click', function(){
+//           pref[btnId].classList.toggle('active');
+//      })
+     
+     // for (var i = 0; i <= btn.length - 1; i++) {
+     //      if (btnId !== i) {
+     //           pref[btnId].classList.remove('active');
+     //      }
+     // }
+//}
