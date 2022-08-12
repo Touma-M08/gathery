@@ -15,10 +15,11 @@
         @section("content")
         <div class="contents">
             <main>
+                <a href="places/create">新規作成</a>
                 <section class="name" id="name">
                     <p class="section-ttl">名称で探す</p>
-                    <form>
-                        <input type="text" style="border:1px solid black" />
+                    <form method="get", action="/places/search">
+                        <input type="search" name="name"/>
                         <input type="submit" value="検索" />
                     </form>
                 </section>
@@ -29,29 +30,135 @@
                     <div class="map">
                         <div class="map-bg" id="map-bg"></div>
                         
-                        <a href="" class="region-btn __hokkaido" id="hokkaido" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            北海道
-                        </a>
-                        <div class="region-btn __tohoku" id="tohoku" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            東北地方
+                        <div>
+                            @foreach ($prefectures as $prefecture)
+                                @if ($prefecture->id == 1)
+                                    <form method="get" action="/places/search">
+                                        <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                        <input type="submit" value="{{ $prefecture->name }}" class="region-btn __hokkaido" id="hokkaido" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)"></input>
+                                    </form>
+                                @endif
+                            @endforeach
                         </div>
-                        <div class="region-btn __kanto" id="kanto" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            関東地方
+                        
+                        
+                        <div class="tohoku">
+                            <div class="region-btn region-pref __tohoku" id="tohoku" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
+                                東北地方
+                            </div>
+                            
+                            <div class="prefecture">
+                                @foreach ($prefectures as $prefecture)
+                                    @if ($prefecture->id >= 2 && $prefecture->id <= 7)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="region-btn __chubu" id="chubu" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            中部地方
+                        
+                        <div class="kanto">
+                            <div class="region-btn region-pref __kanto" id="kanto" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
+                                関東地方
+                            </div>
+                            
+                            <div class="prefecture">
+                                @foreach ($prefectures as $prefecture)
+                                    @if ($prefecture->id >= 8 && $prefecture->id <= 14)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="region-btn __kinki" id="kinki" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            近畿地方
+                        
+                        <div class="chubu">
+                            <div class="region-btn region-pref __chubu" id="chubu" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
+                                中部地方
+                            </div>
+                            
+                            <div class="prefecture">
+                                @foreach ($prefectures as $prefecture)
+                                    @if ($prefecture->id >= 15 && $prefecture->id <= 23)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="region-btn __shikoku" id="shikoku" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            四国地方
+                        
+                        <div class="kinki">
+                            <div class="region-btn region-pref __kinki" id="kinki" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
+                                近畿地方
+                            </div>
+                            
+                            <div class="prefecture">
+                                @foreach ($prefectures as $prefecture)
+                                    @if ($prefecture->id >= 24 && $prefecture->id <= 30)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="region-btn __chugoku" id="chugoku" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            中国地方
+                        
+                        <div class="shikoku">
+                            <div class="region-btn region-pref __shikoku" id="shikoku" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
+                                四国地方
+                            </div>
+                            
+                            <div class="prefecture">
+                                @foreach ($prefectures as $prefecture)
+                                    @if ($prefecture->id >= 36 && $prefecture->id <= 39)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="region-btn __kyusyu" id="kyusyu" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
-                            九州地方
+                        
+                        <div class="chugoku">
+                            <div class="region-btn region-pref __chugoku" id="chugoku" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
+                                中国地方
+                            </div>
+                            
+                            <div class="prefecture">
+                                @foreach ($prefectures as $prefecture)
+                                    @if ($prefecture->id >= 31 && $prefecture->id <= 35)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        
+                        <div class="kyusyu">
+                            <div class="region-btn region-pref __kyusyu" id="kyusyu" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
+                                九州地方
+                            </div>
+                            
+                            <div class="prefecture">
+                                @foreach ($prefectures as $prefecture)
+                                    @if ($prefecture->id >= 40 && $prefecture->id <= 47)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
+                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -62,17 +169,38 @@
                     <div class="category-frame">
                         <ul>飲食店
                             <li class="category-ttl">
-                                <a class="category-link" href="">カフェ</a>
+                                @foreach ($categories as $category) 
+                                    @if ($category->id >= 1 && $category->id <= 19)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="category" value="{{ $category->id }}"></input>
+                                            <input type="submit" value="{{ $category->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
                             </li>
                         </ul>
                         <ul>レジャー施設
                             <li class="category-ttl">
-                                <a class="category-link" href="">遊園地</a>
+                                @foreach ($categories as $category) 
+                                    @if ($category->id >= 20 && $category->id <= 28)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="category" value="{{ $category->id }}"></input>
+                                            <input type="submit" value="{{ $category->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
                             </li>
                         </ul>
                         <ul>その他
                             <li class="category-ttl">
-                                <a class="category-link" href="">フェス</a>
+                                @foreach ($categories as $category) 
+                                    @if ($category->id >= 29 && $category->id <= 31)
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="category" value="{{ $category->id }}"></input>
+                                            <input type="submit" value="{{ $category->name }}"></input>
+                                        </form>
+                                    @endif
+                                @endforeach
                             </li>
                         </ul>
                     </div>
@@ -107,6 +235,8 @@
                 </section>
             </aside>
         </div>
+        
+        <div class="btn">aaa</div>
         @endsection
     </body>
 </html>

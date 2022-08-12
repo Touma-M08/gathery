@@ -14,10 +14,6 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
