@@ -33,9 +33,4 @@ class HomeController extends Controller
             'categories' => $category->get()
             ]);
     }
-    
-    public function want(Want $want)
-    {
-        return view('mypage/want')->with(['wants' => $want->getByWantPlace()]);
-    }
 }

@@ -213,7 +213,7 @@
                     <p>ログイン中のユーザー</p>
                     <p>{{ Auth::user()->name }}</p>
                     <div class="mypage-btn">
-                        <a href="/mypage">マイページ</a>
+                        <a href="/mypage/wants">マイページ</a>
                     </div>
                 </section>
                 

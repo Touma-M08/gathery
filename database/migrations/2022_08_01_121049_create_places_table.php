@@ -27,6 +27,7 @@ class CreatePlacesTable extends Migration
             $table->string('time_sat');
             $table->string('time_sun');
             $table->string('tel')->nullable();
+            $table->float('score')->default(0);
             $table->double('lat');
             $table->double('lng');
             $table->timestamps();

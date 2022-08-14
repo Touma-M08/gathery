@@ -9,6 +9,11 @@ use App\Want;
 
 class WantController extends Controller
 {
+    public function want(Want $want)
+    {
+        return view('mypage/want')->with(['wants' => $want->getByWantPlace()]);
+    }
+    
     public function store(Want $want, Place $place)
     {
         $want->user_id = Auth::user()->id;

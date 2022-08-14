@@ -9,22 +9,31 @@ class Place extends Model
     protected $fillable = [
         'name', 'address', 'category_id', 'prefecture_id', 'time_mon',
         'time_tue', 'time_wed', 'time_thu', 'time_fri', 'time_sat', 'time_sun',
-        'tel', 'image', 'lat', 'lng'
+        'tel', 'image', 'lat', 'lng', 'score'
     ];
     
-    public function prefecture() {
+    public function prefecture() 
+    {
         return $this->belongsTo('App\Prefecture');
     }
     
-    public function category() {
+    public function category() 
+    {
         return $this->belongsTo('App\Category');
     }
     
-    public function wants() {
+    public function wants() 
+    {
         return $this->hasMany('App\Want');
     }
     
-    public function comments() {
+    public function comments() 
+    {
         return $this->hasMany('App\Comment');
+    }
+    
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
     }
 }

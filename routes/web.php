@@ -10,8 +10,13 @@
 |
 */
 Route::group(['middleware' => ['auth']], function(){
-    Route::get('/mypage', 'HomeController@want');
     Route::get('/', 'HomeController@index'); //トップページ
+    
+    //マイページ
+    Route::get('/mypage/wants', 'WantController@want'); //行きたい！一覧
+    Route::get('/reviews/{place}', 'ReviewController@review'); //場所評価
+    Route::post('/reviews/{place}', 'ReviewController@store'); //評価保存
+    
     
     Route::get('/places/search', 'PlaceController@index'); //検索
     Route::get('/places/create', 'PlaceController@create'); //場所登録

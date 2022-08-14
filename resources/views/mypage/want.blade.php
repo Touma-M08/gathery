@@ -6,7 +6,6 @@
 
         <title>Gathery</title>
 
-        <!-- Fonts -->
         <link rel="stylesheet" href="{{asset('css/mypage.css')}}">
     </head>
     <body>
@@ -20,7 +19,8 @@
                         <a href="/places/{{ $want->place->id }}">{{ $want->place->name }}</a></br>
                         <p style="display:inline-block">{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
                         
-                        <a href="/bbses/{{ $want->place->id }}">掲示板</a></br>
+                        <a href="/bbses/{{ $want->place->id }}">掲示板</a>
+                        <a href="/reviews/{{ $want->place->id }}">評価する</a></br>
                    
                 @endforeach
             </ul>
