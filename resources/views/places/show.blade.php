@@ -52,6 +52,11 @@
             </div>
         </div>
         
+        <form method="POST" action="/wants/{{ $place->id }}">
+            @csrf
+            <input type="submit" value="行きたい！"></input>
+        </form>
+        
         <div id="map" style="height:450px; width:450px"></div>
         
         <div class="footer">

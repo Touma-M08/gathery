@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +14,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/', 'HomeController@index'); //トップページ
     
     Route::get('/places/search', 'PlaceController@index'); //検索
-    Route::get('/places/search/{prefecture}', 'PlaceController@index');
     Route::get('/places/create', 'PlaceController@create'); //場所登録
     Route::post('/places', 'PlaceController@store'); //場所保存
     Route::get('/places/{place}', 'PlaceController@show'); //場所詳細
+
+    Route::post('/wants/{place}', 'WantController@store'); //行きたい登録
+    
+    Route::get('/bbses/{place}', 'CommentController@index'); //掲示板表示
+    Route::post('/bbses/{place}', 'CommentController@store'); //掲示板投稿保存
 });
 
 Auth::routes();

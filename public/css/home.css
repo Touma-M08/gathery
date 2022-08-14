@@ -90,7 +90,7 @@ aside {
 
 .prefecture {
     width: 140px;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     position: absolute;
 }
