@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Prefecture;
 use App\Category;
 use App\Place;
-use App\Want;
 
 
 class HomeController extends Controller
@@ -26,11 +25,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Prefecture $prefecture, Category $category)
+    public function index(Prefecture $prefecture, Category $category, Place $place)
     {
         return view('home')->with([
             'prefectures' => $prefecture->get(),
-            'categories' => $category->get()
+            'categories' => $category->get(),
+            'places' => $place->ranking(3)
             ]);
     }
 }

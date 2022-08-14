@@ -220,18 +220,13 @@
                 <section class="ranking">
                     <p>おすすめスポットTOP3</p>
                     
-                    <ul>
-                        <li>
-                            <a href="/post/">
-                                <div class="img-box">
-                                    <img src="/img/place.jpg">
-                                </div>
-                                <p><span>1.</span>○○○○○○○</p>
-                            </a>
-                        </li>
-                    </ul>
+                    @foreach ($places as $place)
+                        <p>{{ $loop->index + 1 }}</p>
+                        <h3>{{ $place->name }}</h3>
+                        <p>{{$place->prefecture->name }}{{ $place->address }}</p>
+                    @endforeach
                     
-                    <a href="">おすすめスポットをもっと見る</a>
+                    <a href="/places/ranking">おすすめスポットをもっと見る</a>
                 </section>
             </aside>
         </div>

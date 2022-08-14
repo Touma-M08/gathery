@@ -69,4 +69,9 @@ class PlaceController extends Controller
     {
         return view("places/show")->with(['place' => $place, 'reviews' => $review->getReview()]);
     }
+    
+    public function ranking(Place $place)
+    {
+        return view('places/ranking')->with(['places' => $place->ranking(50)]);
+    }
 }
