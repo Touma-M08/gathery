@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Prefecture;
 use App\Category;
 use App\Place;
+use App\Want;
+
 
 class HomeController extends Controller
 {
@@ -32,8 +34,8 @@ class HomeController extends Controller
             ]);
     }
     
-    public function want()
+    public function want(Want $want)
     {
-        return view('mypage/want');
+        return view('mypage/want')->with(['wants' => $want->getByWantPlace()]);
     }
 }

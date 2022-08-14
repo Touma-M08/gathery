@@ -15,15 +15,14 @@
         <section class="want">
             <p class="section-ttl">行きたい！一覧</p>
             <ul>
-                <li>
-                    <a href="">
-                        <div class="img-box">
-                            <img src="/img/place.jpg">
-                        </div>
+                @foreach ($wants as $want)
                     
-                        <p><span>1.</span>○○○○○○○</p>
-                    </a>
-                </li>
+                        <a href="/places/{{ $want->place->id }}">{{ $want->place->name }}</a></br>
+                        <p style="display:inline-block">{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
+                        
+                        <a href="/bbses/{{ $want->place->id }}">掲示板</a></br>
+                   
+                @endforeach
             </ul>
         </section>
         @endsection
