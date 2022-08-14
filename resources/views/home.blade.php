@@ -18,7 +18,7 @@
                 <a href="places/create">新規作成</a>
                 <section class="name" id="name">
                     <p class="section-ttl">名称で探す</p>
-                    <form method="get", action="/places/search">
+                    <form method="get" action="/places/search">
                         <input type="search" name="name"/>
                         <input type="submit" value="検索" />
                     </form>
@@ -235,8 +235,6 @@
                 </section>
             </aside>
         </div>
-        
-        <div class="btn">aaa</div>
         @endsection
     </body>
 </html>
