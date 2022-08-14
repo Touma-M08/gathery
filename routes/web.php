@@ -21,6 +21,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/places/search', 'PlaceController@index'); //検索
     Route::get('/places/create', 'PlaceController@create'); //場所登録
     Route::post('/places', 'PlaceController@store'); //場所保存
+    Route::get('/places/ranking', 'PlaceController@ranking'); //ランキングページ
     Route::get('/places/{place}', 'PlaceController@show'); //場所詳細
 
     Route::post('/wants/{place}', 'WantController@store'); //行きたい登録

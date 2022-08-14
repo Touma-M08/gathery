@@ -12,6 +12,11 @@ class Place extends Model
         'tel', 'image', 'lat', 'lng', 'score'
     ];
     
+    public function ranking(int $get_count)
+    {
+        return $this->orderBy('score', 'desc')->take($get_count)->get();
+    }
+    
     public function prefecture() 
     {
         return $this->belongsTo('App\Prefecture');
