@@ -37,11 +37,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function wants() {
+    public function wants() 
+    {
         return $this->hasMany('App\Want');
     }
     
-    public function comments() {
+    public function comments() 
+    {
         return $this->hasMany('App\Comment');
+    }
+    
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
     }
 }

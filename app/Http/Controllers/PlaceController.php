@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Place;
 use App\Prefecture;
+use App\Review;
 
 class PlaceController extends Controller
 {
@@ -64,8 +65,8 @@ class PlaceController extends Controller
         return redirect('/');
     }
     
-    public function show(Place $place) 
+    public function show(Place $place, Review $review) 
     {
-        return view("places/show")->with(['place' => $place]);
+        return view("places/show")->with(['place' => $place, 'reviews' => $review->getReview()]);
     }
 }

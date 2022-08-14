@@ -49,6 +49,11 @@
                     <h3>電話番号</h3>
                     <p>{{ $place->tel }}</p>
                 </div>
+                
+                <div class="score">
+                    <h3>評価</h3>
+                    <p>{{ $place->score }}</p>
+                </div>
             </div>
         </div>
         
@@ -58,6 +63,18 @@
         </form>
         
         <div id="map" style="height:450px; width:450px"></div>
+        
+        <div class="review">
+            @foreach ($reviews as $review)
+                <p>{{ $review->title }}:{{ $review->user->name }}</p>
+                <p>{{ $review->comment }}</p>
+                <p>{{ $review->score }}</p>
+            @endforeach
+        </div>
+        
+        <div class="paginate">
+            {{ $reviews->links() }}
+        </div>
         
         <div class="footer">
             <a href="/">戻る</a>
