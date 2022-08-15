@@ -26,4 +26,9 @@ class ReviewController extends Controller
         
         return redirect('/places/'.$place->id);
     }
+    
+    public function index(Review $review)
+    {
+        return view('mypage/index')->with(['reviews' => $review->where('user_id', Auth::user()->id)->paginate(10)]);
+    }
 }

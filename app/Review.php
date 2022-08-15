@@ -12,7 +12,7 @@ class Review extends Model
     
     public function getReview(int $limit_count = 5)
     {
-        return $this::with('place', 'user')->orderBy('created_at', 'desc')->paginate($limit_count);
+        return $this->orderBy('created_at', 'desc')->paginate($limit_count);
     }
     
     public function user()

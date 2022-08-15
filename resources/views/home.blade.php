@@ -15,7 +15,6 @@
         @section("content")
         <div class="contents">
             <main>
-                <a href="places/create">新規作成</a>
                 <section class="name" id="name">
                     <p class="section-ttl">名称で探す</p>
                     <form method="get" action="/places/search">
@@ -209,12 +208,19 @@
             
             <aside>
                 <section class="profile">
-                    <img src="{{ Auth::user()->image }}">
-                    <p>ログイン中のユーザー</p>
-                    <p>{{ Auth::user()->name }}</p>
-                    <div class="mypage-btn">
-                        <a href="/mypage/wants">マイページ</a>
-                    </div>
+                    @auth
+                        <img src="{{ Auth::user()->image }}">
+                        <p>ログイン中のユーザー</p>
+                        <p>{{ Auth::user()->name }}</p>
+                        <div class="mypage-btn">
+                            <a href="/mypage/wants">マイページ</a>
+                        </div>
+                    @else
+                        <img src="img/image.png">
+                        <p>ログイン中のユーザー</p>
+                        <p>ゲスト</p>
+                        <a href="/login">ログイン</a>
+                    @endauth
                 </section>
                 
                 <section class="ranking">
@@ -222,7 +228,7 @@
                     
                     @foreach ($places as $place)
                         <p>{{ $loop->index + 1 }}</p>
-                        <h3>{{ $place->name }}</h3>
+                        <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
                         <p>{{$place->prefecture->name }}{{ $place->address }}</p>
                     @endforeach
                     

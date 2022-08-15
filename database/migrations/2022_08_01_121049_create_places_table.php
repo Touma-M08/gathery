@@ -15,7 +15,7 @@ class CreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->integer('category_id')->unsigned();
             $table->integer('prefecture_id')->unsigned();
             $table->string('address');
