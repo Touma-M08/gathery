@@ -44,7 +44,7 @@ class PlaceController extends Controller
         }
         
         return view("places/search", compact('key_name', 'key_city', 'pref', 'cat'))->with([
-            "places" => $places->paginate(9),
+            "places" => $places->orderBy('created_at', 'desc')->paginate(9),
             "categories" => $category->get(),
             "prefectures" => $prefecture->get(),
             "requests" => $request
@@ -67,7 +67,10 @@ class PlaceController extends Controller
     
     public function show(Place $place, Review $review) 
     {
-        return view("places/show")->with(['place' => $place, 'reviews' => $review->getReview()]);
+        return view("places/show")->with([
+            'place' => $place,
+            'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5)
+        ]);
     }
     
     public function ranking(Place $place)

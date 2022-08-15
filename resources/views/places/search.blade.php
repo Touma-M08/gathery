@@ -48,13 +48,19 @@
             </form>
         </div>
         
+        <a href="/places/create">新規作成</a>
+        
          {{-- 検索結果 --}}
         <div class="place">
-            @foreach ($places as $place)
-            <h2 class="title"><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h2>
-            <p>{{ $place->category->name }}</p>
-            <p><span>{{ $place->prefecture->name }}</span><span>{{ $place->address }}</span></p>
-            @endforeach
+            @if ($places->isEmpty())
+                <p>場所が見つかりませんでした。</p>
+            @else
+                @foreach ($places as $place)
+                    <h2 class="title"><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h2>
+                    <p>{{ $place->category->name }}</p>
+                    <p><span>{{ $place->prefecture->name }}</span><span>{{ $place->address }}</span></p>
+                @endforeach
+            @endif
         </div>
         
         <div class='paginate'>

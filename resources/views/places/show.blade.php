@@ -57,18 +57,27 @@
             </div>
         </div>
         
-        <form method="POST" action="/wants/{{ $place->id }}">
-            @csrf
-            <input type="submit" value="行きたい！"></input>
-        </form>
+        @auth
+            <form method="POST" action="/wants/{{ $place->id }}">
+                @csrf
+                <input type="submit" value="行きたい！"></input>
+            </form>
+        @else
+            <p>ログイン後に行きたい！登録が可能になります</p>
+            <form method="POST" action="/wants/{{ $place->id }}">
+                @csrf
+                <input type="submit" value="行きたい！" disabled></input>
+            </form>
+        @endauth
+        
         
         <div id="map" style="height:450px; width:450px"></div>
         
         <div class="review">
             @foreach ($reviews as $review)
                 <p>{{ $review->title }}:{{ $review->user->name }}</p>
-                <p>{{ $review->comment }}</p>
                 <p>{{ $review->score }}</p>
+                <p>{{ $review->comment }}</p>
             @endforeach
         </div>
         

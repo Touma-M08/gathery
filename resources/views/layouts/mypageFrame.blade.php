@@ -20,16 +20,13 @@
                 <p>{{ auth::user()->name }}</p>
                 <ul>
                     <li class="list-item">
-                        <a href="/mypage">予定一覧</a>
+                        <a href="/mypage/wants">行きたい！一覧</a>
                     </li>
                     <li class="list-item">
-                        <a href="/mypage/want">行きたい！一覧</a>
+                        <a href="/mypage/reviews">評価一覧</a>
                     </li>
                     <li class="list-item">
-                        <a href="/mypage/evaluation">評価一覧</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="/mypage/dm">メンバーDM</a>
+                        <a href="/mypage/plans">予定一覧</a>
                     </li>
                     <li class="list-item">
                         <a href="/mypage/setting">設定</a>
