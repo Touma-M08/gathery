@@ -58,10 +58,19 @@
         </div>
         
         @auth
-            <form method="POST" action="/wants/{{ $place->id }}">
-                @csrf
-                <input type="submit" value="行きたい！"></input>
-            </form>
+            @if(empty($want))
+                <form method="POST" action="/wants/{{ $place->id }}">
+                    @csrf
+                    <input type="submit" value="行きたい！"></input>
+                </form>
+            @else    
+                <a href="/bbses/{{ $place->id }}">掲示板に移動する</a>
+                <form method="POST" action="/wants/{{ $want->id }}/{{ $place->id }}">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="行きたい！解除"></input>
+                </form>
+            @endif
         @else
             <p>ログイン後に行きたい！登録が可能になります</p>
             <form method="POST" action="/wants/{{ $place->id }}">
@@ -69,7 +78,6 @@
                 <input type="submit" value="行きたい！" disabled></input>
             </form>
         @endauth
-        
         
         <div id="map" style="height:450px; width:450px"></div>
         

@@ -18,6 +18,7 @@ class CreateWantsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('place_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -7,6 +7,8 @@ use App\Category;
 use App\Place;
 use App\Prefecture;
 use App\Review;
+use App\Want;
+use Auth;
 
 class PlaceController extends Controller
 {
@@ -65,11 +67,12 @@ class PlaceController extends Controller
         return redirect('/');
     }
     
-    public function show(Place $place, Review $review) 
+    public function show(Place $place, Review $review, Want $want) 
     {
         return view("places/show")->with([
             'place' => $place,
-            'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5)
+            'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5),
+            'want' => $want->getWant($place)
         ]);
     }
     

@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/reviews/{place}', 'ReviewController@store'); //評価保存
     
     Route::post('/wants/{place}', 'WantController@store'); //行きたい登録
+    Route::delete('/wants/{want}/{place}', 'WantController@delete'); //行きたい登録の解除
     
     Route::get('/bbses/{place}', 'CommentController@index'); //掲示板表示
     Route::post('/bbses/{place}', 'CommentController@store'); //掲示板投稿保存
