@@ -65,16 +65,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $image = $data['image'];
+        if (!(empty($data['image']))) {
+            $image = $data['image'];
         // バケットの`profile`フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('profile', $image, 'public');
-        return User::create([
-            'name' => $data['name'],
-            'age' => $data['age'],
-            'sex' => $data['sex'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'image' => Storage::disk('s3')->url($path),
-        ]);
+            $path = Storage::disk('s3')->putFile('profile', $image, 'public');
+        
+            return User::create([
+                'name' => $data['name'],
+                'age' => $data['age'],
+                'sex' => $data['sex'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'image' => Storage::disk('s3')->url($path),
+            ]);
+        } else {
+            return User::create([
+                'name' => $data['name'],
+                'age' => $data['age'],
+                'sex' => $data['sex'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+        }
     }
 }

@@ -209,7 +209,11 @@
             <aside>
                 <section class="profile">
                     @auth
-                        <img src="{{ Auth::user()->image }}">
+                        @if (empty(Auth::user()->image))
+                            <img src="img/image.png">
+                        @else
+                            <img src="{{ Auth::user()->image }}">
+                        @endif
                         <p>ログイン中のユーザー</p>
                         <p>{{ Auth::user()->name }}</p>
                         <div class="mypage-btn">
