@@ -68,7 +68,7 @@
                 <form method="POST" action="/wants/{{ $want->id }}/{{ $place->id }}">
                     @csrf
                     @method('delete')
-                    <input type="submit" value="行きたい！解除"></input>
+                    <input type="submit" name="want_show" value="行きたい！解除"></input>
                 </form>
             @endif
         @else

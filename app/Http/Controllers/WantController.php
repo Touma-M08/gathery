@@ -27,10 +27,14 @@ class WantController extends Controller
         return redirect('/places/'.$place->id);
     }
     
-    public function delete(Want $want, Place $place)
+    public function delete(Want $want, Place $place, Request $request)
     {
         $want->delete();
         
-        return redirect('/places/'.$place->id);
+        if (isset($request->want_show)) {
+            return redirect('/places/'.$place->id);
+        } elseif (isset($request->want_mypage)) {
+            return redirect('/mypage/wants');
+        }
     }
 }
