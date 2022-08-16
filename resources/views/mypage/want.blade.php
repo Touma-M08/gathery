@@ -15,13 +15,16 @@
             <p class="section-ttl">行きたい！一覧</p>
             <ul>
                 @foreach ($wants as $want)
+                    <a href="/places/{{ $want->place->id }}">{{ $want->place->name }}</a></br>
+                    <p style="display:inline-block">{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
                     
-                        <a href="/places/{{ $want->place->id }}">{{ $want->place->name }}</a></br>
-                        <p style="display:inline-block">{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
-                        
-                        <a href="/bbses/{{ $want->place->id }}">掲示板</a>
-                        <a href="/reviews/{{ $want->place->id }}">評価する</a></br>
-                   
+                    <a href="/bbses/{{ $want->place->id }}">掲示板</a>
+                    <a href="/reviews/{{ $want->place->id }}">レビュー</a></br>
+                    <form method="POST" action="/wants/{{ $want->id }}/{{ $want->place->id }}">
+                        @csrf
+                        @method('delete')
+                        <input type="submit" name="want_mypage" value="行きたい！解除"></input>
+                    </form>
                 @endforeach
             </ul>
         </section>
