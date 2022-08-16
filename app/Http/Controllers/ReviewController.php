@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Place;
 use App\Review;
+use App\Want;
 
 class ReviewController extends Controller
 {
@@ -14,7 +15,7 @@ class ReviewController extends Controller
         return view('mypage/review')->with(['place' => $place]);
     }
     
-    public function store(Request $request, Place $place, Review $review)
+    public function store(Request $request, Place $place, Review $review, Want $want)
     {
         $review->fill($request['review']);
         $review->user_id = Auth::user()->id;
@@ -23,6 +24,8 @@ class ReviewController extends Controller
         
         $place->score = $review->where('place_id', $place->id)->avg('score');
         $place->save();
+        
+        $want->where([['user_id', Auth::user()->id],['place_id', $place->id]])->delete();
         
         return redirect('/places/'.$place->id);
     }

@@ -16,9 +16,21 @@ class WantController extends Controller
     
     public function store(Want $want, Place $place)
     {
-        $want->user_id = Auth::user()->id;
-        $want->place_id = $place->id;
-        $want->save();
-        return redirect('/bbses/'.$place->id);
+        $want_regi = $want->getTrashedWant($place);
+        if (empty($want_regi)) {
+            $want->user_id = Auth::user()->id;
+            $want->place_id = $place->id;
+            $want->save();
+        } else {
+            $want_regi->restore();
+        }
+        return redirect('/places/'.$place->id);
+    }
+    
+    public function delete(Want $want, Place $place)
+    {
+        $want->delete();
+        
+        return redirect('/places/'.$place->id);
     }
 }
