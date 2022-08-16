@@ -34,4 +34,18 @@ class ReviewController extends Controller
     {
         return view('mypage/index')->with(['reviews' => $review->where('user_id', Auth::user()->id)->paginate(10)]);
     }
+    
+    public function delete(Review $review, Place $place)
+    {
+        $review->delete();
+        
+        $score = $review->where('place_id', $place->id)->avg('score');
+        if (empty($score)) {
+            $score = 0;
+        }
+        $place->score = $score;
+        $place->save();
+        
+        return redirect('/mypage/reviews');
+    }
 }

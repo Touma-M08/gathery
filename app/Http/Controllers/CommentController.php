@@ -13,7 +13,7 @@ class CommentController extends Controller
     {
         return view('bbses/index')->with([
             'place' => $place,
-            'comments' => $comment->where("place_id", $place->id)->paginate(5)
+            'comments' => $comment->where("place_id", $place->id)->paginate(30)
             ]);
     }
     
@@ -23,6 +23,13 @@ class CommentController extends Controller
         $comment->place_id = $place->id;
         $comment->comment = $request->comment;
         $comment->save();
+        
+        return redirect('/bbses/'.$place->id);
+    }
+    
+    public function delete(Comment $comment, Place $place)
+    {
+        $comment->delete();
         
         return redirect('/bbses/'.$place->id);
     }
