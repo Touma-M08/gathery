@@ -17,7 +17,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/mypage/reviews', 'ReviewController@index'); //自分の投稿した評価一覧
     Route::get('/reviews/{place}', 'ReviewController@review'); //場所評価
     Route::post('/reviews/{place}', 'ReviewController@store'); //評価保存
-    Route::delete('/review/{review}/{place}', 'ReviewController@delete'); //評価保存
+    Route::get('/reviews/{review}/edit', 'ReviewController@edit'); //評価編集
+    Route::put('/reviews/{review}/{place}', 'ReviewController@update'); //評価上書き保存
+    Route::delete('/reviews/{review}/{place}', 'ReviewController@delete'); //評価削除
     
     Route::post('/wants/{place}', 'WantController@store'); //行きたい登録
     Route::delete('/wants/{want}/{place}', 'WantController@delete'); //行きたい登録の解除

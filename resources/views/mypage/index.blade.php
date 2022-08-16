@@ -16,13 +16,12 @@
                 <p>{{ $review->score }}</p>
                 <p>{{ $review->title }}</p>
                 <p>{{ $review->comment }}</p>
-                @if ($review->user->id == Auth::user()->id)
-                <form method="POST" action="/review/{{ $review->id }}/{{$review->place->id }}">
+                <a href="/reviews/{{ $review->id }}/edit">編集</a>
+                <form method="POST" action="/reviews/{{ $review->id }}/{{$review->place->id }}">
                     @csrf
                     @method('delete')
                     <input type="submit" onclick="deleteReview({{ $review->id }})" value="削除"></input>
                 </form>
-            @endif
             @endforeach
         </div>
         @endsection
