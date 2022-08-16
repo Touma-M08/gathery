@@ -62,6 +62,13 @@ class PlaceController extends Controller
     {
         $prefecture = Prefecture::whereName($request->region)->first();
         $place->fill($request['place']);
+        
+        $tel = $request->tel;
+        if ($tel == "undefined") {
+            $tel = null;
+        }
+        $place->tel = $tel;
+        
         $place->prefecture_id = $prefecture->id;
         $place->save();
         return redirect('/');
