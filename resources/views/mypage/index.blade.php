@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Gathery</title>
+        <script src="{{asset('js/delete.js')}}"></script>
     </head>
     <body>
         @extends("layouts/mypageFrame")
@@ -15,6 +16,13 @@
                 <p>{{ $review->score }}</p>
                 <p>{{ $review->title }}</p>
                 <p>{{ $review->comment }}</p>
+                @if ($review->user->id == Auth::user()->id)
+                <form method="POST" action="/review/{{ $review->id }}/{{$review->place->id }}">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" onclick="deleteReview({{ $review->id }})" value="削除"></input>
+                </form>
+            @endif
             @endforeach
         </div>
         @endsection

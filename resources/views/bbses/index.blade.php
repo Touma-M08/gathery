@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
         <title>Gathery</title>
+        <script src="{{asset('js/delete.js')}}"></script>
     </head>
     <body>
         @extends("layouts/app")
@@ -12,6 +13,13 @@
         @foreach ($comments as $comment)
             <p>{{ $comment->user->name }}</p>
             <p>{{ $comment->comment }}</p>
+            @if ($comment->user->id == Auth::user()->id)
+                <form method="POST" action="/comment/{{ $comment->id }}/{{ $comment->place->id }}">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" onclick="deleteComment({{ $comment->id }})" value="削除"></input>
+                </form>
+            @endif
         @endforeach
         
         <div class='paginate'>
