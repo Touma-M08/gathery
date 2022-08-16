@@ -44,11 +44,13 @@
                     <p>{{ $place->time_sat }}</p>
                     <p>{{ $place->time_sun }}</p>
                 </div>
-
-                <div class="tel">
-                    <h3>電話番号</h3>
-                    <p>{{ $place->tel }}</p>
-                </div>
+                
+                @if (!(empty($place->tel)))
+                    <div class="tel">
+                        <h3>電話番号</h3>
+                        <p>{{ $place->tel }}</p>
+                    </div>
+                @endif
                 
                 <div class="score">
                     <h3>評価</h3>

@@ -30,7 +30,7 @@
             <input type="text" name="region" id="region" value="" ><br>
             <input type="text" name="place[address]" id="street-address" value="" ><br>
             
-            <input type="text" name="place[tel]" id="phone-number" value="" ><br>
+            <input type="text" name="tel" id="phone-number" value="" ><br>
             
             <input type="text" name="place[time_mon]" id="hours-0" value="" ><br>
             <input type="text" name="place[time_tue]" id="hours-1" value="" ><br>
