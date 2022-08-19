@@ -6,10 +6,68 @@
 
         <title>Gathery</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('css/header.css')}}">
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?lang=ja&key=AIzaSyA6Lp_xec2eOGHFfngrx1-o2-MGqV9DaFs&libraries=places&callback=initMap" async defer></script>
     </head>
     <body>
+        <h1>
+            <a href="{{ url('/') }}">Gathery</a>
+        </h1>
+        <nav class="header-nav">
+            <ul class="header-list">
+                <li>
+                    <a href="/#name">名称で探す</a>
+                </li>
+                        
+                <li>|</li>
+                
+                <li>                            
+                    <a href="/#area">エリアから探す</a>
+                </li>
+                
+                <li>|</li>
+                
+                <li>
+                    <a href="/#category">カテゴリーから探す</a>
+                </li>
+                
+                <li>|</li>
+                
+                <li>
+                    <a href="/places/ranking">ランキング</a>
+                </li>
+                
+                <li>|</li>
+                
+                <li>
+                    <a href="/mypage/wants">マイページ</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="login-logout">
+            @guest
+                <div class="login">
+                    <a href="{{ route('login') }}">ログイン</a>
+                </div>
+                @if (Route::has('register'))
+                    <div class="register">
+                        <a href="{{ route('register') }}">新規登録</a>
+                    </div>
+                @endif
+            @else
+                <div class="logout">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        ログアウト
+                    </a>
+                </div>
+    
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endguest
+        </div>
+        
         <input type="hidden" id="keyword" value="{{ $place->name }}">
         <input type="hidden" id="lat" value="{{ $place->lat }}">
         <input type="hidden" id="lng" value="{{ $place->lng }}">
@@ -98,5 +156,6 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+        
     </body>
 </html>

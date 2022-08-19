@@ -8,7 +8,7 @@
         
     </head>
     <body>
-        @extends("layouts/app")
+        @extends("layouts/searchHeader")
         @section("content")
          {{-- 検索内容表示 --}}
         <div>

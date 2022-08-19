@@ -26,15 +26,3 @@
 .contents .profile ul li {
     list-style: none;
 }
-
-.schedule {
-    width: 65%;
-}
-
-.schedule ul {
-    border: 1px solid #000;
-}
-
-.schedule ul li {
-    list-style: none;
-}

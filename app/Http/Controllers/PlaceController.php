@@ -76,11 +76,18 @@ class PlaceController extends Controller
     
     public function show(Place $place, Review $review, Want $want) 
     {
-        return view("places/show")->with([
-            'place' => $place,
-            'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5),
-            'want' => $want->getWant($place)
-        ]);
+        if(empty(Auth::user())) {
+            return view("places/show")->with([
+                'place' => $place,
+                'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5),
+            ]);
+        } else {
+            return view("places/show")->with([
+                'place' => $place,
+                'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5),
+                'want' => $want->getWant($place)
+            ]);
+        }
     }
     
     public function ranking(Place $place)

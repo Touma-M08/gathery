@@ -23,19 +23,7 @@
     <nav class="header-nav">
         <ul class="header-list">
             <li>
-                <a href="/#name">名称で探す</a>
-            </li>
-                    
-            <li>|</li>
-            
-            <li>                            
-                <a href="/#area">エリアから探す</a>
-            </li>
-            
-            <li>|</li>
-            
-            <li>
-                <a href="/#category">カテゴリーから探す</a>
+                <a href="/">トップに戻る</a>
             </li>
             
             <li>|</li>
