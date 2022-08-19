@@ -26,6 +26,7 @@
             {{ $comments->links() }}
         </div>
         
+        <p>{{ $errors->first('comment') }}</p>
         <form method="post" action="/bbses/{{ $place->id }}">
             @csrf
             <textarea name="comment"></textarea>

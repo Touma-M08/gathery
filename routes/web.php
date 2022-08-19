@@ -20,6 +20,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/reviews/{review}/edit', 'ReviewController@edit'); //評価編集
     Route::put('/reviews/{review}/{place}', 'ReviewController@update'); //評価上書き保存
     Route::delete('/reviews/{review}/{place}', 'ReviewController@delete'); //評価削除
+    Route::get('/mypage/setting', 'UserController@edit'); //ユーザー情報編集
+    Route::get('/mypage/setting/password', 'UserController@passEdit'); //パスワード編集
+    Route::put('/setting', 'UserController@profUpdate'); //ユーザー情報保存
+    Route::put('/setting/password', 'UserController@passUpdate'); //パスワード保存
     
     Route::post('/wants/{place}', 'WantController@store'); //行きたい登録
     Route::delete('/wants/{want}/{place}', 'WantController@delete'); //行きたい登録の解除

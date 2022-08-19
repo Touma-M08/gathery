@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ReviewRequest;
 use Auth;
 use App\Place;
 use App\Review;
@@ -12,6 +13,7 @@ class ReviewController extends Controller
 {
     public function review(Place $place, Review $review)
     {
+        // 以前のレビューがあるときは、編集ページへ行く
         $is_review = $review->searchReview($place);
 
         if (empty($is_review)) {
@@ -21,7 +23,7 @@ class ReviewController extends Controller
         }
     }
     
-    public function store(Request $request, Place $place, Review $review, Want $want)
+    public function store(ReviewRequest $request, Place $place, Review $review, Want $want)
     {
         $review->fill($request['review']);
         $review->user_id = Auth::user()->id;
@@ -46,7 +48,7 @@ class ReviewController extends Controller
         return view('mypage/edit')->with(['review' => $review]);
     }
     
-    public function update(Review $review, Place $place, Request $request)
+    public function update(Review $review, Place $place, ReviewRequest $request)
     {
         $review->fill($request['review'])->save();
         

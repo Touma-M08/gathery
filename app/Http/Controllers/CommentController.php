@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
 use App\Comment;
 use Auth;
 use App\Place;
@@ -17,7 +18,7 @@ class CommentController extends Controller
             ]);
     }
     
-    public function store(Request $request, Comment $comment, Place $place)
+    public function store(CommentRequest $request, Comment $comment, Place $place)
     {
         $comment->user_id = Auth::user()->id;
         $comment->place_id = $place->id;
