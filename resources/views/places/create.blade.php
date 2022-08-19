@@ -45,6 +45,6 @@
             
             <input type="submit" value="保存">
         </form>
-        <a href="/">ホームに戻る</a>
+        <a href="/places/search">戻る</a>
     </body>
 </html>

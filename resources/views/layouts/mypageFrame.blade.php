@@ -7,11 +7,10 @@
         <title>Gathery</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="{{asset('css/main.css')}}">
         <link rel="stylesheet" href="{{asset('css/mypage.css')}}">
     </head>
     <body>
-        @extends("layouts/app")
+        @extends("layouts/header")
         @section("content")
         <div class="contents">
             <section class="profile">
