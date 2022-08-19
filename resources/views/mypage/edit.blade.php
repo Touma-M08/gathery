@@ -14,8 +14,11 @@
             @method('put')
             <p>タイトル</p>
             <input type="text" name="review[title]" value="{{ $review->title }}">
+            <p>{{ $errors->first('review.title') }}</p>
+            
             <p>本文</p>
             <textarea name="review[comment]">{{ $review->comment }}</textarea>
+            <p>{{ $errors->first('review.comment') }}</p>
 
             <p>スコア：大きいほど高評価</p>
             <select name="review[score]">
@@ -27,6 +30,8 @@
                     @endif
                 @endfor
             </select>
+            <p>{{ $errors->first('review.score') }}</p>
+            
             <input type="submit" value="送信">
         </form>
     </body>

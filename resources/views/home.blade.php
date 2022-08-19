@@ -11,7 +11,7 @@
         <script src="{{asset('js/home.js')}}" defer></script>
     </head>
     <body>
-        @extends("layouts/app")
+        @extends("layouts/header")
         @section("content")
         <div class="contents">
             <main>
