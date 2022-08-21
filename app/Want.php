@@ -37,4 +37,8 @@ class Want extends Model
     public function place() {
         return $this->belongsTo('App\Place');
     }
+    
+    public function schedules() {
+        return $this->hasMany('App\Schedule');
+    }
 }

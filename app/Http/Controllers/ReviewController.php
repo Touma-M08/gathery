@@ -45,7 +45,7 @@ class ReviewController extends Controller
     
     public function edit(Review $review)
     {
-        return view('mypage/edit')->with(['review' => $review]);
+        return view('mypage/reviewEdit')->with(['review' => $review]);
     }
     
     public function update(Review $review, Place $place, ReviewRequest $request)
