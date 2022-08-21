@@ -7,6 +7,7 @@
         <title>Gathery</title>
 
         <link rel="stylesheet" href="{{asset('css/mypage.css')}}">
+        <script src="{{asset('js/app.js')}}" defer></script>
     </head>
     <body>
         @extends("layouts/mypageFrame")
@@ -23,12 +24,15 @@
                 <textarea name="review[comment]"></textarea>
                 <p>{{ $errors->first('review.comment') }}</p>
     
-                <p>スコア：大きいほど高評価</p>
-                <select name="review[score]">
-                     @for ($i = 1; $i <= 5; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </select>
+                <p>評価</p>
+                <div id="star">
+                　<star-rating 
+                　@rating-selected ="setRating"
+                　v-bind:increment="1"
+                  v-bind:star-size="50"
+                  :show-rating="false"></star-rating>
+                　<input type="hidden" :value="this.rating" name="review[score]">
+                </div>
                 <p>{{ $errors->first('review.score') }}</p>
                 
                 <input type="submit" value="送信">
@@ -38,6 +42,6 @@
                 <a href="/mypage/wants">戻る</a>
             </div>
         </div>
-       @endsection
+        @endsection
     </body>
 </html>

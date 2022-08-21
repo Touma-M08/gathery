@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PlaceRequest;
 use App\Category;
 use App\Place;
 use App\Prefecture;
@@ -58,7 +59,7 @@ class PlaceController extends Controller
         return view("places/create")->with(['categories' => $category->get()]);
     }
     
-    public function store(Request $request, Place $place)
+    public function store(PlaceRequest $request, Place $place)
     {
         $prefecture = Prefecture::whereName($request->region)->first();
         $place->fill($request['place']);

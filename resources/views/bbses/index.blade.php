@@ -8,16 +8,16 @@
         <script src="{{asset('js/delete.js')}}"></script>
     </head>
     <body>
-        @extends("layouts/app")
+        @extends("layouts/header")
         @section("content")
         @foreach ($comments as $comment)
             <p>{{ $comment->user->name }}</p>
             <p>{{ $comment->comment }}</p>
             @if ($comment->user->id == Auth::user()->id)
-                <form method="POST" action="/comment/{{ $comment->id }}/{{ $comment->place->id }}">
+                <form id="form_{{ $comment->id }}" method="POST" action="/comment/{{ $comment->id }}/{{ $comment->place->id }}">
                     @csrf
                     @method('delete')
-                    <input type="submit" onclick="deleteComment({{ $comment->id }})" value="削除"></input>
+                    <button type="button" onclick="deleteComment({{ $comment->id }}); return false;">削除</button>
                 </form>
             @endif
         @endforeach

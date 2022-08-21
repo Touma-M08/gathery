@@ -50,21 +50,29 @@ function initMap() {
           
           var name = place.name;
           document.getElementById('name').value=name;
+          document.getElementById('show-name').innerHTML=name;
           
           var phoneNumber = place.formatted_phone_number;
           document.getElementById('phone-number').value=phoneNumber;
+          document.getElementById('show-phone-number').innerHTML=phoneNumber;
           
           var address = place.adr_address;
           document.getElementById('address').innerHTML=address;
           
           var region = document.getElementsByClassName('region');
           document.getElementById('region').value=region[0].innerHTML;
+          document.getElementById('show-region').innerHTML=region[0].innerHTML;
+          
           var streetAddress = document.getElementsByClassName('street-address');
           document.getElementById('street-address').value=streetAddress[0].innerHTML;
+          document.getElementById('show-street-address').innerHTML=streetAddress[0].innerHTML;
           
           var hours = place.opening_hours.weekday_text;
           for (var i = 0; i <= 6; i++) {
             document.getElementById('hours-' + i).value=hours[i];
+          }
+          for (var i = 0; i <= 6; i++) {
+            document.getElementById('show-hours-' + i).innerHTML=hours[i];
           }
           
           document.getElementById('lat').value=place.geometry.location.lat();

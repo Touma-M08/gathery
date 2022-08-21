@@ -24,6 +24,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/mypage/setting/password', 'UserController@passEdit'); //パスワード編集
     Route::put('/setting', 'UserController@profUpdate'); //ユーザー情報保存
     Route::put('/setting/password', 'UserController@passUpdate'); //パスワード保存
+    Route::get('/mypage/schedule', 'ScheduleController@index'); //予定一覧・登録
+    Route::post('/schedule', 'ScheduleController@store'); //予定保存
+    Route::delete('/schedule/{schedule}', 'ScheduleController@delete'); //予定削除
+    Route::get('/schedule/{schedule}/edit', 'ScheduleController@edit'); //予定編集
+    Route::put('/schedule/{schedule}', 'ScheduleController@update'); //予定の上書き保存
     
     Route::post('/wants/{place}', 'WantController@store'); //行きたい登録
     Route::delete('/wants/{want}/{place}', 'WantController@delete'); //行きたい登録の解除

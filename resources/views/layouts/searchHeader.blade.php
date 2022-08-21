@@ -9,14 +9,19 @@
 
     <title>{{ config('app.name', 'Gathery') }}</title>
 
-    <!-- Scripts -->
-    
-
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('css/header.css')}}">
+    <link rel="stylesheet" href="{{asset('css/load.css')}}">
+    <script src="{{asset('js/loading.js')}}"></script>
 </head>
 <body>
+    <div id="loading">
+        <div class="half-circle-spinner">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+        </div>
+    </div>
+    
     <h1>
         <a href="{{ url('/') }}">Gathery</a>
     </h1>

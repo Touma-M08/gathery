@@ -230,7 +230,7 @@
                     <p>おすすめスポットTOP3</p>
                     
                     @foreach ($places as $place)
-                        <p>{{ $loop->index + 1 }}</p>
+                        <p>{{ $loop->iteration }}</p>
                         <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
                         <p>{{$place->prefecture->name }}{{ $place->address }}</p>
                     @endforeach

@@ -25,7 +25,7 @@
                         <a href="/mypage/reviews">評価一覧</a>
                     </li>
                     <li class="list-item">
-                        <a href="/mypage/plans">予定登録</a>
+                        <a href="/mypage/schedule">予定登録</a>
                     </li>
                     <li class="list-item">
                         <a href="/mypage/setting">設定</a>
