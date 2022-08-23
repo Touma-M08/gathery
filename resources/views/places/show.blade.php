@@ -79,6 +79,12 @@
                 <li class="bar">|</li>
                 
                 <li>
+                    <a class="header-link" href="/bbses">掲示板</a>
+                </li>
+                
+                <li class="bar">|</li>
+                
+                <li>
                     <a class="header-link" href="/mypage/wants">マイページ</a>
                 </li>
             </ul>
@@ -144,7 +150,7 @@
                         @if(empty($want))
                             <form method="POST" action="/wants/{{ $place->id }}">
                                 @csrf
-                                <input class="showpage-btn want" type="submit" value="行きたい！">
+                                <input class="showpage-btn want" type="submit" name="want_show" value="行きたい！">
                             </form>
                         @else
                             <div class="btn-list">

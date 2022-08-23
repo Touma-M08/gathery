@@ -15,7 +15,12 @@ class Want extends Model
         'user_id', 'place_id'
     ];
     
-    public function getByWantPlace(int $limit_count = 5)
+    public function getByWantPlace(int $limit_count)
+    {
+        return $this::with('place','user')->where('user_id', Auth::user()->id)->paginate($limit_count);
+    }
+    
+    public function getByAllWantPlace()
     {
         return $this::with('place','user')->where('user_id', Auth::user()->id)->get();
     }

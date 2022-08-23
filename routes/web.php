@@ -33,13 +33,15 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/wants/{place}', 'WantController@store'); //行きたい登録
     Route::delete('/wants/{want}/{place}', 'WantController@delete'); //行きたい登録の解除
     
-    Route::get('/bbses/{place}', 'CommentController@index'); //掲示板表示
+    Route::get('/bbses/{place}', 'CommentController@show'); //掲示板表示
     Route::post('/bbses/{place}', 'CommentController@store'); //掲示板投稿保存
     Route::delete('/comment/{comment}/{place}', 'CommentController@delete'); //掲示板投稿削除
     
     Route::get('/places/create', 'PlaceController@create'); //場所登録
     Route::post('/places', 'PlaceController@store'); //場所保存
 });
+
+Route::get('/bbses', 'CommentController@index'); //掲示板一覧表示
 
 Route::get('/places/search', 'PlaceController@index'); //検索
 Route::get('/places/ranking', 'PlaceController@ranking'); //ランキングページ

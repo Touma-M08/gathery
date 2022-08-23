@@ -13,7 +13,7 @@ class ScheduleController extends Controller
     public function index(Want $want, Schedule $schedule, Request $request) 
     {
         return view('mypage/schedule')->with([
-            "wants" => $want->getByWantPlace(),
+            "wants" => $want->getByAllWantPlace(),
             "schedules" => $schedule->getBySchedule($schedule),
             "page" => $request->page
             ]);

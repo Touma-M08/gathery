@@ -11,10 +11,10 @@ class WantController extends Controller
 {
     public function want(Want $want)
     {
-        return view('mypage/want')->with(['wants' => $want->getByWantPlace()]);
+        return view('mypage/want')->with(['wants' => $want->getByWantPlace(5)]);
     }
     
-    public function store(Want $want, Place $place)
+    public function store(Want $want, Place $place, Request $request)
     {
         $want_regi = $want->getTrashedWant($place);
         if (empty($want_regi)) {
@@ -24,7 +24,12 @@ class WantController extends Controller
         } else {
             $want_regi->restore();
         }
-        return redirect('/places/'.$place->id);
+    
+        if (isset($request->want_show)) {
+            return redirect('/places/'.$place->id);
+        } elseif (isset($request->want_bbs)) {
+            return redirect('/bbses');
+        }
     }
     
     public function delete(Want $want, Place $place, Request $request)
