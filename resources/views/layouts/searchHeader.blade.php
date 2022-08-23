@@ -40,6 +40,12 @@
             <li>|</li>
             
             <li>
+                <a class="header-link" href="/bbses">掲示板</a>
+            </li>
+            
+            <li class="bar">|</li>
+            
+            <li>
                 <a href="/mypage/wants">マイページ</a>
             </li>
         </ul>

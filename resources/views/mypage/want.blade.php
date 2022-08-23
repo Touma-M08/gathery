@@ -16,7 +16,7 @@
             <ul>
                 @foreach ($wants as $want)
                     <a href="/places/{{ $want->place->id }}">{{ $want->place->name }}</a></br>
-                    <p style="display:inline-block">{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
+                    <p>{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
                     
                     <a href="/bbses/{{ $want->place->id }}">掲示板</a>
                     <a href="/reviews/{{ $want->place->id }}">レビュー</a></br>
@@ -27,6 +27,10 @@
                     </form>
                 @endforeach
             </ul>
+            
+            <div class="paginate">
+                {{ $wants->links() }}
+            </div>
         </section>
         @endsection
     </body>

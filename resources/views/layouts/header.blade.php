@@ -68,11 +68,17 @@
             <li>
                 <a class="header-link" href="/#category">カテゴリーから探す</a>
             </li>
-            
+                    
             <li class="bar">|</li>
             
             <li>
                 <a class="header-link" href="/places/ranking">ランキング</a>
+            </li>
+            
+            <li class="bar">|</li>
+            
+            <li>
+                <a class="header-link" href="/bbses">掲示板</a>
             </li>
             
             <li class="bar">|</li>
