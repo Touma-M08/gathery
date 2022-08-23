@@ -29,24 +29,19 @@
                             <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
 
                             <div class="col-md-6">
-                                <select id="age" class="form-control" name="age">
-                                    <option value="not selected">Please select your age</option>
-                                    @for ($i= 16; $i < 100; $i++) 
-                                        <option value="{{ $i }}">{{ $i }}</option>
-                                    @endfor
-                                </select>
+                                @for ($i = 1; $i <= 9; $i += 1)
+                                    <input id="age-{{ $i }}" type="radio" name="age" value="{{ $i }}"><label for="age-{{ $i }}">{{ $i }}0代</label>
+                                @endfor
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('Sex') }}</label>
+                            <span class="col-md-4 col-form-label text-md-right">{{ __('Sex') }}</span>
 
                             <div class="col-md-6">
-                                <select id="sex" class="form-control" name="sex">
-                                    <option value="not selected">Please select your sex</option>
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
-                                </select>
+                                <input id="male" type="radio" name="sex" value="0"><label for="male">男性</label>
+                                <input id="female" type="radio" name="sex" value="1"><label for="female">女性</label>
+                                <input id="other" type="radio" name="sex" value="2"><label for="other">その他</label>
                             </div>
                         </div>
 

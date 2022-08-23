@@ -9,6 +9,13 @@
     <body>
         @extends("layouts/mypageFrame")
         @section("mypage-content")
+        
+        @if (session('flash_message'))
+            <div class="alert alert-success">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+        
         <div class="setting">
             <p>プロフィール</p>
             <a href="/mypage/setting/password">パスワード</a>
@@ -21,16 +28,26 @@
                 <input type="text" name="user[name]" value="{{ Auth::user()->name }}">
                 <p>{{ $errors->first('user.name') }}</p>
             	
-                <input type="text" name="user[age]" value="{{ Auth::user()->age }}">
+            	@for ($i = 1; $i <= 9; $i += 1)
+            	    @if ($i == Auth::user()->age)
+                        <input id="age-{{ $i }}" type="radio" name="user[age]" value="{{ $i }}" checked>
+                        <label for="age-{{ $i }}">{{ $i }}0代</label>
+                    @else
+                        <input id="age-{{ $i }}" type="radio" name="user[age]" value="{{ $i }}">
+                        <label for="age-{{ $i }}">{{ $i }}0代</label>
+                    @endif
+                @endfor
                 <p>{{ $errors->first('user.age') }}</p>
                 
-                @if (Auth::user()->sex == "male")
-                    <input type="radio" name="user[sex]" value="male" checked>male
-                    <input type="radio" name="user[sex]" value="female">female
-                @else
-                    <input type="radio" name="user[sex]" value="male">male
-                    <input type="radio" name="user[sex]" value="female" checked>female
-                @endif
+                @for ($i = 0; $i <= 2; $i++)
+                    @if (Auth::user()->sex == $i)
+                        <input type="radio" id="{{ $sex[$i] }}" name="user[sex]" value="{{ $i }}" checked>
+                        <label for="{{ $sex[$i] }}">{{ $sex[$i] }}</label>
+                    @else
+                        <input type="radio" id="{{ $sex[$i] }}" name="user[sex]" value="{{ $i }}">
+                        <label for="{{ $sex[$i] }}">{{ $sex[$i] }}</label>
+                    @endif
+                @endfor
                 <p>{{ $errors->first('user.sex') }}</p>
                 
                 <input type="email" name="user[email]" value="{{ Auth::user()->email }}">
@@ -38,7 +55,7 @@
                 
                 <input type="file" name="image">
                 
-                <input type="submit" value="送信">
+                <input type="submit" value="保存">
             </form>
         </div>
         @endsection

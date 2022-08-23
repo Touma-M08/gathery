@@ -20,7 +20,7 @@ class Schedule extends Model
     
     public function getBySchedule($schedule)
     {
-        return $this::with('place')->where('user_id', Auth::user()->id)->orderBy('date', 'asc')->orderBy('time', 'asc')->paginate(5);
+        return $this::with('place')->where('user_id', Auth::user()->id)->orderBy('date', 'asc')->orderBy('time', 'asc')->paginate(10);
     }
     
     public function want() {

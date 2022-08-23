@@ -10,11 +10,12 @@ use Auth;
 
 class ScheduleController extends Controller
 {
-    public function index(Want $want, Schedule $schedule) 
+    public function index(Want $want, Schedule $schedule, Request $request) 
     {
         return view('mypage/schedule')->with([
             "wants" => $want->getByWantPlace(),
-            "schedules" => $schedule->getBySchedule($schedule)
+            "schedules" => $schedule->getBySchedule($schedule),
+            "page" => $request->page
             ]);
     }
     

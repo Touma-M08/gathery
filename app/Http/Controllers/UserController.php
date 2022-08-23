@@ -13,7 +13,9 @@ class UserController extends Controller
 {
     public function edit()
     {
-        return view("mypage/profile");
+        $sex = ["男性", "女性", "その他"];
+        
+        return view("mypage/profile", compact('sex'));
     }
     
     public function passEdit()
@@ -36,7 +38,8 @@ class UserController extends Controller
             Auth::user()->fill($request['user'])->save();
         }
         
-        return redirect('/');
+        session()->flash('flash_message', '変更が完了しました');
+        return redirect('/mypage/setting');
     }
     
     public function passUpdate(UserPassRequest $request)
@@ -44,6 +47,7 @@ class UserController extends Controller
         Auth::user()->password = Hash::make($request->password);
         Auth::user()->save();
         
-        return redirect('/');
+        session()->flash('flash_message', '変更が完了しました');
+        return redirect('/mypage/setting/password');
     }
 }
