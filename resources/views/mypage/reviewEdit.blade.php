@@ -18,13 +18,20 @@
                 @csrf
                 @method('put')
                 <p>タイトル</p>
-                <input type="text" name="review[title]" value="{{ $review->title }}">
-                <p>{{ $errors->first('review.title') }}</p>
+                @if ($errors->isEmpty())
+                    <input type="text" name="review[title]" value="{{ $review->title }}">
+                    
+                    <p>本文</p>
+                    <textarea name="review[comment]">{{ $review->comment }}</textarea>
+                @else
+                    <input type="text" name="review[title]" value="{{ old('review.title') }}">
+                    <p>{{ $errors->first('review.title') }}</p>
+                    
+                    <p>本文</p>
+                    <textarea name="review[comment]">{{ old('review.comment') }}</textarea>
+                    <p>{{ $errors->first('review.comment') }}</p>
+                @endif
                 
-                <p>本文</p>
-                <textarea name="review[comment]">{{ $review->comment }}</textarea>
-                <p>{{ $errors->first('review.comment') }}</p>
-    
                 <p>評価</p>
                 <div id="star">
                     <star-rating 

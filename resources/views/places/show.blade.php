@@ -190,6 +190,7 @@
                                 v-bind:star-size="25"
                                 :rating="{{ $review->score }}"
                                 :read-only="true"
+                                :show-rating="false"
                                 ></star-rating>
                             </div>
                             

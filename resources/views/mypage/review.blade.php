@@ -18,10 +18,10 @@
             <form method="post" action="/reviews/{{ $place->id }}">
                 @csrf
                 <p>タイトル</p>
-                <input type="text" name="review[title]">
+                <input type="text" name="review[title]" value="{{ old('review.title') }}">
                 <p>{{ $errors->first('review.title') }}</p>
                 <p>本文</p>
-                <textarea name="review[comment]"></textarea>
+                <textarea name="review[comment]">{{ old('review.comment') }}</textarea>
                 <p>{{ $errors->first('review.comment') }}</p>
     
                 <p>評価</p>
