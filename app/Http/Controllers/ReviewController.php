@@ -20,7 +20,7 @@ class ReviewController extends Controller
         if (empty($is_review)) {
             return view('mypage/review')->with(['place' => $place]);
         } else {
-            return view('mypage/edit')->with(['review' => $is_review]);
+            return view('mypage/reviewEdit')->with(['review' => $is_review]);
         }
     }
     
