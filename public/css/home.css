@@ -3,27 +3,49 @@ li {
 }
 
 .contents {
+    max-width: 1300px;
     margin: 50px auto 0;
     padding: 0 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 aside {
     margin-left: 20px;
 }
 
+section + section {
+    margin-top: 40px;
+}
+
+.section-ttl {
+    font-size: 1rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.search {
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.search-btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
 /*map*/
 .map {
-    width: 930px;
-    height: 630px;
+    width: 680px;
+    height: 500px;
     background-color: #EEF6FD;
     position: relative;
 }
 
 .map-bg {
-    width: 800px;
-    height: calc(5299px / 9);
+    width: 650px;
+    height: calc((5299px/9) * (13/16));
     background-image: url("/img/japan.png");
     background-position: 0 0;
     background-size: cover;
@@ -31,8 +53,9 @@ aside {
 }
 
 .region-btn {
+    font-size: 0.8rem;
     font-weight: bold;
-    width: 80px;
+    width: 70px;
     line-height: 35px;
     background-color: rgba(255, 255, 255, 0.7);
     color: #333;
@@ -50,122 +73,154 @@ aside {
 
 .region-btn.__hokkaido {
     top: 12%;
-    right: 27.5%;
+    right: 19%;
 }
 
 .region-btn.__tohoku {
     top: 35%;
-    right: 29%;
+    right: 21%;
 }
 
 .region-btn.__kanto {
     top: 55%;
-    right: 29.5%;
+    right: 21.5%;
 }
 
 .region-btn.__chubu {
-    top: 48%;
-    right: 40%;
+    top: 49%;
+    right: 33.5%;
 }
 
 .region-btn.__kinki {
-    top: 59.5%;
-    right: 50%;
+    top: 60%;
+    right: 44%;
 }
 
 .region-btn.__shikoku {
-    top: 70.5%;
-    right: 61%;
+    top: 71.5%;
+    right: 56%;
 }
 
 .region-btn.__chugoku {
-    top: 57%;
-    right: 63%;
+    top: 58%;
+    right: 59%;
 }
 
 .region-btn.__kyusyu {
-    top: 58%;
-    right: 75.5%;
+    top: 60%;
+    right: 72%;
 }
 
 .prefecture {
-    width: 140px;
+    width: 110px;
+    padding: 5px;
     display: none;
     flex-wrap: wrap;
     position: absolute;
+    border: 1px solid #000;
+    border-radius: 10px;
+    justify-content: space-around;
+    background-color: #fff;
 }
 
 .prefecture.active {
     display: flex;
 }
 
-.prefecture a {
-    width: 58px;
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 10px;
+.pref-name {
+    font-size: 0.8rem;
+}
+
+.pref-name:hover {
+    color: blue;
 }
 
 .tohoku .prefecture {
-    top: 36%;
-    right: 14%;
+    top: 35%;
+    right: 5%;
 }
 .kanto .prefecture {
-    top: 56%;
-    right: 14%;
+    top: 55%;
+    right: 5.5%;
 }
 .chubu .prefecture {
-    top: 22%;
-    right: 40%;
+    top: 22.5%;
+    right: 33.5%;
 }
 .kinki .prefecture {
     top: 67%;
-    right: 43%;
+    right: 38%;
 }
 .shikoku .prefecture {
-    top: 78%;
-    right: 61%;
+    top: 79%;
+    right: 50%;
 }
 .chugoku .prefecture {
-    top: 42%;
-    right: 63%;
+    top: 41%;
+    right: 53%;
 }
 .kyusyu .prefecture {
-    top: 59%;
-    right: 84%;
+    top: 60%;
+    right: 82%;
 }
 
 .map-bg.hokkaido {
-    background-position: 0 calc(-5299px/ 9);
+    background-position: 0 calc((-5299px/9) * (13/16));
 }
 .map-bg.tohoku {
-    background-position: 0 calc(-5299px*2 / 9);
+    background-position: 0 calc((-5299px/9) * (13/8));
 }
 .map-bg.kanto {
-    background-position: 0 calc(-1px + calc(-5299px*3 / 9));
+    background-position: 0 calc((-5299px/3) * (13/16));
 }
 .map-bg.chubu {
-    background-position: 0 calc(-1px + calc(-5299px*4 / 9));
+    background-position: 0 calc((-5299px/9) * (13/4));
 }
 .map-bg.kinki {
-    background-position: 0 calc(-1px + calc(-5299px*5 / 9));
+    background-position: 0 calc((-5299px/9) * (65/16));
 }
 .map-bg.chugoku {
-    background-position: 0 calc(-1px + calc(-5299px*6 / 9));
+    background-position: 0 calc((-5299px/3) * (13/8));
 }
 .map-bg.shikoku {
-    background-position: 0 calc(-1.3px + calc(-5299px*7 / 9));
+    background-position: 0 calc((-5299px/9) * (91/16));
 }
 .map-bg.kyusyu {
-    background-position: 0 calc(-0.5px + calc(-5299px*8 / 9));
+    background-position: 0 calc((-5299px/9) * (13/2));
 }
 
 /*category*/
 .category-frame {
-    max-width: 930px;
+    max-width: 680px;
     border: 1px solid #000;
     box-sizing: border-box;
-    
+}
+
+.category-wrap {
+    padding: 10px;
+}
+
+.category-ttl {
+    margin-top: 30px;
+}
+
+.category-ttl:first-of-type {
+    margin-top: 0;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.category-item {
+    margin-right: 12px;
+    font-size: 0.8rem;
+}
+
+.category-name:hover {
+    color: blue;
 }
 
 /*profile*/
@@ -173,16 +228,28 @@ aside {
     text-align: center;
     border: 1px solid black;
     border-radius:30px ;
-    padding: 30px 100px 10px ;
+    padding: 30px 10px 15px ;
+}
+
+.profile .icon-img-box {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 .profile img {
-    width: 100px;
-    height: 100px;
-    border-radius:50% ;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.profile .mypage-btn a{
+.profile .user-name{
+    margin: 5px 0 15px 0;   
+}
+
+.profile a{
     display: inline-block;
     border: 1px solid black;
     border-radius:10px;
@@ -194,25 +261,52 @@ aside {
     border: 1px solid black;
     border-radius: 30px;
     text-align: center;
+    padding: 20px 30px;
 }
 
-.ranking ul li {
-    list-style: none;
+.ranking-head {
+    font-size: 1rem;
+    margin-bottom: 30px;
 }
 
-.ranking ul li a {
-    display: block;
+.ranking-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-.ranking ul li a .img-box {
-    width: 250px;
-    height: 150px;
+.ranking-num p {
+    font-size: 1rem;
+}
+
+.ranking-num p + p {
+    margin-top: 120px;
+}
+
+.places {
+    font-size: 0.8rem;
     text-align: center;
+    padding-left: 10px;
+    width: 350px;
+}
+
+.place + .place {
+    margin-top: 50px;
+}
+
+.place h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.place .place-address {
+    margin-top: 10px;
+}
+
+.vue-star-rating {
     margin: 0 auto;
 }
 
-.ranking ul li a .img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-} 
+.more-ranking {
+    font-size: 0.75rem;
+}

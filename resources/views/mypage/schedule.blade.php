@@ -42,7 +42,8 @@
                 <p>{{ substr($schedule->time, 0, 5) }}</p>
                 @endif
                 
-                <a href="/schedule/{{ $schedule->id }}/edit">編集</a>
+                <a href="/schedule/{{ $schedule->id }}/edit?page={{ $page }}">編集</a>
+                    
                 <form id="form_{{ $schedule->id }}" method="POST" action="/schedule/{{ $schedule->id }}">
                     @csrf
                     @method('delete')

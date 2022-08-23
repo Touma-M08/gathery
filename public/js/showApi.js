@@ -20,8 +20,7 @@ function initMap() {
     });
   
     //検索実行
-    document.getElementById('search').addEventListener('click', function() {
-
+    document.addEventListener( 'DOMContentLoaded' , function( e ) {
         var place = document.getElementById('keyword').value;
     
         var request = {

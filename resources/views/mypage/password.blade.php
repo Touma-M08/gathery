@@ -9,6 +9,13 @@
     <body>
         @extends("layouts/mypageFrame")
         @section("mypage-content")
+        
+        @if (session('flash_message'))
+            <div class="alert alert-success">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+        
         <div class="setting">
             <a href="/mypage/setting">プロフィール</a>
             <p>パスワード</p>
@@ -29,7 +36,7 @@
                 <input type="password" name="password_confirmation">
                 <p>{{ $errors->first('password') }}</p>
                 
-                <input type="submit" value="送信">
+                <input type="submit" value="保存">
             </form>
         </div>
         @endsection

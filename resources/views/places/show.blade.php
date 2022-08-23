@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Gathery</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/header.css')}}">
         <link rel="stylesheet" href="{{asset('css/load.css')}}">
+        <link rel="stylesheet" href="{{asset('css/show.css')}}">
         <script src="{{asset('js/loading.js')}}"></script>
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="{{asset('js/app.js')}}" defer></script>
@@ -21,89 +23,94 @@
             </div>
         </div>
         
-        <h1>
-            <a href="{{ url('/') }}">Gathery</a>
-        </h1>
+        <div class="top">
+            <h1 class="site-logo">
+                <a href="{{ url('/') }}">Gathery</a>
+            </h1>
+            
+            <div class="login-logout">
+                @guest
+                    <div class="login">
+                        <a class="btn" href="{{ route('login') }}">ログイン</a>
+                    </div>
+                    @if (Route::has('register'))
+                        <div class="register">
+                            <a class="btn" href="{{ route('register') }}">新規登録</a>
+                        </div>
+                    @endif
+                @else
+                    <div class="logout">
+                        <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            ログアウト
+                        </a>
+                    </div>
+        
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endguest
+            </div>
+        </div>
+            
         <nav class="header-nav">
             <ul class="header-list">
                 <li>
-                    <a href="/#name">名称で探す</a>
+                    <a class="header-link" href="/#name">名称で探す</a>
                 </li>
                         
-                <li>|</li>
+                <li class="bar">|</li>
                 
                 <li>                            
-                    <a href="/#area">エリアから探す</a>
+                    <a class="header-link" href="/#area">エリアから探す</a>
                 </li>
                 
-                <li>|</li>
+                <li class="bar">|</li>
                 
                 <li>
-                    <a href="/#category">カテゴリーから探す</a>
+                    <a class="header-link" href="/#category">カテゴリーから探す</a>
                 </li>
                 
-                <li>|</li>
+                <li class="bar">|</li>
                 
                 <li>
-                    <a href="/places/ranking">ランキング</a>
+                    <a class="header-link" href="/places/ranking">ランキング</a>
                 </li>
                 
-                <li>|</li>
+                <li class="bar">|</li>
                 
                 <li>
-                    <a href="/mypage/wants">マイページ</a>
+                    <a class="header-link" href="/mypage/wants">マイページ</a>
                 </li>
             </ul>
         </nav>
-        <div class="login-logout">
-            @guest
-                <div class="login">
-                    <a href="{{ route('login') }}">ログイン</a>
-                </div>
-                @if (Route::has('register'))
-                    <div class="register">
-                        <a href="{{ route('register') }}">新規登録</a>
-                    </div>
-                @endif
-            @else
-                <div class="logout">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        ログアウト
-                    </a>
-                </div>
-    
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            @endguest
-        </div>
         
         <input type="hidden" id="keyword" value="{{ $place->name }}">
         <input type="hidden" id="lat" value="{{ $place->lat }}">
         <input type="hidden" id="lng" value="{{ $place->lng }}">
         
         <div id="star">
+            <h2 class="title">
+                {{ $place->name }}
+            </h2>
+            
+            <div class="category">
+                <p>{{ $place->category->name }}</p>
+            </div>
+            
             <div class="content">
                 <div class="left-side">
-                    <h2 class="title">
-                        {{ $place->name }}
-                    </h2>
-                    
-                    <div class="category">
-                        <p>{{ $place->category->name }}</p>
+                    <div class="place-img-box">
+                        <img class="place-img" src="" id="photo">
                     </div>
-                    
-                    <button id="search">画像を表示する</button></br>
-                    <img src="" id="photo">
                 </div>
                 
                 <div class="right-side">
-                    <div class="address">
+                    <div class="address data-ttl">
                         <h3>住所</h3>
                         <p>{{ $place->prefecture->name }}{{ $place->address }}</p>    
                     </div>
                     
-                    <div class="opening-time">
+                    <div class="opening-time data-ttl">
                         <h3>営業時間</h3>
                         <p>{{ $place->time_mon }}</p>
                         <p>{{ $place->time_tue }}</p>
@@ -115,13 +122,13 @@
                     </div>
                     
                     @if (!(empty($place->tel)))
-                        <div class="tel">
+                        <div class="tel data-ttl">
                             <h3>電話番号</h3>
                             <p>{{ $place->tel }}</p>
                         </div>
                     @endif
                     
-                    <div class="score">
+                    <div class="score data-ttl">
                         <h3>評価</h3>
                         <div>
                             <star-rating 
@@ -132,50 +139,72 @@
                             ></star-rating>
                         </div>
                     </div>
+            
+                    @auth
+                        @if(empty($want))
+                            <form method="POST" action="/wants/{{ $place->id }}">
+                                @csrf
+                                <input class="showpage-btn want" type="submit" value="行きたい！">
+                            </form>
+                        @else
+                            <div class="btn-list">
+                                <a class="showpage-btn bbs" href="/bbses/{{ $place->id }}">掲示板に移動する</a>
+                                <form method="POST" action="/wants/{{ $want->id }}/{{ $place->id }}">
+                                    @csrf
+                                    @method('delete')
+                                    <input class="showpage-btn cansel" type="submit" name="want_show" value="行きたい！解除">
+                                </form>
+                            </div>
+                        @endif
+                    @else
+                        <form method="POST" action="/wants/{{ $place->id }}">
+                            @csrf
+                            <input class="showpage-btn want" type="submit" value="行きたい！" disabled>
+                        </form>
+                        <p class="description">※ログイン後に行きたい！登録が可能になります</p>
+                    @endauth
                 </div>
             </div>
             
-            @auth
-                @if(empty($want))
-                    <form method="POST" action="/wants/{{ $place->id }}">
-                        @csrf
-                        <input type="submit" value="行きたい！">
-                    </form>
-                @else    
-                    <a href="/bbses/{{ $place->id }}">掲示板に移動する</a>
-                    <form method="POST" action="/wants/{{ $want->id }}/{{ $place->id }}">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" name="want_show" value="行きたい！解除">
-                    </form>
-                @endif
-            @else
-                <p>ログイン後に行きたい！登録が可能になります</p>
-                <form method="POST" action="/wants/{{ $place->id }}">
-                    @csrf
-                    <input type="submit" value="行きたい！" disabled>
-                </form>
-            @endauth
-            
-            <div id="map" style="height:450px; width:450px"></div>
-            
-            <div class="review">
-                @foreach ($reviews as $review)
-                    <p>{{ $review->title }}:{{ $review->user->name }}</p>
-                    <div>
-                        <star-rating 
-                        v-bind:increment="1"
-                        v-bind:star-size="25"
-                        :rating="{{ $review->score }}"
-                        :read-only="true"
-                        ></star-rating>
+            <div class="bottom">
+                <div id="map"></div>
+                
+                <div class="reviews">
+                    <h3>レビュー</h3>
+                    @foreach ($reviews as $review)
+                        <div class="review">
+                            <div class="review-user">
+                                <div class="icon-img-box">
+                                    @if (empty($review->user->image))
+                                        <img src="/img/image.png">
+                                    @else
+                                        <img src="{{ $review->user->image }}">
+                                    @endif
+                                </div>
+                                <p>{{ $review->user->name }}</p>
+                            </div>
+                    
+                            <div>
+                                <star-rating 
+                                v-bind:increment="1"
+                                v-bind:star-size="25"
+                                :rating="{{ $review->score }}"
+                                :read-only="true"
+                                ></star-rating>
+                            </div>
+                            
+                            <p>{{ $review->title }}</p>
+                            
+                            <p class="comment">{{ $review->comment }}</p>
+                            
+                            <p>{{ $review->updated_at->format('Y/m/d') }}</p>
+                        </div>
+                    @endforeach
+                    
+                    <div class="paginate">
+                        {{ $reviews->links() }}
                     </div>
-                    <p>{{ $review->comment }}</p>
-                @endforeach
-            </div>
-            
-            <div class="paginate">
-                {{ $reviews->links() }}
+                </div>
             </div>
             
             <div class="footer">

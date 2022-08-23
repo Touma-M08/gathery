@@ -48,7 +48,9 @@
             </form>
         </div>
         
-        <a href="/places/create">新規作成</a>
+        @auth
+            <a href="/places/create">新規作成</a>
+        @endauth
         
          {{-- 検索結果 --}}
         <div class="place">
@@ -64,7 +66,7 @@
         </div>
         
         <div class='paginate'>
-            {{ $places->links() }}
+            {{ $places->appends(request()->query())->links() }}
         </div>
         @endsection
     </body>

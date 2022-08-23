@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReviewRequest extends FormRequest
+class ReviewEditRequest extends FormRequest
 {
     public function authorize()
     {
@@ -16,7 +16,6 @@ class ReviewRequest extends FormRequest
         return [
             'review.title' => ['required', 'string', 'max:20'],
             'review.comment' => ['max:150'],
-            'review.score' => ['required']
         ];
     }
 }

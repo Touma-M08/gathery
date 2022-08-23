@@ -32,14 +32,17 @@
                     v-bind:increment="1"
                     v-bind:star-size="50"
                     :rating="{{ $review->score }}"
-                    :show-rating="false"></star-rating>
-                <input type="hidden" :value="this.rating" name="review[score]">
+                    :show-rating="true"></star-rating>
+                    <input type="hidden" :value="this.rating" name="score">
                 </div>
-                <p>{{ $errors->first('review.score') }}</p>
                 
                 <input type="submit" value="送信">
             </form>
         </div>
+        
+        <script>
+            
+        </script>
         @endsection
     </body>
 </html>

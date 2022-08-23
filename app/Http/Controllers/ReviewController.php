@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ReviewRequest;
+use App\Http\Requests\ReviewEditRequest;
 use Auth;
 use App\Place;
 use App\Review;
@@ -35,7 +36,7 @@ class ReviewController extends Controller
         
         $want->where([['user_id', Auth::user()->id],['place_id', $place->id]])->delete();
         
-        return redirect('/places/'.$place->id);
+        return redirect('/mypage/reviews');
     }
     
     public function index(Review $review)
@@ -48,9 +49,14 @@ class ReviewController extends Controller
         return view('mypage/reviewEdit')->with(['review' => $review]);
     }
     
-    public function update(Review $review, Place $place, ReviewRequest $request)
+    public function update(Review $review, Place $place, ReviewEditRequest $request)
     {
-        $review->fill($request['review'])->save();
+        $review->fill($request['review']);
+        
+        if (isset($request->score)) {
+            $review->score = $request->score;
+        }
+        $review->save();
         
         $place->score = $review->where('place_id', $place->id)->avg('score');
         $place->save();

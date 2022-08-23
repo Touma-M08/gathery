@@ -49,6 +49,9 @@
                 @endif
             @endforeach
         </div>
+        <div class="paginate">
+            {{ $schedules->links() }}
+        </div>
         @endsection
     </body>
 </html>

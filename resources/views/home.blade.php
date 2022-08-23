@@ -5,9 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Gathery</title>
-
+        
         <link rel="stylesheet" href="{{asset('css/home.css')}}">
         <script src="{{asset('js/home.js')}}" defer></script>
+        <script src="{{asset('js/app.js')}}" defer></script>
     </head>
     <body>
         @extends("layouts/header")
@@ -17,8 +18,8 @@
                 <section class="name" id="name">
                     <p class="section-ttl">名称で探す</p>
                     <form method="get" action="/places/search">
-                        <input type="search" name="name"/>
-                        <input type="submit" value="検索" />
+                        <input class="search" type="search" name="name"/>
+                        <input class="search search-btn" type="submit" value="検索" />
                     </form>
                 </section>
                 
@@ -32,8 +33,8 @@
                             @foreach ($prefectures as $prefecture)
                                 @if ($prefecture->id == 1)
                                     <form method="get" action="/places/search">
-                                        <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                        <input type="submit" value="{{ $prefecture->name }}" class="region-btn __hokkaido" id="hokkaido" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)"></input>
+                                        <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                        <input type="submit" value="{{ $prefecture->name }}" class="region-btn __hokkaido pref-name" id="hokkaido" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
                                     </form>
                                 @endif
                             @endforeach
@@ -49,8 +50,8 @@
                                 @foreach ($prefectures as $prefecture)
                                     @if ($prefecture->id >= 2 && $prefecture->id <= 7)
                                         <form method="get" action="/places/search">
-                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                            <input class="pref-name" type="submit" value="{{ $prefecture->name }}">
                                         </form>
                                     @endif
                                 @endforeach
@@ -66,8 +67,8 @@
                                 @foreach ($prefectures as $prefecture)
                                     @if ($prefecture->id >= 8 && $prefecture->id <= 14)
                                         <form method="get" action="/places/search">
-                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                            <input class="pref-name" type="submit" value="{{ $prefecture->name }}">
                                         </form>
                                     @endif
                                 @endforeach
@@ -83,8 +84,8 @@
                                 @foreach ($prefectures as $prefecture)
                                     @if ($prefecture->id >= 15 && $prefecture->id <= 23)
                                         <form method="get" action="/places/search">
-                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                            <input class="pref-name" type="submit" value="{{ $prefecture->name }}">
                                         </form>
                                     @endif
                                 @endforeach
@@ -100,8 +101,8 @@
                                 @foreach ($prefectures as $prefecture)
                                     @if ($prefecture->id >= 24 && $prefecture->id <= 30)
                                         <form method="get" action="/places/search">
-                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                            <input class="pref-name" type="submit" value="{{ $prefecture->name }}">
                                         </form>
                                     @endif
                                 @endforeach
@@ -117,8 +118,8 @@
                                 @foreach ($prefectures as $prefecture)
                                     @if ($prefecture->id >= 36 && $prefecture->id <= 39)
                                         <form method="get" action="/places/search">
-                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                            <input class="pref-name" type="submit" value="{{ $prefecture->name }}">
                                         </form>
                                     @endif
                                 @endforeach
@@ -134,8 +135,8 @@
                                 @foreach ($prefectures as $prefecture)
                                     @if ($prefecture->id >= 31 && $prefecture->id <= 35)
                                         <form method="get" action="/places/search">
-                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                            <input class="pref-name" type="submit" value="{{ $prefecture->name }}">
                                         </form>
                                     @endif
                                 @endforeach
@@ -151,8 +152,8 @@
                                 @foreach ($prefectures as $prefecture)
                                     @if ($prefecture->id >= 40 && $prefecture->id <= 47)
                                         <form method="get" action="/places/search">
-                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}"></input>
-                                            <input type="submit" value="{{ $prefecture->name }}"></input>
+                                            <input type="hidden" name="prefecture" value="{{ $prefecture->id }}">
+                                            <input class="pref-name" type="submit" value="{{ $prefecture->name }}">
                                         </form>
                                     @endif
                                 @endforeach
@@ -165,42 +166,49 @@
                     <p class="section-ttl">カテゴリから探す</p>
                     
                     <div class="category-frame">
-                        <ul>飲食店
-                            <li class="category-ttl">
-                                @foreach ($categories as $category) 
+                        <div class="category-wrap">
+                            <p class="category-ttl">飲食店</p>
+                            <ul class="category-list">
+                                @foreach ($categories as $category)
                                     @if ($category->id >= 1 && $category->id <= 19)
-                                        <form method="get" action="/places/search">
-                                            <input type="hidden" name="category" value="{{ $category->id }}"></input>
-                                            <input type="submit" value="{{ $category->name }}"></input>
-                                        </form>
+                                        <li class="category-item">
+                                            <form method="get" action="/places/search">
+                                                <input type="hidden" name="category" value="{{ $category->id }}">
+                                                <input class="category-name" type="submit" value="{{ $category->name }}">
+                                            </form>
+                                        </li>
                                     @endif
                                 @endforeach
-                            </li>
-                        </ul>
-                        <ul>レジャー施設
-                            <li class="category-ttl">
+                            </ul>
+                            
+                            <p class="category-ttl">レジャー施設</p>
+                            <ul class="category-list">
                                 @foreach ($categories as $category) 
                                     @if ($category->id >= 20 && $category->id <= 28)
-                                        <form method="get" action="/places/search">
-                                            <input type="hidden" name="category" value="{{ $category->id }}"></input>
-                                            <input type="submit" value="{{ $category->name }}"></input>
-                                        </form>
+                                        <li class="category-item">
+                                            <form method="get" action="/places/search">
+                                                <input type="hidden" name="category" value="{{ $category->id }}">
+                                                <input class="category-name" type="submit" value="{{ $category->name }}">
+                                            </form>
+                                        </li>
                                     @endif
                                 @endforeach
-                            </li>
-                        </ul>
-                        <ul>その他
-                            <li class="category-ttl">
+                            </ul>
+                            
+                            <p class="category-ttl">その他</p>
+                            <ul class="category-list">
                                 @foreach ($categories as $category) 
                                     @if ($category->id >= 29 && $category->id <= 31)
-                                        <form method="get" action="/places/search">
-                                            <input type="hidden" name="category" value="{{ $category->id }}"></input>
-                                            <input type="submit" value="{{ $category->name }}"></input>
-                                        </form>
+                                        <li class="category-item">
+                                            <form method="get" action="/places/search">
+                                                <input type="hidden" name="category" value="{{ $category->id }}"></input>
+                                                <input class="category-name" type="submit" value="{{ $category->name }}"></input>
+                                            </form>
+                                        </li>
                                     @endif
                                 @endforeach
-                            </li>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </main>
@@ -208,34 +216,56 @@
             <aside>
                 <section class="profile">
                     @auth
-                        @if (empty(Auth::user()->image))
-                            <img src="img/image.png">
-                        @else
-                            <img src="{{ Auth::user()->image }}">
-                        @endif
+                        <div class="icon-img-box">
+                            @if (empty(Auth::user()->image))
+                                <img src="/img/image.png">
+                            @else
+                                <img src="{{ Auth::user()->image }}">
+                            @endif
+                        </div>
                         <p>ログイン中のユーザー</p>
-                        <p>{{ Auth::user()->name }}</p>
+                        <p class="user-name">{{ Auth::user()->name }}</p>
                         <div class="mypage-btn">
                             <a href="/mypage/wants">マイページ</a>
                         </div>
                     @else
-                        <img src="img/image.png">
+                        <div class="icon-img-box">
+                            <img src="img/image.png">
+                        </div>
                         <p>ログイン中のユーザー</p>
-                        <p>ゲスト</p>
+                        <p class="user-name">ゲスト</p>
                         <a href="/login">ログイン</a>
                     @endauth
                 </section>
                 
-                <section class="ranking">
-                    <p>おすすめスポットTOP3</p>
+                <section class="ranking" id="star">
+                    <h2 class="ranking-head">おすすめスポットTOP3</h2>
+                    <div class="ranking-content">
+                        <div class="ranking-num">
+                            <p>1</p>
+                            <p>2</p>
+                            <p>3</p>
+                        </div>
+                        
+                        <div class="places">
+                            @foreach ($places as $place)
+                                <div class="place">
+                                    <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
+                                    <div>
+                                        <star-rating 
+                                        v-bind:increment="1"
+                                        v-bind:star-size="25"
+                                        :rating="{{ $place->score }}"
+                                        :read-only="true"
+                                        ></star-rating>
+                                    </div>
+                                    <p class="place-address">{{$place->prefecture->name }}{{ $place->address }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                     
-                    @foreach ($places as $place)
-                        <p>{{ $loop->iteration }}</p>
-                        <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
-                        <p>{{$place->prefecture->name }}{{ $place->address }}</p>
-                    @endforeach
-                    
-                    <a href="/places/ranking">おすすめスポットをもっと見る</a>
+                    <a class="more-ranking" href="/places/ranking">おすすめスポットをもっと見る</a>
                 </section>
             </aside>
         </div>

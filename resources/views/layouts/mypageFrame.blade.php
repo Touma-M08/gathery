@@ -14,7 +14,11 @@
         @section("content")
         <div class="contents">
             <section class="profile">
-                <img src="{{ auth::user()->image }}">
+                @if (empty(Auth::user()->image))
+                    <img src="/img/image.png">
+                @else
+                    <img src="{{ Auth::user()->image }}">
+                @endif
                 <p>ログイン中のユーザー</p>
                 <p>{{ auth::user()->name }}</p>
                 <ul>
@@ -25,7 +29,7 @@
                         <a href="/mypage/reviews">評価一覧</a>
                     </li>
                     <li class="list-item">
-                        <a href="/mypage/schedule">予定登録</a>
+                        <a href="/mypage/schedule?page=1">予定登録</a>
                     </li>
                     <li class="list-item">
                         <a href="/mypage/setting">設定</a>

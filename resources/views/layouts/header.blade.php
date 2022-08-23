@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Gathery') }}</title>
-
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('css/header.css')}}">
     <link rel="stylesheet" href="{{asset('css/load.css')}}">
@@ -22,62 +22,66 @@
         </div>
     </div>
     
-    <h1>
-        <a href="{{ url('/') }}">Gathery</a>
-    </h1>
+    <div class="top">
+        <h1 class="site-logo">
+            <a href="{{ url('/') }}">Gathery</a>
+        </h1>
+        
+        <div class="login-logout">
+            @guest
+                <div class="login">
+                    <a class="btn" href="{{ route('login') }}">ログイン</a>
+                </div>
+                @if (Route::has('register'))
+                    <div class="register">
+                        <a class="btn" href="{{ route('register') }}">新規登録</a>
+                    </div>
+                @endif
+            @else
+                <div class="logout">
+                    <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        ログアウト
+                    </a>
+                </div>
+    
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endguest
+        </div>
+    </div>
+        
     <nav class="header-nav">
         <ul class="header-list">
             <li>
-                <a href="/#name">名称で探す</a>
+                <a class="header-link" href="/#name">名称で探す</a>
             </li>
                     
-            <li>|</li>
+            <li class="bar">|</li>
             
             <li>                            
-                <a href="/#area">エリアから探す</a>
+                <a class="header-link" href="/#area">エリアから探す</a>
             </li>
             
-            <li>|</li>
+            <li class="bar">|</li>
             
             <li>
-                <a href="/#category">カテゴリーから探す</a>
+                <a class="header-link" href="/#category">カテゴリーから探す</a>
             </li>
             
-            <li>|</li>
+            <li class="bar">|</li>
             
             <li>
-                <a href="/places/ranking">ランキング</a>
+                <a class="header-link" href="/places/ranking">ランキング</a>
             </li>
             
-            <li>|</li>
+            <li class="bar">|</li>
             
             <li>
-                <a href="/mypage/wants">マイページ</a>
+                <a class="header-link" href="/mypage/wants">マイページ</a>
             </li>
         </ul>
     </nav>
-    <div class="login-logout">
-        @guest
-            <div class="login">
-                <a href="{{ route('login') }}">ログイン</a>
-            </div>
-            @if (Route::has('register'))
-                <div class="register">
-                    <a href="{{ route('register') }}">新規登録</a>
-                </div>
-            @endif
-        @else
-            <div class="logout">
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    ログアウト
-                </a>
-            </div>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        @endguest
-    </div>
     @yield('content')
 </body>
 </html>
