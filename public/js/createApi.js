@@ -4,18 +4,38 @@ var service;
 var infowindow;
 
 function initMap() {
-  var gunmaUniv = new google.maps.LatLng(36.4307571, 139.0450519);
+  let errors = document.getElementsByClassName("errors")[1].innerHTML;
+  
+  if (errors == "") {
+    var gunmaUniv = new google.maps.LatLng(36.4307571, 139.0450519);
+  
+    infowindow = new google.maps.InfoWindow();
+  
+    map = new google.maps.Map(
+        document.getElementById('map'), {center: gunmaUniv, zoom: 15});
+  
+    //マーカー配置
+    var marker = new google.maps.Marker({
+      map: map,
+      position: gunmaUniv
+    });
+  } else {
+    var lat = document.getElementById('lat').value;
+    var lng = document.getElementById('lng').value;
+    
+    var place = new google.maps.LatLng(lat, lng);
 
-  infowindow = new google.maps.InfoWindow();
+    infowindow = new google.maps.InfoWindow();
 
-  map = new google.maps.Map(
-      document.getElementById('map'), {center: gunmaUniv, zoom: 15});
+    map = new google.maps.Map(
+        document.getElementById('map'), {center: place, zoom: 15});
 
-  //マーカー配置
-  var marker = new google.maps.Marker({
-    map: map,
-    position: gunmaUniv
-  });
+    //マーカー配置
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place
+    });
+  }
   
   //検索実行
   document.getElementById('search').addEventListener('click', function() {
