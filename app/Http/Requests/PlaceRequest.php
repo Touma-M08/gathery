@@ -15,7 +15,7 @@ class PlaceRequest extends FormRequest
     {
         return [
             'place.name' => ['required', 'unique:places,name'],
-            'place.category_id' => ['required']
+            'place.category_id' => ['required_with:place.name']
         ];
     }
 }
