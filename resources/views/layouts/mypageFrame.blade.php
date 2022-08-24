@@ -28,7 +28,7 @@
                         <a href="/mypage/wants">行きたい！一覧</a>
                     </li>
                     <li class="list-item">
-                        <a href="/mypage/reviews">評価一覧</a>
+                        <a href="/mypage/reviews">レビュー一覧</a>
                     </li>
                     <li class="list-item">
                         <a href="/mypage/schedule?page=1">予定登録</a>

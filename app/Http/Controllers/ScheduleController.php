@@ -38,7 +38,7 @@ class ScheduleController extends Controller
         return view("mypage/scheduleEdit")->with([
             "editSchedule" => $schedule,
             "schedules" => $schedule->getBySchedule($schedule),
-            "wants" => $want->getByWantPlace()
+            "wants" => $want->getByAllWantPlace()
             ]);
     }
     
