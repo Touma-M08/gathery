@@ -33,10 +33,7 @@ class CategorySeeder extends Seeder
         "ボーリング",
         "カラオケ",
         "プール",
-        "ゲームセンター",
-        "フェス",
-        "祭り",
-        "イベント",
+        "ゲームセンター"
     ];
     /**
      * Run the database seeds.

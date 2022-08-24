@@ -6,13 +6,12 @@
 
         <title>Gathery</title>
 
-        <link rel="stylesheet" href="{{asset('css/mypage.css')}}">
         <script src="{{asset('js/app.js')}}" defer></script>
     </head>
     <body>
         @extends("layouts/mypageFrame")
         @section("mypage-content")
-        <div>
+        <section class="main-content">
             <h2>レビュー</h3>
             <h3>{{ $place->name }}</h3>
             <form method="post" action="/reviews/{{ $place->id }}">
@@ -41,7 +40,7 @@
             <div class="footer">
                 <a href="/mypage/wants">戻る</a>
             </div>
-        </div>
+        </section>
         @endsection
     </body>
 </html>

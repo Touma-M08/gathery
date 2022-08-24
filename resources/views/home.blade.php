@@ -194,20 +194,6 @@
                                     @endif
                                 @endforeach
                             </ul>
-                            
-                            <p class="category-ttl">その他</p>
-                            <ul class="category-list">
-                                @foreach ($categories as $category) 
-                                    @if ($category->id >= 29 && $category->id <= 31)
-                                        <li class="category-item">
-                                            <form method="get" action="/places/search">
-                                                <input type="hidden" name="category" value="{{ $category->id }}"></input>
-                                                <input class="category-name" type="submit" value="{{ $category->name }}"></input>
-                                            </form>
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ul>
                         </div>
                     </div>
                 </section>

@@ -7,20 +7,22 @@
         <title>Gathery</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="{{asset('css/mypage.css')}}">
+        <link rel="stylesheet" href="{{asset('css/mypage/mypage.css')}}">
     </head>
     <body>
         @extends("layouts/header")
         @section("content")
         <div class="contents">
             <section class="profile">
-                @if (empty(Auth::user()->image))
-                    <img src="/img/image.png">
-                @else
-                    <img src="{{ Auth::user()->image }}">
-                @endif
+                <div class="icon-img-box">
+                    @if (empty(Auth::user()->image))
+                        <img src="/img/image.png">
+                    @else
+                        <img src="{{ Auth::user()->image }}">
+                    @endif
+                </div>
                 <p>ログイン中のユーザー</p>
-                <p>{{ auth::user()->name }}</p>
+                <p class="user-name">{{ auth::user()->name }}</p>
                 <ul>
                     <li class="list-item">
                         <a href="/mypage/wants">行きたい！一覧</a>
