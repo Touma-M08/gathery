@@ -1,0 +1,25 @@
+.place {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.place-detail {
+    max-width: 420px;
+}
+
+.place + .place {
+    margin-top: 20px;
+}
+
+.any-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 10px;
+}
+
+.link-btn.__review {
+    margin:0 10px;
+}
+
+

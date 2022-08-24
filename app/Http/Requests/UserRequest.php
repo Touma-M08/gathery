@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
                 }, 
                 'max:255'
             ],
-            'user.file' => ['image'],
+            'image' => ['image'],
         ];
     }
 }

@@ -6,31 +6,38 @@
 
         <title>Gathery</title>
 
-        <link rel="stylesheet" href="{{asset('css/mypage.css')}}">
+        <link rel="stylesheet" href="{{asset('css/mypage/want.css')}}">
     </head>
     <body>
         @extends("layouts/mypageFrame")
         @section("mypage-content")
-        <section class="want">
-            <p class="section-ttl">行きたい！一覧</p>
-            <ul>
+        <section class="main-content">
+            <h2 class="section-ttl">行きたい！一覧</h2>
+            <div class="wrap">
                 @foreach ($wants as $want)
-                    <a href="/places/{{ $want->place->id }}">{{ $want->place->name }}</a></br>
-                    <p>{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
-                    
-                    <a href="/bbses/{{ $want->place->id }}">掲示板</a>
-                    <a href="/reviews/{{ $want->place->id }}">レビュー</a></br>
-                    <form method="POST" action="/wants/{{ $want->id }}/{{ $want->place->id }}">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" name="want_mypage" value="削除"></input>
-                    </form>
+                    <div class="place">
+                        <div class="place-detail">
+                            <h3><a href="/places/{{ $want->place->id }}">{{ $want->place->name }}</a></h3>
+                            <p>{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
+                        </div>
+                        
+                        <div class="any-btn">
+                            <a class="link-btn" href="/bbses/{{ $want->place->id }}">掲示板</a>
+                            <a class="link-btn __review" href="/reviews/{{ $want->place->id }}">レビュー</a>
+                            <form method="POST" action="/wants/{{ $want->id }}/{{ $want->place->id }}">
+                                @csrf
+                                @method('delete')
+                                <input class="link-btn __delete" type="submit" name="want_mypage" value="削除"></input>
+                            </form>
+                        </div>
+                    </div>
                 @endforeach
-            </ul>
-            
-            <div class="paginate">
-                {{ $wants->links() }}
+                
+                <div class="paginate">
+                    {{ $wants->links() }}
+                </div>
             </div>
+            
         </section>
         @endsection
     </body>

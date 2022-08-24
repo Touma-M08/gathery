@@ -150,7 +150,7 @@ return [
         'user.age' => '年齢',
         'user.sex' => '性別',
         'user.email' => 'メールアドレス',
-        'user.file' => 'アイコン',
+        'image' => 'アイコン',
         'password' => 'パスワード',
         'current_pass' => '現在のパスワード',
         'place.name' => '場所',

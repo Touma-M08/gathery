@@ -1,0 +1,23 @@
+.alert {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    background-color: #fff;
+}
+
+.setting {
+    display: flex;
+    margin-top: 20px;
+}
+
+.setting .pass {
+    margin-left: 20px;
+}
+
+input {
+    border: 2px solid rgb(118, 118, 118) !important;
+}
+
+.image {
+    border: none !important;
+}
