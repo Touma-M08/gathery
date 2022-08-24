@@ -6,46 +6,54 @@
 
         <title>Gathery</title>
         
+        <link rel="stylesheet" href="{{asset('css/mypage/review.css')}}">
         <script src="{{asset('js/app.js')}}" defer></script>
     </head>
     <body>
         @extends("layouts/mypageFrame")
         @section("mypage-content")
-        <div>
-            <h2>レビュー</h3>
-            <h3>{{ $review->place->name }}</h3>
-            <form method="post" action="/reviews/{{ $review->id }}/{{$review->place->id }}">
-                @csrf
-                @method('put')
-                <p>タイトル</p>
-                @if ($errors->isEmpty())
-                    <input type="text" name="review[title]" value="{{ $review->title }}">
+        <section class="main-content">
+            <h2 class="section-ttl">レビュー</h2>
+            
+            <div class="wrap">
+                <h3>{{ $review->place->name }}</h3>
+                <form method="post" action="/reviews/{{ $review->id }}/{{$review->place->id }}">
+                    @csrf
+                    @method('put')
+                    <p>タイトル</p>
+                    @if ($errors->isEmpty())
+                        <input type="text" name="review[title]" value="{{ $review->title }}">
+                        
+                        <p>本文</p>
+                        <textarea name="review[comment]">{{ $review->comment }}</textarea>
+                    @else
+                        <input type="text" name="review[title]" value="{{ old('review.title') }}">
+                        <p>{{ $errors->first('review.title') }}</p>
+                        
+                        <p>本文</p>
+                        <textarea name="review[comment]">{{ old('review.comment') }}</textarea>
+                        <p>{{ $errors->first('review.comment') }}</p>
+                    @endif
                     
-                    <p>本文</p>
-                    <textarea name="review[comment]">{{ $review->comment }}</textarea>
-                @else
-                    <input type="text" name="review[title]" value="{{ old('review.title') }}">
-                    <p>{{ $errors->first('review.title') }}</p>
+                    <p>評価</p>
+                    <div id="star">
+                        <star-rating 
+                        @rating-selected ="setRating"
+                        v-bind:increment="1"
+                        v-bind:star-size="50"
+                        :rating="{{ $review->score }}"
+                        :show-rating="true"></star-rating>
+                        <input type="hidden" :value="this.rating" name="score">
+                    </div>
                     
-                    <p>本文</p>
-                    <textarea name="review[comment]">{{ old('review.comment') }}</textarea>
-                    <p>{{ $errors->first('review.comment') }}</p>
-                @endif
+                    <input class="link-btn" type="submit" value="送信">
+                </form>
                 
-                <p>評価</p>
-                <div id="star">
-                    <star-rating 
-                    @rating-selected ="setRating"
-                    v-bind:increment="1"
-                    v-bind:star-size="50"
-                    :rating="{{ $review->score }}"
-                    :show-rating="true"></star-rating>
-                    <input type="hidden" :value="this.rating" name="score">
+                <div class="footer">
+                    <a href="/mypage/reviews">戻る</a>
                 </div>
-                
-                <input type="submit" value="送信">
-            </form>
-        </div>
+            </div>
+        </section>
         
         <script>
             

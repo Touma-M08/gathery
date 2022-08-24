@@ -8,8 +8,8 @@
     max-width: 530px;
 }
 
-.place + .place {
-    margin-top: 20px;
+.place {
+    margin-bottom: 20px;
 }
 
 .any-btn {

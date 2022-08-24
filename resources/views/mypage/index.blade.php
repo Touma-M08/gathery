@@ -13,7 +13,7 @@
         @extends("layouts/mypageFrame")
         @section("mypage-content")
         <section class="main-content" id="star">
-            <h2 class="section-ttl">評価一覧</h2>
+            <h2 class="section-ttl">レビュー一覧</h2>
             <div class="wrap">
                 @foreach ($reviews as $review)
                     <div class="place">

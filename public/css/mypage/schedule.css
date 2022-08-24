@@ -2,6 +2,14 @@
     margin-bottom: 20px;
 }
 
+#register {
+    display: none;
+}
+
+#register.show {
+    display: block;
+}
+
 .place {
     display: flex;
     align-items: center;
@@ -12,8 +20,12 @@
     max-width: 420px;
 }
 
-.place + .place {
-    margin-top: 20px;
+.place {
+    margin-bottom: 20px;
+}
+
+.place-detail.__edit {
+    margin-bottom: 20px;
 }
 
 .any-btn {

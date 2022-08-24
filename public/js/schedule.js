@@ -26,3 +26,10 @@ const minDay = year + '-' + month + '-' + day;
 
 console.log(minDay);
 document.getElementById('date').min = minDay;
+
+
+const register = document.getElementById('register');
+
+function toggle() {
+    register.classList.toggle('show');
+}
