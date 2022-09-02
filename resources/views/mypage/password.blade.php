@@ -29,18 +29,20 @@
                 <form method="post" action="/setting/password">
                     @csrf
                     @method('put')
-                    <p>現在のパスワード</p>
-                    <input type="password" name="current_pass">
+                    <p class="item-name">現在のパスワード</p>
+                    <input class="input" type="password" name="current_pass">
                     <p>{{ $errors->first('current_pass') }}</p>
                     
-                    <p>新しいパスワード</p>
-                    <input type="password" name="password">
+                    <p class="item-name">新しいパスワード</p>
+                    <input class="input" type="password" name="password">
                     
-                    <p>新しいパスワード（確認用）</p>
-                    <input type="password" name="password_confirmation">
+                    <p class="item-name">新しいパスワード（確認用）</p>
+                    <input class="input" type="password" name="password_confirmation">
                     <p>{{ $errors->first('password') }}</p>
                     
-                    <input class="link-btn" type="submit" value="保存">
+                    <div class="btn-pos">
+                        <input class="link-btn" type="submit" value="保存">
+                    </div>
                 </form>
             </div>
         </section>

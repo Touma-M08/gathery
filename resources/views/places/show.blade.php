@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/header.css')}}">
         <link rel="stylesheet" href="{{asset('css/load.css')}}">
-        <link rel="stylesheet" href="{{asset('css/show.css')}}">
+        <link rel="stylesheet" href="{{asset('css/place/show.css')}}">
         <script src="{{asset('js/loading.js')}}"></script>
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="{{asset('js/app.js')}}" defer></script>
@@ -23,32 +23,34 @@
             </div>
         </div>
         
-        <div class="top">
-            <h1 class="site-logo">
-                <a href="{{ url('/') }}">Gathery</a>
-            </h1>
-            
-            <div class="login-logout">
-                @guest
-                    <div class="login">
-                        <a class="btn" href="{{ route('login') }}">ログイン</a>
-                    </div>
-                    @if (Route::has('register'))
-                        <div class="register">
-                            <a class="btn" href="{{ route('register') }}">新規登録</a>
+        <div class="header-bg">
+            <div class="top">
+                <h1 class="site-logo">
+                    <a href="{{ url('/') }}">Gathery</a>
+                </h1>
+                
+                <div class="login-logout">
+                    @guest
+                        <div class="login">
+                            <a class="btn" href="{{ route('login') }}">ログイン</a>
                         </div>
-                    @endif
-                @else
-                    <div class="logout">
-                        <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            ログアウト
-                        </a>
-                    </div>
-        
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                @endguest
+                        @if (Route::has('register'))
+                            <div class="register">
+                                <a class="btn" href="{{ route('register') }}">新規登録</a>
+                            </div>
+                        @endif
+                    @else
+                        <div class="logout">
+                            <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                ログアウト
+                            </a>
+                        </div>
+            
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @endguest
+                </div>
             </div>
         </div>
             

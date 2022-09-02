@@ -18,7 +18,7 @@ class CommentController extends Controller
             
             if ($isWant) {
                 return view('bbses/index')->with([
-                    'places' => $place->ranking(10),
+                    'places' => $place->ranking(5),
                 ]);
             } else {
                  return view('bbses/index')->with([
@@ -27,7 +27,7 @@ class CommentController extends Controller
             }
         } else {
             return view('bbses/index')->with([
-                'places' => $place->ranking(10),
+                'places' => $place->ranking(5),
             ]);
         }
     }

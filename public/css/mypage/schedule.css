@@ -2,30 +2,63 @@
     margin-bottom: 20px;
 }
 
+.register-form {
+    margin-bottom: 20px;
+}
+
+.schedule-btn {
+    display: block;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #020e7e;
+    border-bottom: 5px solid rgb(150, 150, 150);
+}
+
+.schedule-btn:hover {
+    margin-top: 3px;
+    border-bottom: 2px solid rgb(150, 150, 150);
+    color: #fff;
+}
+
 #register {
     display: none;
 }
 
 #register.show {
     display: block;
+    padding: 10px 10px;
+    background-color: rgb(245, 245, 245);
+}
+
+#date, #time {
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+#register select {
+    background-color: #fff;
+}
+
+#register #time {
+    margin-bottom: 10px;
 }
 
 .place {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
 }
 
 .place-detail {
     max-width: 420px;
 }
 
-.place {
-    margin-bottom: 20px;
-}
-
-.place-detail.__edit {
-    margin-bottom: 20px;
+.place-detail h3 {
+    font-weight: bold;
+    font-size: 1.4rem;
 }
 
 .any-btn {
@@ -36,4 +69,8 @@
 
 .link-btn.__edit {
     margin-right: 10px;
+}
+
+.btn-pos {
+    padding-top: 10px;
 }

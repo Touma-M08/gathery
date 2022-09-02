@@ -1,0 +1,58 @@
+.contents {
+    max-width: 1300px;
+    padding: 0 40px;
+    margin: 20px auto;
+}
+
+.contents input {
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.contents button {
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.contents select {
+    -webkit-appearance: listbox;
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.search {
+    margin-top: 20px;
+    display: flex;
+}
+
+.left-side {
+    width: 40%;
+}
+
+.right-side {
+    margin-left: 20px;
+}
+
+#map {
+    margin-top: 20px;
+    width: 90%;
+    padding-top: 90%;
+}
+
+.place-contents {
+    height: 60px;
+}
+
+.place-contents + .place-contents {
+    margin-top: 15px;
+}
+
+.address {
+    display: flex;
+}
+
+.place-contents.__open {
+    height: 200px;
+}
+
+.store-btn {
+    margin-top: 15px;
+    padding: 5px 10px;
+}

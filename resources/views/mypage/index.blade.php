@@ -37,7 +37,7 @@
                             <form id="form_{{ $review->id }}" method="POST" action="/reviews/{{ $review->id }}/{{$review->place->id }}">
                                 @csrf
                                 @method('delete')
-                                <button class="link-btn" type="button"　onclick="deleteReview({{ $review->id }}); return false;">削除</button>
+                                <button class="link-btn __delete" type="button"　onclick="deleteReview({{ $review->id }}); return false;">削除</button>
                             </form>
                         </div>
                     </div>

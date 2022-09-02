@@ -17,9 +17,9 @@
             <main>
                 <section class="name" id="name">
                     <p class="section-ttl">名称で探す</p>
-                    <form method="get" action="/places/search">
+                    <form class="search-text" method="get" action="/places/search">
                         <input class="search" type="search" name="name"/>
-                        <input class="search search-btn" type="submit" value="検索" />
+                        <input class="search-btn" type="submit" value="検索"/>
                     </form>
                 </section>
                 
@@ -228,9 +228,15 @@
                     <h2 class="ranking-head">おすすめスポットTOP3</h2>
                     <div class="ranking-content">
                         <div class="ranking-num">
-                            <p>1</p>
-                            <p>2</p>
-                            <p>3</p>
+                            <div>
+                                <img src="/img/no1.png">
+                            </div>
+                            <div>
+                                <img src="/img/no2.png">
+                            </div>
+                            <div>
+                                <img src="/img/no3.png">
+                            </div>
                         </div>
                         
                         <div class="places">

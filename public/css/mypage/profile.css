@@ -1,21 +1,47 @@
 .alert {
     position: absolute;
-    top: 5%;
-    right: 5%;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #fff;
+    padding: 15px;
+    font-weight: bold;
 }
 
 .setting {
     display: flex;
     margin-top: 20px;
+    font-weight: bold;
 }
 
 .setting .pass {
     margin-left: 20px;
 }
 
-input {
-    border: 2px solid rgb(118, 118, 118) !important;
+.setting a {
+    color: #1B47FF;
+}
+
+.setting a:hover {
+    color: #ff9101;
+}
+
+.wrap {
+    background-color: rgb(245, 245, 245);
+}
+
+.item-name {
+    margin-top: 20px;
+}
+
+.btn-pos {
+    padding-top: 10px;
+}
+
+.input {
+    padding: 5px 5px;
+    border: 2px solid rgb(118, 118, 118);
+    background-color: #fff;
 }
 
 .image {

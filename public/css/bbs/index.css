@@ -1,4 +1,26 @@
+.contents {
+    max-width: 1300px;
+    padding: 0 40px;
+    margin: 50px auto;
+}
+
+.places {
+    border: 1px solid #333;
+    padding: 20px;
+    margin-top: 10px;
+}
+
 .place {
     display: flex;
     align-items: center;
+}
+
+.place + .place {
+    margin-top: 15px;
+}
+
+.want-btn {
+    margin-left: 20px;
+    padding: 5px 8px;
+    border: 2px solid rgb(118, 118, 118);
 }
