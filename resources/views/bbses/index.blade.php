@@ -11,44 +11,49 @@
     <body>
         @extends("layouts/header")
         @section("content")
-        @if (isset($wants))
-            @foreach ($wants as $want)
-                <div class="want-place">
-                    <a href="/bbses/{{ $want->place->id }}">
-                        <div>{{ $want->place->name }}</div>
-                        <p>{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
-                    </a>
-                </div>
-            @endforeach
-        @else
-            <p>行きたい！登録をすると掲示板が利用可能になります</p>
-            <p>↓↓↓現在のレビューランキングTOP5はこちら↓↓↓</p>
-            <div class="places">
-                @foreach ($places as $place)
-                    <div class="place">
-                        <div>
-                            <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
-                        
-                            <p class="place-address">{{$place->prefecture->name }}{{ $place->address }}</p>
+        <div class="contents">
+            @if (isset($wants))
+                <h2 class="page-ttl">掲示板一覧</h2>
+                <div class="places">
+                    @foreach ($wants as $want)
+                        <div class="place">
+                            <a href="/bbses/{{ $want->place->id }}">
+                                <div>{{ $want->place->name }}</div>
+                                <p>{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
+                            </a>
                         </div>
-                        
-                        @auth
-                            <form method="POST" action="/wants/{{ $place->id }}">
-                                @csrf
-                                <input class="showpage-btn want" type="submit" name="want_bbs" value="行きたい！">
-                            </form>
+                    @endforeach
+                </div>
+            @else
+                <p>行きたい！登録をすると掲示板が利用可能になります</p>
+                <h3>レビューランキングTOP5</h3>
+                <div class="places">
+                    @foreach ($places as $place)
+                        <div class="place">
+                            <div>
+                                <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
                             
-                        @else
-                            <form method="POST" action="/wants/{{ $place->id }}">
-                                @csrf
-                                <input class="showpage-btn want" type="submit" value="行きたい！" disabled>
-                            </form>
-                            <p class="description">※ログイン後に行きたい！登録が可能になります</p>
-                        @endauth
-                    </div>
-                @endforeach
-            </div>
-        @endif
+                                <p class="place-address">{{$place->prefecture->name }}{{ $place->address }}</p>
+                            </div>
+                            
+                            @auth
+                                <form method="POST" action="/wants/{{ $place->id }}">
+                                    @csrf
+                                    <input class="want-btn" type="submit" name="want_bbs" value="行きたい！">
+                                </form>
+                                
+                            @else
+                                <form method="POST" action="/wants/{{ $place->id }}">
+                                    @csrf
+                                    <input class="want-btn" type="submit" value="行きたい！" disabled>
+                                </form>
+                                <p class="description">※ログイン後に行きたい！登録が可能になります</p>
+                            @endauth
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
         @endsection
     </body>
 </html>

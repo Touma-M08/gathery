@@ -29,9 +29,11 @@
                 <form method="post" action="/setting" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                    <input type="text" name="user[name]" value="{{ Auth::user()->name }}">
+                    <p class="item-name">ユーザー名</p>
+                    <input class="input" type="text" name="user[name]" value="{{ Auth::user()->name }}">
                     <p>{{ $errors->first('user.name') }}</p>
                 	
+                	<p class="item-name">年齢</p>
                 	@for ($i = 1; $i <= 9; $i += 1)
                 	    @if ($i == Auth::user()->age)
                             <input id="age-{{ $i }}" type="radio" name="user[age]" value="{{ $i }}" checked>
@@ -43,6 +45,7 @@
                     @endfor
                     <p>{{ $errors->first('user.age') }}</p>
                     
+                    <p class="item-name">性別</p>
                     @for ($i = 0; $i <= 2; $i++)
                         @if (Auth::user()->sex == $i)
                             <input type="radio" id="{{ $sex[$i] }}" name="user[sex]" value="{{ $i }}" checked>
@@ -54,13 +57,17 @@
                     @endfor
                     <p>{{ $errors->first('user.sex') }}</p>
                     
-                    <input type="email" name="user[email]" value="{{ Auth::user()->email }}">
+                    <p class="item-name">メールアドレス</p>
+                    <input class="input" type="email" name="user[email]" value="{{ Auth::user()->email }}">
                     <p>{{ $errors->first('user.email') }}</p>
                     
+                    <p class="item-name">アイコン</p>
                     <input class="image" type="file" name="image">
                     <p>{{ $errors->first('image') }}</p>
                     
-                    <input class="link-btn" type="submit" value="保存">
+                    <div class="btn-pos">
+                        <input class="link-btn" type="submit" value="保存">
+                    </div>
                 </form>
             </div>
         </section>

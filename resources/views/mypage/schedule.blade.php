@@ -14,30 +14,32 @@
         @section("mypage-content")
         <section class="main-content">
             <h2 class="section-ttl">予定一覧</h2>
-            
-            <button class="link-btn" id="toggle-btn" onclick="toggle()">予定を登録する</button>
-            <div id="register">
-                <form method="post" action="/schedule">
-                    @csrf
-                    <select name="schedule[place_id]">
-                        <option value="">場所を選択してください</option>
-                        @foreach ($wants as $want)
-                            <option value={{ $want->place_id }}>{{ $want->place->name }}</option>
-                        @endforeach
-                    </select>
-                    <p>{{ $errors->first('schedule.place_id') }}</p>
-                    
-                    <input id="date" type="date" name="schedule[date]">
-                    <p>{{ $errors->first('schedule.date') }}</p>
-                    
-                    <input id="time" type="time" name="schedule[time]" value="00:00">
-                    <input id="check-box" type="checkbox" name="check" onclick="boxClick()"><label for="check-box">終日</label>
-                    
-                    <input class="link-btn" type="submit" value="登録">
-                </form>
-            </div>    
                 
             <div class="wrap">
+                <div class="register-form">
+                    <button class="schedule-btn" id="toggle-btn" onclick="toggle()">閉じる</button>
+                    <div id="register" class="show">
+                        <form method="post" action="/schedule">
+                            @csrf
+                            <select name="schedule[place_id]">
+                                <option value="">場所を選択してください</option>
+                                @foreach ($wants as $want)
+                                    <option value={{ $want->place_id }}>{{ $want->place->name }}</option>
+                                @endforeach
+                            </select>
+                            <p>{{ $errors->first('schedule.place_id') }}</p>
+                            
+                            <input id="date" type="date" name="schedule[date]">
+                            <p>{{ $errors->first('schedule.date') }}</p>
+                            
+                            <input id="time" type="time" name="schedule[time]" value="00:00">
+                            <input id="check-box" type="checkbox" name="check" onclick="boxClick()"><label for="check-box">終日</label>
+                            
+                            <input class="schedule-btn" type="submit" value="登録">
+                        </form>
+                    </div>
+                </div>
+                
                 @foreach ($schedules as $schedule)
                     <div class="place">
                         <div class="place-detail">
@@ -56,7 +58,7 @@
                             <form id="form_{{ $schedule->id }}" method="POST" action="/schedule/{{ $schedule->id }}">
                                 @csrf
                                 @method('delete')
-                                <button class="link-btn" onclick="deleteSchedule({{ $schedule->id }}); return false;">削除</button>
+                                <button class="link-btn __delete" onclick="deleteSchedule({{ $schedule->id }}); return false;">削除</button>
                             </form>
                         </div>
                     </div>

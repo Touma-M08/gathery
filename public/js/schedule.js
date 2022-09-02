@@ -20,16 +20,27 @@ let month = today.getMonth()+1;
 if (month.toString().length == 1) {
     month = '0' + month;
 }
-const day = today.getDate();
+
+let day = today.getDate();
+
+if (day.toString().length == 1) {
+    day = '0' + day;
+}
 
 const minDay = year + '-' + month + '-' + day;
 
-console.log(minDay);
 document.getElementById('date').min = minDay;
 
 
 const register = document.getElementById('register');
+const btnText = document.getElementById('toggle-btn');
 
 function toggle() {
     register.classList.toggle('show');
+    
+    if (btnText.innerHTML == "予定を登録する") {
+        btnText.innerHTML = "閉じる";
+    } else {
+        btnText.innerHTML = "予定を登録する";
+    };
 }

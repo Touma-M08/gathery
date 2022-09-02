@@ -1,0 +1,102 @@
+.contents {
+    max-width: 1300px;
+    padding: 0 40px;
+    margin: 50px auto;
+}
+
+.search-word {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex p + p {
+    margin-left: 30px;
+}
+
+.create-btn {
+    margin-right: 50px;
+}
+
+.create-btn a {
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid rgb(118, 118, 118);
+}
+
+.search {
+    margin-top: 20px;
+    border: 1px solid rgb(118, 118, 118);
+    padding: 10px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box div + div {
+    margin-left: 30px;
+}
+
+.search input {
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.search select {
+    -webkit-appearance: listbox;
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.btn-position {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-btn {
+    padding: 5px 10px;
+}
+
+.places {
+    margin-top: 20px;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.place {
+    width: 48%;
+    padding: 10px;
+    margin-top: 30px;
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.place:nth-of-type(2n) {
+    margin-left: 4%;
+}
+
+.place .title a{
+    color: #1B47FF;
+}
+
+.place .title a:hover {
+    color: #ff9101;
+}
+
+.paginate {
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li + li {
+    margin-left: 10px;
+}

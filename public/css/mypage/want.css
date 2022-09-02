@@ -2,14 +2,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
 }
 
 .place-detail {
     max-width: 420px;
 }
 
-.place {
-    margin-bottom: 20px;
+.place h3 a {
+    font-size: 1.4rem;
+    color: #1B47FF;
+}
+
+.place h3 a:hover {
+    color: #ff9101;
 }
 
 .any-btn {
@@ -18,8 +26,14 @@
     margin: 0 10px;
 }
 
+.any-btn a {
+    background-color: #020e7e;
+    color: #fff;
+}
+
 .link-btn.__review {
     margin:0 10px;
 }
+
 
 

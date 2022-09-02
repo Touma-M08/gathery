@@ -2,14 +2,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
 }
 
 .place-detail {
     max-width: 530px;
 }
 
-.place {
-    margin-bottom: 20px;
+.place-detail h3 a {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1B47FF;
+}
+
+.place-detail h3 a:hover {
+    color: #ff9101;
 }
 
 .any-btn {

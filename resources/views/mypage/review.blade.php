@@ -19,14 +19,14 @@
                 <h3>{{ $place->name }}</h3>
                 <form method="post" action="/reviews/{{ $place->id }}">
                     @csrf
-                    <p>タイトル</p>
-                    <input type="text" name="review[title]" value="{{ old('review.title') }}">
+                    <p class="item-name">タイトル</p>
+                    <input class="input" type="text" name="review[title]" value="{{ old('review.title') }}">
                     <p>{{ $errors->first('review.title') }}</p>
-                    <p>本文</p>
-                    <textarea name="review[comment]">{{ old('review.comment') }}</textarea>
+                    <p class="item-name">本文</p>
+                    <textarea class="input" name="review[comment]">{{ old('review.comment') }}</textarea>
                     <p>{{ $errors->first('review.comment') }}</p>
         
-                    <p>評価</p>
+                    <p class="item-name">評価</p>
                     <div id="star">
                     　<star-rating 
                     　@rating-selected ="setRating"
@@ -37,12 +37,10 @@
                     </div>
                     <p>{{ $errors->first('review.score') }}</p>
                     
-                    <input class="link-btn" type="submit" value="送信">
+                    <div class="btn-pos">
+                        <input class="link-btn" type="submit" value="送信">
+                    </div>
                 </form>
-                
-                <div class="footer">
-                    <a href="/mypage/wants">戻る</a>
-                </div>
             </div>
         </section>
         @endsection

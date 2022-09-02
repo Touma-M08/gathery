@@ -6,12 +6,17 @@ li {
     list-style: none;
 }
 
+.header-bg {
+    width: 100vw;
+    padding: 1px 0 5px 0;
+    background-color: #020e7e;
+}
+
 .top {
     max-width: 1300px;
     display: flex;
     padding: 0 20px;
-    margin: 30px auto 20px;
-    m
+    margin: 20px auto 20px;
     align-items: center;
     justify-content: space-between;
 }
@@ -28,8 +33,8 @@ li {
 
 .site-logo a {
     padding: 10px;
-    background-color: rgb(218, 218, 218);
-    color: #000;
+    background-color: #020e7e;
+    color: #fff;
 }
 
 .login-logout {
@@ -37,12 +42,19 @@ li {
 }
 
 .btn {
+    font-weight: bold;
     font-size: 0.8rem;
-    color: #000;
+    color: #fff;
     padding: 8px 12px;
-    border-radius: 50%;
-    background-color: rgb(200, 200, 200);
 } 
+
+.login, .register, .logout {
+    transition: all 0.3s;
+}
+
+.login:hover, .register:hover, .logout:hover {
+    transform: scale(1.1);
+}
 
 .register {
     margin-left: 20px;
@@ -50,7 +62,7 @@ li {
 
 .header-nav {
     width: 900px;
-    margin: 0 auto;
+    margin: 40px auto 0;
 }
 
 .header-list {
@@ -63,13 +75,24 @@ li {
     margin-left: 30px;
 }
 
+.header-list li {
+    transition: all 0.3s;
+}
+
+.header-list li:hover {
+    transform: scale(1.1);
+}
+
 .header-link {
     font-size: 1rem;
+    font-weight: bold;
     color: rgb(100, 100, 100);
+    transition: 0.3s;
 }
 
 .header-link:hover {
     color: #000;
+    text-shadow: 1px 1px 3px rgb(150, 150, 150);
 }
 
 .bar {
