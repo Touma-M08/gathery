@@ -121,9 +121,9 @@ section + section {
     font-weight: bold;
     width: 70px;
     line-height: 35px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #fff;
     color: #333;
-    border: 1px solid #333;
+    box-shadow: 2px 2px 3px rgb(100, 100, 100);
     box-sizing: border-box;
     border-radius: 10px;
     text-align: center;
@@ -136,42 +136,42 @@ section + section {
 }
 
 .region-btn.__hokkaido {
-    top: 12%;
-    right: 19%;
+    top: 13%;
+    right: 17%;
 }
 
 .region-btn.__tohoku {
     top: 35%;
-    right: 21%;
+    right: 19%;
 }
 
 .region-btn.__kanto {
-    top: 55%;
-    right: 21.5%;
+    top: 57%;
+    right: 19%;
 }
 
 .region-btn.__chubu {
-    top: 49%;
-    right: 33.5%;
+    top: 51%;
+    right: 31.5%;
 }
 
 .region-btn.__kinki {
-    top: 60%;
-    right: 44%;
+    top: 63%;
+    right: 42%;
 }
 
 .region-btn.__shikoku {
-    top: 71.5%;
-    right: 56%;
+    top: 74%;
+    right: 55%;
 }
 
 .region-btn.__chugoku {
-    top: 58%;
-    right: 59%;
+    top: 60%;
+    right: 58%;
 }
 
 .region-btn.__kyusyu {
-    top: 60%;
+    top: 63%;
     right: 72%;
 }
 
@@ -181,7 +181,7 @@ section + section {
     display: none;
     flex-wrap: wrap;
     position: absolute;
-    border: 1px solid #000;
+    box-shadow: 4px 4px 5px rgb(180, 180, 180);
     border-radius: 10px;
     justify-content: space-around;
     background-color: #fff;
@@ -196,36 +196,36 @@ section + section {
 }
 
 .pref-name:hover {
-    color: blue;
+    color: #ff9101;
 }
 
 .tohoku .prefecture {
     top: 35%;
-    right: 5%;
+    right: 2.5%;
 }
 .kanto .prefecture {
-    top: 55%;
-    right: 5.5%;
+    top: 57%;
+    right: 2.5%;
 }
 .chubu .prefecture {
-    top: 22.5%;
-    right: 33.5%;
+    top: 23.5%;
+    right: 31.5%;
 }
 .kinki .prefecture {
-    top: 67%;
-    right: 38%;
+    top: 70%;
+    right: 36%;
 }
 .shikoku .prefecture {
-    top: 79%;
-    right: 50%;
+    top: 81%;
+    right: 49%;
 }
 .chugoku .prefecture {
-    top: 41%;
-    right: 53%;
+    top: 42.5%;
+    right: 52%;
 }
 .kyusyu .prefecture {
-    top: 60%;
-    right: 82%;
+    top: 63%;
+    right: 83%;
 }
 
 .map-bg.hokkaido {
@@ -244,10 +244,10 @@ section + section {
     background-position: 0 calc((-5299px/9) * (65/16));
 }
 .map-bg.chugoku {
-    background-position: 0 calc((-5299px/3) * (13/8));
+    background-position: 0 calc((-5300px/9) * (91/16));
 }
 .map-bg.shikoku {
-    background-position: 0 calc((-5299px/9) * (91/16));
+    background-position: 0 calc((-5300px/3) * (13/8));
 }
 .map-bg.kyusyu {
     background-position: 0 calc((-5299px/9) * (13/2));
