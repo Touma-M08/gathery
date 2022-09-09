@@ -18,7 +18,7 @@
                     <div class="place">
                         <div class="place-detail">
                             <a class="card" href="/places/{{ $place->id }}">
-                                <p class="rank">{{ $loop->iteration }}</p>
+                                <p class="rank">{{ $loop->iteration + (($page - 1) * 30) }}</p>
                                 
                                 <div class="position">
                                     <h3>{{ $place->name }}</h3>
@@ -28,6 +28,10 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            
+            <div class="paginate">
+                {{ $places->links() }}
             </div>
         </div>
         @endsection

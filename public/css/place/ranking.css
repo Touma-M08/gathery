@@ -84,3 +84,16 @@
 .place-name:hover {
     color: #ff9101;
 }
+
+.paginate {
+    margin-top: 30px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li + li {
+    margin-left: 10px;
+}

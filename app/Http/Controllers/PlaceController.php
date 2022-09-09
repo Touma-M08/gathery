@@ -27,24 +27,18 @@ class PlaceController extends Controller
         //検索実行
         if ($key_name) {
             $query->where('name', 'LIKE', "%{$key_name}%");
-            
-            $places = $query;
         }
         if ($key_city) {
             $query->where('address', 'LIKE', "%{$key_city}%");
-            
-            $places = $query;
         }
         if ($key_pref) {
             $query->where('prefecture_id', $key_pref);
-            
-            $places = $query;
         }
         if ($key_cat) {
             $query->where('category_id', $key_cat);
-            
-            $places = $query;
         }
+        
+        $places = $query;
         
         return view("places/search", compact('key_name', 'key_city', 'pref', 'cat'))->with([
             "places" => $places->orderBy('created_at', 'desc')->paginate(20),
@@ -77,22 +71,26 @@ class PlaceController extends Controller
     
     public function show(Place $place, Review $review, Want $want) 
     {
+        //行きたい！ボタンの処理分岐のためにログイン有無の確認
         if(empty(Auth::user())) {
             return view("places/show")->with([
                 'place' => $place,
-                'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5),
+                'reviews' => $review->getPlaceReview($place),
             ]);
         } else {
             return view("places/show")->with([
                 'place' => $place,
-                'reviews' => $review->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5),
+                'reviews' => $review->getPlaceReview($place),
                 'want' => $want->getWant($place)
             ]);
         }
     }
     
-    public function ranking(Place $place)
+    public function ranking(Place $place, Request $request)
     {
-        return view('places/ranking')->with(['places' => $place->ranking(50)]);
+        return view('places/ranking')->with([
+            'places' => $place->ranking(30),
+            "page" => $request->page
+            ]);
     }
 }

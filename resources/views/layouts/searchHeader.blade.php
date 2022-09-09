@@ -63,7 +63,7 @@
             <li class="bar">|</li>
             
             <li>
-                <a class="header-link" href="/places/ranking">ランキング</a>
+                <a class="header-link" href="/places/ranking?page=1">ランキング</a>
             </li>
             
             <li  class="bar">|</li>
