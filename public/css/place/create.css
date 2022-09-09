@@ -1,20 +1,59 @@
+.header-bg {
+    width: 100vw;
+    padding: 1px 0 5px 0;
+    background-color: #020e7e;
+}
+
+.top {
+    max-width: 1300px;
+    display: flex;
+    padding: 0 20px;
+    margin: 20px auto 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-logout {
+    display: flex;
+}
+
+.site-logo {
+    font-size: 1.5rem;
+    display: inline-block;
+    
+}
+
+.site-logo a {
+    padding: 10px;
+    background-color: #020e7e;
+    color: #fff;
+}
+
 .contents {
     max-width: 1300px;
     padding: 0 40px;
-    margin: 20px auto;
+    margin: 30px auto 20px;
 }
 
-.contents input {
-    border: 2px solid rgb(118, 118, 118);
-}
-
-.contents button {
+.contents .input {
     border: 2px solid rgb(118, 118, 118);
 }
 
 .contents select {
     -webkit-appearance: listbox;
-    border: 2px solid rgb(118, 118, 118);
+}
+
+.back-btn {
+    height: 40px;
+    text-decoration: none;
+    background-color: #a1a1a1;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+.section-ttl {
+    margin-top: 20px;
 }
 
 .search {
@@ -24,6 +63,31 @@
 
 .left-side {
     width: 40%;
+}
+
+.left-side .input {
+    width: 300px;
+    padding: 0.4rem;
+    border: 2px solid rgb(180, 180, 180);
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+}
+
+.search-btn {
+    display: block;
+    color: #fff;
+    background-color: #020e7e;
+    padding: 0 10px;
+    border-bottom: 5px solid rgb(180, 180, 180);
+    transition: all 0.2s;
+}
+
+.search-btn:hover {
+    margin-top: 3px;
+    border-bottom: 2px solid rgb(100, 100, 100);
 }
 
 .right-side {
@@ -37,22 +101,28 @@
 }
 
 .place-contents {
-    height: 60px;
+    height: 100%;
+    margin: 15px 0;
 }
 
-.place-contents + .place-contents {
-    margin-top: 15px;
+.place-contents div {
+    font-size: 1.3rem;
 }
 
 .address {
     display: flex;
 }
 
-.place-contents.__open {
-    height: 200px;
+.store-btn {
+    color: #fff;
+    background-color: #020e7e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-bottom: 5px solid rgb(150, 150, 150);
+    transition: all 0.2s;
 }
 
-.store-btn {
-    margin-top: 15px;
-    padding: 5px 10px;
+.store-btn:hover {
+    margin-top: 3px;
+    border-bottom: 2px solid rgb(150, 150, 150);
 }

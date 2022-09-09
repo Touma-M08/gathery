@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/load.css')}}">
         <link rel="stylesheet" href="{{asset('css/place/create.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <script src="{{asset('js/loading.js')}}"></script>
         <script src="{{asset('js/createApi.js')}}"　defer></script>
         <script src="https://maps.googleapis.com/maps/api/js?lang=ja&key={{ config('app.api_key') }}&libraries=places&callback=initMap" async defer></script>
@@ -20,21 +21,36 @@
                 <div class="circle circle-2"></div>
             </div>
         </div>
+        
+        <div class="header-bg">
+            <div class="top">
+                <h1 class="site-logo">
+                    <a href="{{ url('/') }}">Gathery</a>
+                </h1>
+            </div>
+        </div>
+        
         <div class="contents">
-            <h2 class=section-ttl>新規場所登録</h2>
+            <a class="back-btn" href="/places/search">
+                <i class="fa-solid fa-arrow-left"></i>検索ページに戻る
+            </a>
+            
+            <h2 class="section-ttl">新規場所登録</h2>
             
             <div class="search">
                 <div class="left-side">
                     <p>登録したい場所を入力してください</p>
-                    <input type="text" id="keyword">
-                    <button id="search">検索実行</button>
+                    <div class="flex">
+                        <input class="input" type="text" id="keyword">
+                        <button class="search-btn" id="search">検索実行</button>
+                    </div>
                     <p class="errors">{{ $errors->first('place.name') }}</p>
                     
                     <div id="map"></div>
-                    
                 </div>
                 
                 <div class="right-side">
+                    <h3>登録内容</h3>
                     <form action="/places" method="POST">
                         @csrf
                         <div class="place-contents">
@@ -44,7 +60,7 @@
                         
                         <div class="place-contents">
                             <p>カテゴリー:</p>
-                            <select id="category" name="place[category_id]">
+                            <select class="input" id="category" name="place[category_id]">
                                 <option value="">カテゴリーを選択してください</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -100,8 +116,6 @@
                     </form>
                 </div>
             </div>
-            
-            <a href="/places/search">戻る</a>
         </div>
     </body>
 </html>

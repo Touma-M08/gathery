@@ -15,18 +15,18 @@
             {{-- 検索内容表示 --}}
             <div class="search-word">
                 <div>
-                    @if (isset($key_name)) <p>場所:{{ $key_name }}</p> @endif
+                    @if (isset($key_name)) <p>場所:<span>{{ $key_name }}</span></p> @endif
                     
                     <div class="flex">
-                        @if (isset($pref)) <p>都道府県:{{ $pref->name }}</p> @endif
-                        @if (isset($key_city)) <p>市区町村:{{ $key_city }}</p> @endif
-                        @if (isset($cat)) <p>カテゴリー:{{ $cat->name }}</p> @endif
+                        @if (isset($pref)) <p>都道府県:<span>{{ $pref->name }}</span></p> @endif
+                        @if (isset($key_city)) <p>市区町村:<span>{{ $key_city }}</span></p> @endif
+                        @if (isset($cat)) <p>カテゴリー:<span>{{ $cat->name }}</span></p> @endif
                     </div>
                 </div>
                 
                 @auth
-                    <div class="create-btn">
-                        <a href="/places/create">場所の新規登録</a>
+                    <div class="create-btn-pos">
+                        <a class="link-btn" href="/places/create">場所の新規登録</a>
                     </div>
                 @endauth
             </div>
@@ -38,12 +38,12 @@
                     <div class="search-box">
                         <div>
                             <p>場所名</p>
-                            <input type="search" name="name">
+                            <input class="input" type="search" name="name">
                         </div>
                         
                         <div>
                             <p>都道府県</p>
-                            <select name="prefecture">
+                            <select class="input" name="prefecture">
                                 <option value="">都道府県を選択</option>
                                 @foreach ($prefectures as $prefecture)
                                     <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
@@ -53,12 +53,12 @@
                         
                         <div>
                             <p>市区町村</p>
-                            <input type="search" name="city">
+                            <input class="input" type="search" name="city">
                         </div>
                         
                         <div>
                             <p>カテゴリー</p>
-                            <select name="category">
+                            <select class="input" name="category">
                                 <option value="">カテゴリーを選択</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="btn-position">
-                        <input class="search-btn" type="submit" value="絞り込む"></input>
+                        <input class="link-btn" type="submit" value="絞り込む"></input>
                     </div>
                 </form>
             </div>
@@ -79,9 +79,11 @@
                 @else
                     @foreach ($places as $place)
                         <div class="place">
-                            <h2 class="title"><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h2>
-                            <p>{{ $place->category->name }}</p>
-                            <p><span>{{ $place->prefecture->name }}</span><span>{{ $place->address }}</span></p>
+                            <a class="card" href="/places/{{ $place->id }}">
+                                <h2 class="title">{{ $place->name }}</h2>
+                                <p>{{ $place->category->name }}</p>
+                                <p><span>{{ $place->prefecture->name }}</span><span>{{ $place->address }}</span></p>
+                            </a>
                         </div>
                     @endforeach
                 @endif

@@ -29,7 +29,7 @@
                                 :show-rating="false"
                                 ></star-rating>
                             </div>
-                            <p>{{ $review->comment }}</p>
+                            <pre>{{ $review->comment }}</pre>
                         </div>
                         
                         <div class="any-btn">

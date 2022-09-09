@@ -5,16 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Gathery</title>
+        <link rel="stylesheet" href="{{asset('css/place/ranking.css')}}">
     </head>
     <body>
         @extends("layouts/header")
         @section("content")
-        <h2>ランキング</h2>
-        @foreach ($places as $place)
-            <p>{{ $loop->iteration }}</p>
-            <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
-            <p>{{$place->prefecture->name }}{{ $place->address }}</p>
-        @endforeach
+        <div class="contents">
+            <h2 class="section-ttl">ランキング</h2>
+            
+            <div class="places">
+                @foreach ($places as $place)
+                    <div class="place">
+                        <div class="place-detail">
+                            <a class="card" href="/places/{{ $place->id }}">
+                                <p class="rank">{{ $loop->iteration }}</p>
+                                
+                                <div class="position">
+                                    <h3>{{ $place->name }}</h3>
+                                    <p>{{$place->prefecture->name }}{{ $place->address }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
         @endsection
     </body>
 </html>

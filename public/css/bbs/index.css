@@ -1,26 +1,50 @@
 .contents {
-    max-width: 1300px;
+    max-width: 800px;
     padding: 0 40px;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
-.places {
-    border: 1px solid #333;
-    padding: 20px;
-    margin-top: 10px;
+.rank {
+    font-size: 1.3rem;
 }
 
 .place {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #000;
 }
 
-.place + .place {
-    margin-top: 15px;
+.left-side {
+    width: 78%;
 }
 
-.want-btn {
-    margin-left: 20px;
-    padding: 5px 8px;
-    border: 2px solid rgb(118, 118, 118);
+.right-side {
+    display: flex;
+    align-items: center;
+}
+
+.place-name {
+    font-size: 1.25rem;
+    color: #1B47FF;
+}
+
+.place-name:hover {
+    color: #ff9101;
+}
+
+.border-btn {
+    color: #fff;
+    background-color: #020e7e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-bottom: 5px solid rgb(150, 150, 150);
+    transition: all 0.2s;
+}
+
+.border-btn:hover {
+    margin-top: 3px;
+    border-bottom: 2px solid rgb(150, 150, 150);
 }
