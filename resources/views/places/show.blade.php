@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{asset('css/header.css')}}">
         <link rel="stylesheet" href="{{asset('css/load.css')}}">
         <link rel="stylesheet" href="{{asset('css/place/show.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <script src="{{asset('js/loading.js')}}"></script>
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="{{asset('js/app.js')}}" defer></script>
@@ -96,6 +97,12 @@
         <input type="hidden" id="lat" value="{{ $place->lat }}">
         <input type="hidden" id="lng" value="{{ $place->lng }}">
         
+        <div class="back-btn">
+            <a class="back-btn-link" href="/">
+                <i class="fa-solid fa-arrow-left"></i>トップに戻る
+            </a>
+        </div>
+        
         <div id="star">
             <h2 class="title">
                 {{ $place->name }}
@@ -152,16 +159,20 @@
                         @if(empty($want))
                             <form method="POST" action="/wants/{{ $place->id }}">
                                 @csrf
-                                <input class="showpage-btn want" type="submit" name="want_show" value="行きたい！">
+                                <div class="btn-pos">
+                                    <input class="showpage-btn want" type="submit" name="want_show" value="行きたい！">
+                                </div>
                             </form>
                         @else
                             <div class="btn-list">
-                                <a class="showpage-btn bbs" href="/bbses/{{ $place->id }}">掲示板に移動する</a>
-                                <form method="POST" action="/wants/{{ $want->id }}/{{ $place->id }}">
-                                    @csrf
-                                    @method('delete')
-                                    <input class="showpage-btn cansel" type="submit" name="want_show" value="行きたい！解除">
-                                </form>
+                                <div class="btn-pos">
+                                    <a class="showpage-btn bbs" href="/bbses/{{ $place->id }}">掲示板に移動する</a>
+                                    <form method="POST" action="/wants/{{ $want->id }}/{{ $place->id }}">
+                                        @csrf
+                                        @method('delete')
+                                        <input class="showpage-btn cansel" type="submit" name="want_show" value="行きたい！解除">
+                                    </form>
+                                </div>
                             </div>
                         @endif
                     @else
@@ -214,10 +225,6 @@
                         {{ $reviews->links() }}
                     </div>
                 </div>
-            </div>
-            
-            <div class="footer">
-                <a href="/">戻る</a>
             </div>
         </div>
     </body>

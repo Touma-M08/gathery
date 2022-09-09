@@ -17,38 +17,42 @@
                 <div class="places">
                     @foreach ($wants as $want)
                         <div class="place">
-                            <a href="/bbses/{{ $want->place->id }}">
-                                <div>{{ $want->place->name }}</div>
+                            <div class="left-side">
+                                <h3 class="place-name">{{ $want->place->name }}</h3>
                                 <p>{{ $want->place->prefecture->name }}{{ $want->place->address }}</p>
-                            </a>
+                            </div>
+                            
+                            <div class="right-side">
+                                <a class="border-btn" href="/bbses/{{ $want->place->id }}">
+                                    掲示板に移動
+                                </a>
+                            </div>
                         </div>
                     @endforeach
                 </div>
             @else
                 <p>行きたい！登録をすると掲示板が利用可能になります</p>
-                <h3>レビューランキングTOP5</h3>
+                <h3 class="rank">レビューランキングTOP5</h3>
                 <div class="places">
                     @foreach ($places as $place)
                         <div class="place">
-                            <div>
-                                <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
+                            <div class="left-side">
+                                <h3><a class="place-name" href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
                             
                                 <p class="place-address">{{$place->prefecture->name }}{{ $place->address }}</p>
                             </div>
                             
-                            @auth
-                                <form method="POST" action="/wants/{{ $place->id }}">
-                                    @csrf
-                                    <input class="want-btn" type="submit" name="want_bbs" value="行きたい！">
-                                </form>
-                                
-                            @else
-                                <form method="POST" action="/wants/{{ $place->id }}">
-                                    @csrf
-                                    <input class="want-btn" type="submit" value="行きたい！" disabled>
-                                </form>
-                                <p class="description">※ログイン後に行きたい！登録が可能になります</p>
-                            @endauth
+                            <div class="right-side">
+                                @auth
+                                    <form method="POST" action="/wants/{{ $place->id }}">
+                                        @csrf
+                                        <input class="want-btn border-btn" type="submit" name="want_bbs" value="行きたい！">
+                                    </form>
+                                    
+                                @else
+                                    <a href="/login" class="want-btn border-btn">行きたい！</a>
+                                @endauth
+                            </div>
                         </div>
                     @endforeach
                 </div>

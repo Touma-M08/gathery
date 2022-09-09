@@ -1,3 +1,16 @@
+.back-btn {
+    margin: 20px 0 0 20px;
+}
+
+.back-btn-link {
+    height: 40px;
+    text-decoration: none;
+    background-color: #a1a1a1;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #fff;
+}
+
 #star {
     padding: 20px;
 }
@@ -49,24 +62,40 @@
     margin-top: 0;
 }
 
-.showpage-btn {
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 15px;
+.btn-pos {
     margin-top: 15px;
+}
+
+.showpage-btn {
+    color: #fff;
+    background-color: #020e7e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-bottom: 5px solid rgb(150, 150, 150);
+    transition: all 0.2s;
+}
+
+.showpage-btn:hover {
+    margin-top: 3px;
+    border-bottom: 2px solid rgb(150, 150, 150);
 }
 
 .showpage-btn.want {
     margin-left: 80px;
 }
 
-.btn-list {
+.btn-list .btn-pos {
     display: flex;
     margin-left: 15px;
 }
 
+.showpage-btn.bbs {
+    display: block;
+}
+
 .showpage-btn.cansel {
     margin-left: 20px;
+    background-color: #ca0000;
 }
 
 .description {
