@@ -215,7 +215,7 @@
                             
                             <p>{{ $review->title }}</p>
                             
-                            <p class="comment">{{ $review->comment }}</p>
+                            <pre class="comment">{{ $review->comment }}</pre>
                             
                             <p>{{ $review->updated_at->format('Y/m/d') }}</p>
                         </div>

@@ -257,7 +257,7 @@
                         </div>
                     </div>
                     
-                    <a class="more-ranking" href="/places/ranking">おすすめスポットをもっと見る</a>
+                    <a class="more-ranking" href="/places/ranking?page=1">おすすめスポットをもっと見る</a>
                 </section>
             </aside>
         </div>

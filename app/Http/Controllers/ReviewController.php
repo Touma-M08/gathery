@@ -41,7 +41,7 @@ class ReviewController extends Controller
     
     public function index(Review $review)
     {
-        return view('mypage/index')->with(['reviews' => $review->where('user_id', Auth::user()->id)->paginate(10)]);
+        return view('mypage/index')->with(['reviews' => $review->getByMyReview()]);
     }
     
     public function edit(Review $review)

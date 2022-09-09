@@ -42,6 +42,10 @@
                         </div>
                     </div>
                 @endforeach
+                
+                <div class="paginate">
+                    {{ $reviews->links() }}
+                </div>
             </dev>
         </section>
         @endsection

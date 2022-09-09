@@ -14,7 +14,7 @@ class Place extends Model
     
     public function ranking(int $get_count)
     {
-        return $this->orderBy('score', 'desc')->take($get_count)->get();
+        return $this->orderBy('score', 'desc')->paginate($get_count);
     }
     
     public function prefecture() 

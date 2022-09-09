@@ -14,6 +14,11 @@ class Review extends Model
         'place_id', 'user_id', 'title', 'comment', 'score'
     ];
     
+    public function getPlaceReview($place)
+    {
+        return $this::with('place')->where('place_id', $place->id)->orderBy('created_at', 'desc')->paginate(5);
+    }
+    
     public function getReview(int $limit_count = 5)
     {
         return $this->orderBy('created_at', 'desc')->paginate($limit_count);
@@ -22,6 +27,11 @@ class Review extends Model
     public function searchReview($place)
     {
         return $this->where([['user_id', Auth::user()->id],['place_id', $place->id]])->first();
+    }
+    
+    public function getByMyReview()
+    {
+        return $this->where('user_id', Auth::user()->id)->paginate(10);
     }
     
     public function user()
