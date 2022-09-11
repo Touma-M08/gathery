@@ -36,4 +36,17 @@
 }
 
 
-
+/*sp用*/
+@media screen and (max-width: 1159px) {
+    .place {
+        flex-direction: column;
+    }
+    
+    .place-detail {
+        text-align: center;
+    }
+    
+    .any-btn {
+        margin-top: 10px;
+    }
+}

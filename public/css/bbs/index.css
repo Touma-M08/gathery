@@ -48,3 +48,23 @@
     margin-top: 3px;
     border-bottom: 2px solid rgb(150, 150, 150);
 }
+
+
+/*sp用*/
+@media screen and (max-width: 1159px) {
+    .contents {
+        margin-top: 90px;
+    }
+    
+    .place {
+        flex-direction: column;
+    }
+    
+    .left-side {
+        width: 100%;
+    }
+    
+    .right-side {
+        margin-top: 10px;
+    }
+}

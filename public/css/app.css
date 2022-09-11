@@ -68,6 +68,8 @@ li {
     border: 2px solid rgb(118, 118, 118);
     background-color: #fff;
     padding: 5px;
+    max-width: 300px;
+    width: 90%;
 }
 
 .card {
@@ -115,4 +117,173 @@ li {
   background-color: #020e7e;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.age-select {
+    display: none;
+}
+
+.age-selectbox {
+    -webkit-appearance: listbox;
+    border: 2px solid rgb(118, 118, 118);
+    background-color: #fff;
+    padding: 5px;
+    max-width: 300px;
+    width: 90%;
+}
+
+/*sp用*/
+.sp-header {
+    display: none;
+}
+
+.hamburger {
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 30;
+    transition: 0.3s;
+}
+
+.hamburger span {
+    background-color: #fff;
+    width: 35px;
+    height: 2px;
+    position: absolute;
+    left: 21px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 26px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 37px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 48px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg);
+    top: 37px;
+    left: 21px;
+}
+
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg);
+    top: 37px;
+}
+
+.sp-header-nav {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 100vw;
+    height: 0;
+    background-color: #fff;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.sp-header-list {
+    position: fixed;
+    color: #000;
+    top: 100px;
+    padding: 30px;
+    right: -300px;
+    transition: all 0.3s;
+    text-align: right;
+}
+
+.sp-header-list li + li {
+    margin-top: 10px;
+}
+
+.sp-header-link {
+    color: #000;
+    font-weight: bold;
+}
+
+.sp-header-nav.active {
+    opacity: 0.95;
+    z-index: 20;
+    height: 100%;
+}
+
+.sp-header-nav.active .sp-header-list {
+    right: 10px;
+}
+
+@media screen and (max-width: 1159px) {
+    .contents {
+        z-index: 1;
+    }
+    
+    .login-logout, .header-nav {
+        display: none;
+    }
+    
+    .header-bg {
+        padding: 0 5px;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .sp-header {
+        display: block;
+    }
+    
+    .container {
+        margin-top: 75px;
+    }
+    
+    .card-body {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .form-group.row {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .text-md-right {
+        width: auto;
+    }
+    
+    .col-md-6 {
+        width: 100%;
+    }
+    
+    .offset-md-4 {
+        margin-left: 0;
+    }
+    
+    .input-image {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .btn-primary {
+        display: block;
+        margin: 0 auto 20px;
+    }
+    
+    .age-checkbox {
+        display: none;
+    }
+    
+    .age-select {
+        display: block;
+    }
+    
+    
 }

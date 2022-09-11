@@ -61,7 +61,17 @@
 }
 
 .paginate {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li + li {
+    margin-left: 10px;
 }
 
 .comment-space {
@@ -91,4 +101,21 @@
     display: inline;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/*sp用*/
+@media screen and (max-width: 1159px) {
+    .contents {
+        margin-top: 90px;
+    }
+    
+    .flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .delete-btn {
+        margin: 10px 0 0 auto;
+    }
 }

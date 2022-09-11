@@ -25,6 +25,12 @@ aside {
 
 .profile, .ranking, .name, .area, .category {
     box-shadow: inset 6px 6px 15px rgb(150, 150, 150);
+    position: relative;
+}
+
+.pos {
+    position: absolute;
+    top: -110px;
 }
 
 .profile:hover, .ranking:hover, .name:hover, .area:hover, .category:hover {
@@ -349,7 +355,7 @@ section + section {
 
 .ranking-head {
     font-size: 1.25rem;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     transition: 0.5s;
 }
 
@@ -357,33 +363,23 @@ section + section {
     transform: scale(1.15);
 }
 
-.ranking-content {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.ranking-num div {
-    width: 30px;
-}
-
-.ranking-num div img {
-    width: 100%;
-}
-
-.ranking-num div + div {
-    margin-top: 110px;
-}
-
 .places {
     font-size: 0.8rem;
     text-align: center;
-    padding-left: 10px;
-    width: 350px;
+    margin-top: 20px;
 }
 
-.place + .place {
-    margin-top: 50px;
+.ranking-num {
+    width: 30px;
+    margin: 0 auto;
+}
+
+.ranking-num img {
+    width: 100%;
+}
+
+.place {
+    margin-bottom: 30px;
 }
 
 .place h3 {
@@ -414,4 +410,100 @@ section + section {
 
 .more-ranking:hover {
     color: #ff9101;
+}
+
+
+/*sp用*/
+.sp-map {
+    display: none;
+}
+
+.sp-category-list {
+    display: none;
+}
+
+@media screen and (max-width: 1159px) {
+    .contents {
+        margin-top: 120px;
+        padding: 0 20px;
+        flex-direction: column;
+    }
+    
+    main, aside {
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .profile, .ranking, .name, .area, .category {
+        box-shadow: 8px 8px 20px rgb(150, 150, 150);
+    }
+    
+    .name, .area, .category {
+        border-radius: 20px;
+        padding: 20px 10px;
+    }
+    
+    .section-ttl {
+        color: #fff; 
+        background-color: #020e7e;
+        margin: 0 0 10px;
+    }
+    
+    .search-text {
+        margin-left: 0;
+        flex-direction: column;
+    }
+    
+    .search {
+        width: 90%;
+        max-width: 300px;
+        padding: 5px;
+        border: 2px solid rgb(180, 180, 180);
+        box-sizing: border-box;
+        margin: 20px auto 10px;
+    }
+    
+    .search-btn {
+        margin: 20px auto 0;
+        padding: 6px 10px;
+        width: 80px;
+        display: inline-block;
+        border: none;
+    }
+    
+    .map {
+        display: none;
+    }
+    
+    .sp-map {
+        display: block;
+        text-align: center;
+    }
+    
+    .select-box {
+        width: 90%;
+        max-width: 300px;
+        padding: 5px;
+        display: block;
+        margin: 30px auto 10px;
+        -webkit-appearance: listbox;
+        border: 2px solid rgb(180, 180, 180);
+    }
+    
+    .category-list {
+        display: none;
+    }
+    
+    .category-frame {
+        max-width: 100%;
+    }
+    
+    .sp-category-list {
+        display: block;
+        text-align: center;
+    }
+    
+    .profile {
+        display: none;
+    }
 }

@@ -17,7 +17,7 @@
                 
             <div class="wrap">
                 <div class="register-form">
-                    <button class="schedule-btn" id="toggle-btn" onclick="toggle()">閉じる</button>
+                    <button class="schedule-btn" id="toggle-btn" onclick="toggleSche()">閉じる</button>
                     <div id="register" class="show">
                         <form method="post" action="/schedule">
                             @csrf

@@ -14,6 +14,7 @@
         <script src="{{asset('js/loading.js')}}"></script>
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="{{asset('js/app.js')}}" defer></script>
+        <script src="{{asset('js/sp.js')}}" defer></script>
         <script src="https://maps.googleapis.com/maps/api/js?lang=ja&key={{ config('app.api_key') }}&libraries=places&callback=initMap" async defer></script>
     </head>
     <body>
@@ -51,6 +52,79 @@
                             @csrf
                         </form>
                     @endguest
+                </div>
+                
+                <div class="sp-header">
+                    <div id="hamburger" class="hamburger" onclick="toggle()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    
+                    <nav id="nav" class="sp-header-nav">
+                        <ul class="sp-header-list __normal">
+                            <div class="header-profile">
+                                @auth
+                                    <div class="header-icon-img-box">
+                                        @if (empty(Auth::user()->image))
+                                            <img src="/img/image.png">
+                                        @else
+                                            <img src="{{ Auth::user()->image }}">
+                                        @endif
+                                    </div>
+                                    <p class="header-user-name">{{ Auth::user()->name }}</p>
+                                @else
+                                    <div class="header-icon-img-box">
+                                        <img src="img/image.png">
+                                    </div>
+                                    <p class="header-user-name">ゲスト</p>
+                                @endauth
+                            </div>
+                            
+                            @guest
+                                <li>
+                                    <a class="sp-header-link" href="{{ route('login') }}">ログイン</a>
+                                </li>
+                                
+                                @if (Route::has('register'))
+                                    <li>
+                                        <a class="sp-header-link" href="{{ route('register') }}">新規登録</a>
+                                    </li>
+                                @endif
+                                
+                            @else
+                                <li>
+                                    <a class="sp-header-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        ログアウト
+                                    </a>
+                                </li>
+                            @endguest
+                            
+                            <li>
+                                <a class="sp-header-link" href="/#name-pos" onclick="toggle()">名称で探す</a>
+                            </li>
+                                    
+                            <li>
+                                <a class="sp-header-link" href="/#area-pos" onclick="toggle()">エリアから探す</a>
+                            </li>
+                                    
+                            <li>
+                                <a class="sp-header-link" href="/#category-pos" onclick="toggle()">カテゴリーから探す</a>
+                            </li>
+                                    
+                            <li>
+                                <a class="sp-header-link" href="/places/ranking?page=1" onclick="toggle()">ランキング</a>
+                            </li>
+                            
+                            <li>
+                                <a class="sp-header-link" href="/bbses" onclick="toggle()">掲示板</a>
+                            </li>
+                            
+                            <li>
+                                <a class="sp-header-link" href="/mypage/wants" onclick="toggle()">マイページ</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

@@ -16,6 +16,8 @@
         <div class="contents">
             <main>
                 <section class="name" id="name">
+                    <div id="name-pos" class="pos"> </div>
+                    
                     <p class="section-ttl">名称で探す</p>
                     <form class="search-text" method="get" action="/places/search">
                         <input class="search" type="search" name="name"/>
@@ -24,6 +26,8 @@
                 </section>
                 
                 <section class="area" id="area">
+                    <div id="area-pos" class="pos"> </div>
+                    
                     <p class="section-ttl">エリアから探す</p>
                     
                     <div class="map">
@@ -160,9 +164,24 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="sp-map">
+                        <form method="get" action="/places/search">
+                            <select class="select-box" name="prefecture">
+                                <option value="">都道府県を選択してください</option>
+                                @foreach ( $prefectures as $prefecture )
+                                    <option value={{ $prefecture->id }}>{{ $prefecture->name }}</option>
+                                @endforeach
+                            </select>
+                            
+                            <input class="search-btn" type="submit" value="検索"/>
+                        </form>
+                    </div>
                 </section>
                 
                 <section class="category" id="category">
+                    <div id="category-pos" class="pos"> </div>
+                    
                     <p class="section-ttl">カテゴリから探す</p>
                     
                     <div class="category-frame">
@@ -181,6 +200,22 @@
                                 @endforeach
                             </ul>
                             
+                            <div class="sp-category-list">
+                                <form method="get" action="/places/search">
+                                    <select class="select-box" name="category">
+                                        <option value="">カテゴリーを選択してください</option>
+                                        
+                                        @foreach ($categories as $category)
+                                            @if ($category->id >= 1 && $category->id <= 19)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    
+                                    <input class="search-btn" type="submit" value="検索"/>
+                                </form>
+                            </div>
+                            
                             <p class="category-ttl">レジャー施設</p>
                             <ul class="category-list">
                                 @foreach ($categories as $category) 
@@ -194,6 +229,22 @@
                                     @endif
                                 @endforeach
                             </ul>
+                            
+                            <div class="sp-category-list">
+                                <form method="get" action="/places/search">
+                                    <select class="select-box" name="category">
+                                        <option value="">カテゴリーを選択してください</option>
+                                        
+                                        @foreach ($categories as $category)
+                                            @if ($category->id >= 20 && $category->id <= 28)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    
+                                    <input class="search-btn" type="submit" value="検索"/>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -226,37 +277,28 @@
                 
                 <section class="ranking" id="star">
                     <h2 class="ranking-head">おすすめスポットTOP3</h2>
-                    <div class="ranking-content">
-                        <div class="ranking-num">
-                            <div>
-                                <img src="/img/no1.png">
+                
+                    <div class="places">
+                        @foreach ($places as $place)
+                            <div class="ranking-num">
+                                <img src="/img/no{{ $loop->iteration }}.png">
                             </div>
-                            <div>
-                                <img src="/img/no2.png">
-                            </div>
-                            <div>
-                                <img src="/img/no3.png">
-                            </div>
-                        </div>
-                        
-                        <div class="places">
-                            @foreach ($places as $place)
-                                <div class="place">
-                                    <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
-                                    <div>
-                                        <star-rating 
-                                        v-bind:increment="1"
-                                        v-bind:star-size="25"
-                                        :rating="{{ $place->score }}"
-                                        :read-only="true"
-                                        ></star-rating>
-                                    </div>
-                                    <p class="place-address">{{$place->prefecture->name }}{{ $place->address }}</p>
+                            
+                            <div class="place">
+                                <h3><a href="/places/{{ $place->id }}">{{ $place->name }}</a></h3>
+                                <div>
+                                    <star-rating 
+                                    v-bind:increment="1"
+                                    v-bind:star-size="25"
+                                    :rating="{{ $place->score }}"
+                                    :read-only="true"
+                                    ></star-rating>
                                 </div>
-                            @endforeach
-                        </div>
+                                <p class="place-address">{{$place->prefecture->name }}{{ $place->address }}</p>
+                            </div>
+                        @endforeach
                     </div>
-                    
+                
                     <a class="more-ranking" href="/places/ranking?page=1">おすすめスポットをもっと見る</a>
                 </section>
             </aside>

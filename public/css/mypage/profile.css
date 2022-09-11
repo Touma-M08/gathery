@@ -6,6 +6,7 @@
     background-color: #fff;
     padding: 15px;
     font-weight: bold;
+    z-index: 100;
 }
 
 .setting {
@@ -39,6 +40,8 @@
 }
 
 .input {
+    width: 100%;
+    max-width: 230px;
     padding: 5px 5px;
     border: 2px solid rgb(118, 118, 118);
     background-color: #fff;
@@ -46,4 +49,29 @@
 
 .image {
     border: none !important;
+    max-width: 100%;
+}
+
+
+/*sp用*/
+.age-select {
+    display: none;
+}
+
+.age-selectbox {
+    border: 2px solid rgb(118, 118, 118);
+    -webkit-appearance: listbox;
+    width: 100%;
+    max-width: 230px;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 1159px) {
+    .age-radio {
+        display: none;
+    }
+    
+    .age-select {
+        display: block;
+    }
 }

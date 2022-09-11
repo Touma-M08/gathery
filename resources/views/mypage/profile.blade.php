@@ -7,6 +7,7 @@
         <title>Gathery</title>
         
         <link rel="stylesheet" href="{{asset('css/mypage/profile.css')}}">
+        <script src="{{asset('js/ageSet.js')}}" defer></script>
     </head>
     <body>
         @extends("layouts/mypageFrame")
@@ -34,15 +35,29 @@
                     <p>{{ $errors->first('user.name') }}</p>
                 	
                 	<p class="item-name">年齢</p>
-                	@for ($i = 1; $i <= 9; $i += 1)
-                	    @if ($i == Auth::user()->age)
-                            <input id="age-{{ $i }}" type="radio" name="user[age]" value="{{ $i }}" checked>
-                            <label for="age-{{ $i }}">{{ $i }}0代</label>
-                        @else
-                            <input id="age-{{ $i }}" type="radio" name="user[age]" value="{{ $i }}">
-                            <label for="age-{{ $i }}">{{ $i }}0代</label>
-                        @endif
-                    @endfor
+                	<div class="age-radio">
+                	    @for ($i = 1; $i <= 9; $i += 1)
+                    	    @if ($i == Auth::user()->age)
+                                <input class="age-num" id="age-{{ $i }}" type="radio" name="user[age]" value="{{ $i }}" checked>
+                                <label for="age-{{ $i }}">{{ $i }}0代</label>
+                            @else
+                                <input class="age-num" id="age-{{ $i }}" type="radio" name="user[age]" value="{{ $i }}">
+                                <label for="age-{{ $i }}">{{ $i }}0代</label>
+                            @endif
+                        @endfor
+                    </div>
+                    
+                    <div class="age-select">
+                        <select name="user[age]" class="age-selectbox" id="age-select">
+                            @for ($i = 1; $i <= 9; $i += 1)
+                                @if ($i == Auth::user()->age)
+                                    <option value="{{ $i }}" selected>{{ $i }}0代</option>
+                                @else
+                                    <option value="{{ $i }}">{{ $i }}0代</option>
+                                @endif
+                            @endfor
+                        </select>
+                    </div>
                     <p>{{ $errors->first('user.age') }}</p>
                     
                     <p class="item-name">性別</p>

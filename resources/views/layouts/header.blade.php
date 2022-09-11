@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/header.css')}}">
     <link rel="stylesheet" href="{{asset('css/load.css')}}">
     <script src="{{asset('js/loading.js')}}"></script>
+    <script src="{{asset('js/sp.js')}}" defer></script>
 </head>
 <body>
     <div id="loading">
@@ -49,6 +50,134 @@
                         @csrf
                     </form>
                 @endguest
+            </div>
+            
+            <div class="sp-header">
+                <div id="hamburger" class="hamburger" onclick="toggle()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <nav id="nav" class="sp-header-nav">
+                    <ul class="sp-header-list __normal">
+                        <div class="header-profile">
+                            @auth
+                                <div class="header-icon-img-box">
+                                    @if (empty(Auth::user()->image))
+                                        <img src="/img/image.png">
+                                    @else
+                                        <img src="{{ Auth::user()->image }}">
+                                    @endif
+                                </div>
+                                <p class="header-user-name">{{ Auth::user()->name }}</p>
+                            @else
+                                <div class="header-icon-img-box">
+                                    <img src="img/image.png">
+                                </div>
+                                <p class="header-user-name">ゲスト</p>
+                            @endauth
+                        </div>
+                        
+                        @guest
+                            <li>
+                                <a class="sp-header-link" href="{{ route('login') }}">ログイン</a>
+                            </li>
+                            
+                            @if (Route::has('register'))
+                                <li>
+                                    <a class="sp-header-link" href="{{ route('register') }}">新規登録</a>
+                                </li>
+                            @endif
+                            
+                        @else
+                            <li>
+                                <a class="sp-header-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    ログアウト
+                                </a>
+                            </li>
+                        @endguest
+                        
+                        <li>
+                            <a class="sp-header-link" href="/#name-pos" onclick="toggle()">名称で探す</a>
+                        </li>
+                                
+                        <li>
+                            <a class="sp-header-link" href="/#area-pos" onclick="toggle()">エリアから探す</a>
+                        </li>
+                                
+                        <li>
+                            <a class="sp-header-link" href="/#category-pos" onclick="toggle()">カテゴリーから探す</a>
+                        </li>
+                                
+                        <li>
+                            <a class="sp-header-link" href="/places/ranking?page=1" onclick="toggle()">ランキング</a>
+                        </li>
+                        
+                        <li>
+                            <a class="sp-header-link" href="/bbses" onclick="toggle()">掲示板</a>
+                        </li>
+                        
+                        <li>
+                            <a class="sp-header-link" href="/mypage/wants" onclick="toggle()">マイページ</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="sp-header-list __mypage">
+                        <div class="header-profile">
+                            @auth
+                                <div class="header-icon-img-box">
+                                    @if (empty(Auth::user()->image))
+                                        <img src="/img/image.png">
+                                    @else
+                                        <img src="{{ Auth::user()->image }}">
+                                    @endif
+                                </div>
+                                <p class="header-user-name">{{ Auth::user()->name }}</p>
+                            @else
+                                <div class="header-icon-img-box">
+                                    <img src="img/image.png">
+                                </div>
+                                <p class="header-user-name">ゲスト</p>
+                            @endauth
+                        </div>
+                        
+                        @guest
+                            <li>
+                                <a class="sp-header-link" href="{{ route('login') }}">ログイン</a>
+                            </li>
+                            
+                            @if (Route::has('register'))
+                                <li>
+                                    <a class="sp-header-link" href="{{ route('register') }}">新規登録</a>
+                                </li>
+                            @endif
+                            
+                        @else
+                            <li>
+                                <a class="sp-header-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    ログアウト
+                                </a>
+                            </li>
+                        @endguest
+                        
+                        <li>
+                            <a class="sp-header-link" href="/">トップに戻る</a>
+                        </li>
+                        <li>
+                            <a class="sp-header-link" href="/mypage/wants">行きたい！一覧</a>
+                        </li>
+                        <li>
+                            <a class="sp-header-link" href="/mypage/reviews">レビュー一覧</a>
+                        </li>
+                        <li>
+                            <a class="sp-header-link" href="/mypage/schedule?page=1">予定登録</a>
+                        </li>
+                        <li>
+                            <a class="sp-header-link" href="/mypage/setting">設定</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

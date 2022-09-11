@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{asset('js/loading.js')}}"></script>
+    <script src="{{asset('js/sp.js')}}" defer></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
@@ -53,6 +54,37 @@
                         @csrf
                     </form>
                 @endguest
+            </div>
+            
+                        <div class="sp-header">
+                <div id="hamburger" class="hamburger" onclick="toggle()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <nav id="nav" class="sp-header-nav">
+                    <ul class="sp-header-list">
+                        @guest
+                            <li>
+                                <a class="sp-header-link" href="{{ route('login') }}">ログイン</a>
+                            </li>
+                            
+                            @if (Route::has('register'))
+                                <li>
+                                    <a class="sp-header-link" href="{{ route('register') }}">新規登録</a>
+                                </li>
+                            @endif
+                            
+                        @else
+                            <li>
+                                <a class="sp-header-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    ログアウト
+                                </a>
+                            </li>
+                        @endguest
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
