@@ -35,7 +35,7 @@ document.getElementById('date').min = minDay;
 const register = document.getElementById('register');
 const btnText = document.getElementById('toggle-btn');
 
-function toggle() {
+function toggleSche() {
     register.classList.toggle('show');
     
     if (btnText.innerHTML == "予定を登録する") {

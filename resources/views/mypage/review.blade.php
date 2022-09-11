@@ -32,7 +32,8 @@
                     　@rating-selected ="setRating"
                     　v-bind:increment="1"
                       v-bind:star-size="50"
-                      :show-rating="false"></star-rating>
+                      :show-rating="false"
+                      id="star-rate"></star-rating>
                     　<input type="hidden" :value="this.rating" name="review[score]">
                     </div>
                     <p>{{ $errors->first('review.score') }}</p>

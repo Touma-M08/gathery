@@ -99,3 +99,141 @@ li {
 .bar {
     font-size: 1rem;
 }
+
+/*sp用*/
+.sp-header {
+    display: none;
+}
+
+.hamburger {
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 200;
+    transition: 0.3s;
+}
+
+.hamburger span {
+    background-color: #fff;
+    width: 35px;
+    height: 2px;
+    position: absolute;
+    left: 21px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 26px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 37px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 48px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg);
+    top: 37px;
+    left: 21px;
+}
+
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg);
+    top: 37px;
+}
+
+.sp-header-nav {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 100vw;
+    height: 0;
+    background-color: #fff;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.sp-header-list {
+    position: fixed;
+    color: #000;
+    top: 80px;
+    padding: 30px;
+    right: -300px;
+    transition: all 0.3s;
+    text-align: right;
+}
+
+.header-profile {
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.header-icon-img-box {
+    width: 70px;
+    margin: 0 0 0 auto;
+}
+
+.header-icon-img-box img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.header-user-name {
+    display: inline-block;
+    font-weight: bold;
+    background-color: #020e7e;
+    color: #fff;
+    padding: 3px 12px;
+}
+
+.sp-header-list li + li {
+    margin-top: 10px;
+}
+
+.sp-header-link {
+    color: #000;
+    font-weight: bold;
+}
+
+.sp-header-nav.active {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 20;
+    height: 100%;
+}
+
+.sp-header-nav.active .sp-header-list {
+    right: 10px;
+}
+
+.sp-header-list.__mypage {
+    display: none;
+}
+
+@media screen and (max-width: 1159px) {
+    .contents {
+        z-index: 1;
+    }
+    
+    .login-logout, .header-nav {
+        display: none;
+    }
+    
+    .header-bg {
+        padding: 0 5px;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .sp-header {
+        display: block;
+    }
+}

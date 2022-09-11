@@ -97,3 +97,19 @@
 .pagination li + li {
     margin-left: 10px;
 }
+
+
+/*sp用*/
+@media screen and (max-width: 1159px) {
+    .contents {
+        margin-top: 80px;
+    }
+    
+    .places {
+        flex-direction: column;
+    }
+    
+    .place {
+        width: 100%;
+    }
+}

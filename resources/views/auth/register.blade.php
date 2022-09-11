@@ -1,3 +1,7 @@
+<head>
+    <script src="{{asset('js/ageSet.js')}}" defer></script>
+</head>
+<body>
 @extends('layouts.app')
 
 @section('content')
@@ -28,12 +32,23 @@
                         <div class="form-group row border">
                             <label for="age" class="col-md-4 col-form-label text-md-right">年齢</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 age-checkbox">
                                 @for ($i = 1; $i <= 9; $i += 1)
-                                    <input id="age-{{ $i }}" type="radio" name="age" value="{{ $i }}"><label for="age-{{ $i }}">{{ $i }}0代</label>
+                                    <input class="age-num" id="age-{{ $i }}" type="radio" name="age" value="{{ $i }}"><label for="age-{{ $i }}">{{ $i }}0代</label>
                                 @endfor
                                 
                                 <p class="errors">{{ $errors->first('age') }}</p>
+                            </div>
+                            
+                            <div class="col-md-6 age-select">
+                                <select name="age" class="age-selectbox" id="age-select">
+                                    <option value="">年齢を選択</option>
+                                    @for ($i = 1; $i <= 9; $i += 1)
+                                        <option value="{{ $i }}">{{ $i }}0代</option>
+                                    @endfor
+                                </select>
+                                
+                                 <p class="errors">{{ $errors->first('age') }}</p>
                             </div>
                         </div>
                         
@@ -45,7 +60,7 @@
                                 <input id="female" type="radio" name="sex" value="1"><label for="female">女性</label>
                                 <input id="other" type="radio" name="sex" value="2"><label for="other">その他</label>
                             </div>
-                            </br>
+                            
                             <p class="errors">{{ $errors->first('sex') }}</p>
                         </div>
 
@@ -90,7 +105,7 @@
 
                             <div class="col-md-6">
                                 <!-- アップロードフォームの作成 -->
-                                <input type="file" name="image">
+                                <input type="file" name="image" class="input-image">
                             </div>
                         </div>
 
@@ -108,3 +123,4 @@
     </div>
 </div>
 @endsection
+</body>

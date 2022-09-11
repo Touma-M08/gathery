@@ -113,3 +113,27 @@
 .pagination li + li {
     margin-left: 10px;
 }
+
+/*sp用*/
+@media screen and (max-width: 1159px) {
+    .contents {
+        margin-top: 100px;
+        flex-direction: column;
+    }
+    
+    .profile {
+        display: none;
+    }
+    
+    .main-content {
+        width: 100%;
+    }
+    
+    .sp-header-list.__normal {
+        display: none;
+    }
+    
+    .sp-header-list.__mypage {
+        display: block !important;
+    }
+}

@@ -14,7 +14,8 @@
 .input {
     border: 2px solid rgb(118, 118, 118);
     padding: 5px 5px;
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     background-color: #fff;
 }
 
@@ -24,4 +25,12 @@ textarea {
 
 .btn-pos {
     padding-top: 10px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .vue-star-rating-star {
+        width: 35px;
+    }
 }

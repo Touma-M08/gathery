@@ -53,6 +53,8 @@
     padding: 0.4rem;
     box-sizing: border-box;
     background-color: #fff;
+    max-width: 230px;
+    width: 100%;
 }
 
 
@@ -132,4 +134,56 @@
 
 .pagination li + li {
     margin-left: 10px;
+}
+
+
+/*sp用*/
+.search-word.__sp, .search.__sp {
+    display: none;
+}
+
+@media screen and (max-width: 1159px) {
+    .contents {
+        margin-top: 100px;
+    }
+    
+    .search-word.__normal, .search.__normal {
+        display: none;
+    }
+    
+    .search-word.__sp, .search.__sp {
+        display: block;
+    }
+    
+    .search-box {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .search-box div {
+        margin-bottom: 20px;
+        width: 45%;
+        text-align: center;
+    }
+    
+    .search-box div + div {
+        margin-left: 0;
+    }
+    
+    .btn-position {
+        margin-top: 0;
+    }
+    
+    .places {
+        flex-direction: column;
+    }
+    
+    .place {
+        width: 100%;
+        box-shadow: 8px 8px 20px rgb(150, 150, 150);
+    }
+    
+    .place:nth-of-type(2n) {
+        margin-left: 0;
+    }
 }

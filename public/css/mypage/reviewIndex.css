@@ -1,5 +1,7 @@
 pre {
     font-family: "meiryo" !important;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .place {
@@ -13,6 +15,7 @@ pre {
 
 .place-detail {
     max-width: 530px;
+    padding: 0 5px;
 }
 
 .place-detail h3 a {
@@ -33,4 +36,24 @@ pre {
 
 .link-btn.__edit {
     margin-right: 10px;
+}
+
+
+/*sp用*/
+@media screen and (max-width: 1159px) {
+    .place {
+        flex-direction: column;
+    }
+    
+    .place-detail {
+        width: 100%;
+    }
+    
+    .place h3 {
+        text-align: center;
+    }
+    
+    .any-btn {
+        margin-top: 10px;
+    }
 }
