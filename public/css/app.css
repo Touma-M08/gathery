@@ -35,6 +35,7 @@ li {
     padding: 10px;
     background-color: #020e7e;
     color: #fff;
+    text-decoration: underline;
 }
 
 .login-logout {

@@ -134,6 +134,7 @@ section + section {
     border-radius: 10px;
     text-align: center;
     position: absolute;
+    cursor: pointer;
 }
 
 .region-btn a {
@@ -289,6 +290,7 @@ section + section {
     padding: 5px;
     transition: 0.3s;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .category-item:hover {
@@ -299,7 +301,7 @@ section + section {
     color: #1B47FF;
 }
 
-.category-name:hover {
+.category-item:hover .category-name {
     color: #ff9101;
 }
 
