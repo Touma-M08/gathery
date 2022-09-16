@@ -173,7 +173,11 @@
         
         <div class="back-btn">
             <a class="back-btn-link" href="/">
-                <i class="fa-solid fa-arrow-left"></i>トップに戻る
+                <i class="fa-solid fa-arrow-left"></i>トップに移動
+            </a>
+            
+            <a class="back-btn-link" href="/places/search">
+                <i class="fa-solid fa-arrow-left"></i>検索ページに移動
             </a>
         </div>
         

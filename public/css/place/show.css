@@ -17,6 +17,10 @@ pre {
     color: #fff;
 }
 
+.back-btn a + a {
+    margin-left: 15px;
+}
+
 #star {
     padding: 20px;
 }

@@ -39,6 +39,11 @@ function initMap() {
   
   //検索実行
   document.getElementById('search').addEventListener('click', function() {
+    
+    const errors = document.getElementsByClassName("errors");
+    errors[0].innerHTML = "";
+    errors[1].innerHTML = "";
+  
 
     var place = document.getElementById('keyword').value;
     
@@ -81,11 +86,11 @@ function initMap() {
           
           var region = document.getElementsByClassName('region');
           document.getElementById('region').value=region[0].innerHTML;
-          document.getElementById('show-region').innerHTML=region[0].innerHTML;
           
           var streetAddress = document.getElementsByClassName('street-address');
           document.getElementById('street-address').value=streetAddress[0].innerHTML;
-          document.getElementById('show-street-address').innerHTML=streetAddress[0].innerHTML;
+          
+          document.getElementById('show-address').innerHTML=region[0].innerHTML + streetAddress[0].innerHTML;
           
           var hours = place.opening_hours.weekday_text;
           for (var i = 0; i <= 6; i++) {

@@ -163,6 +163,14 @@
         margin-top: 20px;
     }
     
+    .place-contents p {
+        font-size: 0.9rem;
+    }
+    
+    .place-contents div {
+        font-size: 1.2rem;
+    }    
+    
     .search-btn:hover {
         margin-top: 0;
         border-bottom: 5px solid rgb(180, 180, 180);

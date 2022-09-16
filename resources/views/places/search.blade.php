@@ -33,13 +33,12 @@
             
             <div class="search-word __sp">
                 <div>
+                    @if (isset($key_name)) <p>場所:<span>{{ $key_name }}</span></p> @endif
+                    @if (isset($cat)) <p>カテゴリー:<span>{{ $cat->name }}</span></p> @endif
+                    
                     <div class="flex">
-                        @if (isset($key_name)) <p>場所:<span>{{ $key_name }}</span></p> @endif
-                        @if (isset($cat)) <p>カテゴリー:<span>{{ $cat->name }}</span></p> @endif
-                    </div>
-                    <div class="flex">
-                        @if (isset($pref)) <p>都道府県:<span>{{ $pref->name }}</span></p> @endif
-                        @if (isset($key_city)) <p>市区町村:<span>{{ $key_city }}</span></p> @endif
+                    @if (isset($pref)) <p>都道府県:<span>{{ $pref->name }}</span></p> @endif
+                    @if (isset($key_city)) <p>市区町村:<span>{{ $key_city }}</span></p> @endif
                     </div>
                 </div>
             </div>
@@ -90,12 +89,12 @@
                 <form method="get" action="/places/search">
                     @csrf
                     <div class="search-box">
-                        <div>
+                        <div class="w100">
                             <p>場所名</p>
                             <input class="input" type="search" name="name">
                         </div>
                         
-                        <div>
+                        <div class="w100">
                             <p>カテゴリー</p>
                             <select class="input" name="category">
                                 <option value="">カテゴリーを選択</option>

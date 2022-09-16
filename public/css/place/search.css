@@ -142,6 +142,7 @@
     display: none;
 }
 
+
 @media screen and (max-width: 1159px) {
     .contents {
         margin-top: 100px;
@@ -155,15 +156,31 @@
         display: block;
     }
     
+    .search-word p {
+        font-size: 0.9rem;
+    }
+    
+    .search-word span {
+        font-size: 1.3rem;
+    }
+    
+    .flex p + p {
+        margin-left: 15px;
+    }
+    
     .search-box {
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     
     .search-box div {
         margin-bottom: 20px;
         width: 45%;
         text-align: center;
+    }
+    
+    .search-box .w100 {
+        width: 100%;
     }
     
     .search-box div + div {
@@ -176,6 +193,7 @@
     
     .places {
         flex-direction: column;
+        padding: 0;
     }
     
     .place {

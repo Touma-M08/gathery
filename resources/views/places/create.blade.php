@@ -32,7 +32,7 @@
         
         <div class="contents">
             <a class="back-btn" href="/places/search">
-                <i class="fa-solid fa-arrow-left"></i>検索ページに戻る
+                <i class="fa-solid fa-arrow-left"></i>検索ページに移動
             </a>
             
             <h2 class="section-ttl">新規場所登録</h2>
@@ -72,8 +72,7 @@
                         <div class="place-contents">
                             <p>住所:</p>
                             <div class="address">
-                                <div id="show-region">{{ old('region') }}</div>
-                                <div id="show-street-address">{{ old('place.address') }}</div>
+                                <div id="show-address">{{ old('region') }}{{ old('place.address') }}</div>
                             </div>
                         </div>
                         
