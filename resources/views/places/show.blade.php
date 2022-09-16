@@ -20,8 +20,7 @@
         
         <script src="{{asset('js/app.js')}}" defer></script>
         <script src="{{asset('js/sp.js')}}" defer></script>
-        <script src="{{asset('js/showApi.js')}}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?lang=ja&key={{ config('app.api_key') }}&libraries=places&callback=initMap" async></script>
+        
     </head>
     <body>
         <div id="loading">
@@ -307,5 +306,7 @@
                 </div>
             </div>
         </div>
+        <script src="{{asset('js/showApi.js')}}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?lang=ja&key={{ config('app.api_key') }}&libraries=places&callback=initMap" async></script>
     </body>
 </html>
