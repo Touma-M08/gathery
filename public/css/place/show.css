@@ -146,6 +146,19 @@ pre {
     margin: 5px 0;
 }
 
+.paginate {
+    margin-top: 30px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li + li {
+    margin-left: 10px;
+}
+
 
 /*sp用*/
 @media screen and (max-width: 1159px) {
