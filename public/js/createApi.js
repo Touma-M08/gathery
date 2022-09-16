@@ -79,7 +79,11 @@ function initMap() {
           
           var phoneNumber = place.formatted_phone_number;
           document.getElementById('phone-number').value=phoneNumber;
-          document.getElementById('show-phone-number').innerHTML=phoneNumber;
+          if (phoneNumber == undefined) {
+            document.getElementById('show-phone-number').innerHTML=" ";
+          }else {
+            document.getElementById('show-phone-number').innerHTML=phoneNumber;
+          }
           
           var address = place.adr_address;
           document.getElementById('address').innerHTML=address;
@@ -92,12 +96,18 @@ function initMap() {
           
           document.getElementById('show-address').innerHTML=region[0].innerHTML + streetAddress[0].innerHTML;
           
-          var hours = place.opening_hours.weekday_text;
-          for (var i = 0; i <= 6; i++) {
-            document.getElementById('hours-' + i).value=hours[i];
-          }
-          for (var i = 0; i <= 6; i++) {
-            document.getElementById('show-hours-' + i).innerHTML=hours[i];
+          if (!(place.opening_hours == undefined)) {
+            var hours = place.opening_hours.weekday_text;
+            for (var i = 0; i <= 6; i++) {
+              document.getElementById('hours-' + i).value=hours[i];
+            }
+            for (var i = 0; i <= 6; i++) {
+              document.getElementById('show-hours-' + i).innerHTML=hours[i];
+            }
+          } else {
+            for (var i = 0; i <= 6; i++) {
+              document.getElementById('hours-' + i).value="";
+            }
           }
           
           document.getElementById('lat').value=place.geometry.location.lat();

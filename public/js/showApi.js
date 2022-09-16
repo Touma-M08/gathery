@@ -36,8 +36,12 @@ function initMap() {
             service.getDetails(placeDetail, callback);
             
             function callback(place, status) {
-                var photo = place.photos[0].getUrl({maxWidth: 600, maxHeight: 600});
-                document.getElementById('photo').src=photo;
+                if (place.photos == undefined) {
+                    document.getElementById('photo').src="/img/noimage.jpg";
+                } else {
+                    var photo = place.photos[0].getUrl({maxWidth: 600, maxHeight: 600});
+                    document.getElementById('photo').src=photo;
+                }
             }
         }
     });
