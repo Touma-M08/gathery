@@ -74,7 +74,7 @@
                                 @auth
                                     <div class="header-icon-img-box">
                                         @if (empty(Auth::user()->image))
-                                            <img src="/img/image.png" alt="No Image">
+                                            <img src="/img/image.png">
                                         @else
                                             <img src="{{ Auth::user()->image }}">
                                         @endif
@@ -82,7 +82,7 @@
                                     <p class="header-user-name">{{ Auth::user()->name }}</p>
                                 @else
                                     <div class="header-icon-img-box">
-                                        <img src="img/image.png">
+                                        <img src="/img/image.png">
                                     </div>
                                     <p class="header-user-name">ゲスト</p>
                                 @endauth
