@@ -181,6 +181,7 @@
     
     .search-box .w100 {
         width: 100%;
+        text-align: left;
     }
     
     .search-box div + div {

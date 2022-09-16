@@ -75,11 +75,15 @@ class PlaceController extends Controller
         if(empty(Auth::user())) {
             return view("places/show")->with([
                 'place' => $place,
+                'lat' => $place->lat,
+                'lng' => $place->lng,
                 'reviews' => $review->getPlaceReview($place),
             ]);
         } else {
             return view("places/show")->with([
                 'place' => $place,
+                'lat' => $place->lat,
+                'lng' => $place->lng,
                 'reviews' => $review->getPlaceReview($place),
                 'want' => $want->getWant($place)
             ]);

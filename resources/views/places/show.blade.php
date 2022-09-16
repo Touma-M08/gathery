@@ -12,6 +12,11 @@
         <link rel="stylesheet" href="{{asset('css/place/show.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <script src="{{asset('js/loading.js')}}"></script>
+        <script>
+          //LaravelのBladeで使っている変数$postsをJavascriptの変数で定義する
+          const lat = @json($lat);
+          const lng = @json($lng);
+        </script>
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="{{asset('js/app.js')}}" defer></script>
         <script src="{{asset('js/sp.js')}}" defer></script>
@@ -168,8 +173,6 @@
         </nav>
         
         <input type="hidden" id="keyword" value="{{ $place->name }}">
-        <input type="hidden" id="lat" value="{{ $place->lat }}">
-        <input type="hidden" id="lng" value="{{ $place->lng }}">
         
         <div class="back-btn">
             <a class="back-btn-link" href="/">
