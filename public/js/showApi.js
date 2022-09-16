@@ -2,9 +2,8 @@ var map;
 var service;
 var infowindow;
 
+
 function initMap() {
-    var lat = document.getElementById('lat').value;
-    var lng = document.getElementById('lng').value;
     
     var place = new google.maps.LatLng(lat, lng);
 
@@ -18,7 +17,7 @@ function initMap() {
         map: map,
         position: place
     });
-  
+    
     //検索実行
     document.addEventListener( 'DOMContentLoaded' , function( e ) {
         var place = document.getElementById('keyword').value;
@@ -36,7 +35,7 @@ function initMap() {
                     fields: ['photos']
                 };
                 service.getDetails(placeDetail, callback);
-
+                
                 function callback(place, status) {
                     var photo = place.photos[0].getUrl({maxWidth: 600, maxHeight: 600});
                     document.getElementById('photo').src=photo;
