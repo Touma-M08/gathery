@@ -16,6 +16,7 @@
           //LaravelのBladeで使っている変数$postsをJavascriptの変数で定義する
           const lat = @json($lat);
           const lng = @json($lng);
+          const name = @json($name);
         </script>
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="{{asset('js/app.js')}}" defer></script>
@@ -171,8 +172,6 @@
                 </li>
             </ul>
         </nav>
-        
-        <input type="hidden" id="keyword" value="{{ $place->name }}">
         
         <div class="back-btn">
             <a class="back-btn-link" href="/">

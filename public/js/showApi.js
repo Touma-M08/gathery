@@ -20,7 +20,7 @@ function initMap() {
     
     //検索実行
     document.addEventListener( 'DOMContentLoaded' , function( e ) {
-        var place = document.getElementById('keyword').value;
+        var place = name;
     
         var request = {
             query: place,

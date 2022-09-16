@@ -77,6 +77,7 @@ class PlaceController extends Controller
                 'place' => $place,
                 'lat' => $place->lat,
                 'lng' => $place->lng,
+                'name' => $place->name,
                 'reviews' => $review->getPlaceReview($place),
             ]);
         } else {
@@ -84,6 +85,7 @@ class PlaceController extends Controller
                 'place' => $place,
                 'lat' => $place->lat,
                 'lng' => $place->lng,
+                'name' => $place->name,
                 'reviews' => $review->getPlaceReview($place),
                 'want' => $want->getWant($place)
             ]);
