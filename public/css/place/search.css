@@ -179,11 +179,6 @@
         text-align: center;
     }
     
-    .search-box .w100 {
-        width: 100%;
-        text-align: left;
-    }
-    
     .search-box div + div {
         margin-left: 0;
     }
@@ -204,5 +199,11 @@
     
     .place:nth-of-type(2n) {
         margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .search-box .w100 {
+        width: 100%;
     }
 }

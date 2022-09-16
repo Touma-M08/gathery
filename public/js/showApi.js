@@ -19,28 +19,26 @@ function initMap() {
     });
     
     //検索実行
-    // document.addEventListener( 'DOMContentLoaded' , function( e ) {
-        var place = name;
-    
-        var request = {
-            query: place,
-            fields: ['place_id'],
-        };
-        var service = new google.maps.places.PlacesService(map);
-    
-        service.findPlaceFromQuery(request, function(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                var placeDetail = {
-                    placeId: results[0].place_id,
-                    fields: ['photos']
-                };
-                service.getDetails(placeDetail, callback);
-                
-                function callback(place, status) {
-                    var photo = place.photos[0].getUrl({maxWidth: 600, maxHeight: 600});
-                    document.getElementById('photo').src=photo;
-                }
+    var place = name;
+
+    var request = {
+        query: place,
+        fields: ['place_id'],
+    };
+    var service = new google.maps.places.PlacesService(map);
+
+    service.findPlaceFromQuery(request, function(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            var placeDetail = {
+                placeId: results[0].place_id,
+                fields: ['photos']
+            };
+            service.getDetails(placeDetail, callback);
+            
+            function callback(place, status) {
+                var photo = place.photos[0].getUrl({maxWidth: 600, maxHeight: 600});
+                document.getElementById('photo').src=photo;
             }
-        });
-    // });
+        }
+    });
 }
