@@ -10,7 +10,6 @@ function toggle() {
 
 //ホバー解除
 if (window.innerWidth < 1160) {
-    console.log(window.innerWidth);
     try { 
         for (var si in document.styleSheets) {
             var styleSheet = document.styleSheets[si];

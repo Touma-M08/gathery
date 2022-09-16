@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <script src="{{asset('js/loading.js')}}"></script>
         <script>
-          //LaravelのBladeで使っている変数$postsをJavascriptの変数で定義する
           const lat = @json($lat);
           const lng = @json($lng);
           const name = @json($name);
@@ -21,7 +20,7 @@
         <script src="{{asset('js/showApi.js')}}"></script>
         <script src="{{asset('js/app.js')}}" defer></script>
         <script src="{{asset('js/sp.js')}}" defer></script>
-        <script src="https://maps.googleapis.com/maps/api/js?lang=ja&key={{ config('app.api_key') }}&libraries=places&callback=initMap" async defer></script>
+        
     </head>
     <body>
         <div id="loading">
@@ -307,5 +306,6 @@
                 </div>
             </div>
         </div>
+        <script src="https://maps.googleapis.com/maps/api/js?lang=ja&key={{ config('app.api_key') }}&libraries=places&callback=initMap" async></script>
     </body>
 </html>
