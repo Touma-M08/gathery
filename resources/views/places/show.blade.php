@@ -206,16 +206,18 @@
                         <p>{{ $place->prefecture->name }}{{ $place->address }}</p>    
                     </div>
                     
-                    <div class="opening-time data-ttl">
-                        <h3>営業時間</h3>
-                        <p>{{ $place->time_mon }}</p>
-                        <p>{{ $place->time_tue }}</p>
-                        <p>{{ $place->time_wed }}</p>
-                        <p>{{ $place->time_thu }}</p>
-                        <p>{{ $place->time_fri }}</p>
-                        <p>{{ $place->time_sat }}</p>
-                        <p>{{ $place->time_sun }}</p>
-                    </div>
+                    @if (!(empty($place->time_mon)))
+                        <div class="opening-time data-ttl">
+                            <h3>営業時間</h3>
+                            <p>{{ $place->time_mon }}</p>
+                            <p>{{ $place->time_tue }}</p>
+                            <p>{{ $place->time_wed }}</p>
+                            <p>{{ $place->time_thu }}</p>
+                            <p>{{ $place->time_fri }}</p>
+                            <p>{{ $place->time_sat }}</p>
+                            <p>{{ $place->time_sun }}</p>
+                        </div>
+                    @endif
                     
                     @if (!(empty($place->tel)))
                         <div class="tel data-ttl">
