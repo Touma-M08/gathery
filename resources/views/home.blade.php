@@ -267,7 +267,7 @@
                         </div>
                     @else
                         <div class="icon-img-box">
-                            <img src="img/image.png">
+                            <img src="/img/image.png">
                         </div>
                         <p>ログイン中のユーザー</p>
                         <p class="user-name">ゲスト</p>
