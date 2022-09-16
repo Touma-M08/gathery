@@ -74,7 +74,7 @@
                                 @auth
                                     <div class="header-icon-img-box">
                                         @if (empty(Auth::user()->image))
-                                            <img src="/img/image.png">
+                                            <img src="/img/image.png" alt="No Image">
                                         @else
                                             <img src="{{ Auth::user()->image }}">
                                         @endif
