@@ -37,7 +37,7 @@ class CommentController extends Controller
         if (!(empty($want->getWant($place)))) {
             return view('bbses/bbs')->with([
                 'place' => $place,
-                'comments' => $comment->where("place_id", $place->id)->paginate(30)
+                'comments' => $comment->where("place_id", $place->id)->orderBy("created_at", "desc")->paginate(30)
                 ]);
         } else {
             return redirect('/');

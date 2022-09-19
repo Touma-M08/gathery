@@ -34,7 +34,7 @@
                             
                             <p class="comment">{{ $comment->comment }}</p>
                             
-                            <p class="date-time">{{ $comment->updated_at->format('Y/m/d H:m:s') }}</p>
+                            <p class="date-time">{{ $comment->updated_at->format('Y/m/d H:i') }}</p>
                         </div>
                         
                         
