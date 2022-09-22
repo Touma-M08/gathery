@@ -130,6 +130,10 @@ pre {
     margin-bottom: 10px;
 }
 
+.review-ttl {
+    font-weight: bold;
+}
+
 .icon-img-box {
     width: 30px;
     height: 30px;

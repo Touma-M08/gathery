@@ -296,7 +296,7 @@
                                 ></star-rating>
                             </div>
                             
-                            <p>{{ $review->title }}</p>
+                            <p class="review-ttl">{{ $review->title }}</p>
                             
                             <pre class="comment">{{ $review->comment }}</pre>
                             
