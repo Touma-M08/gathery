@@ -40,11 +40,14 @@ class PlaceController extends Controller
         
         $places = $query;
         
-        return view("places/search", compact('key_name', 'key_city', 'pref', 'cat'))->with([
+        return view("places/search")->with([
             "places" => $places->orderBy('created_at', 'desc')->paginate(20),
             "categories" => $category->get(),
             "prefectures" => $prefecture->get(),
-            "requests" => $request
+            "key_name" => $key_name,
+            "key_city" => $key_city,
+            "pref" => $pref,
+            "cat" => $cat,
             ]);
     }
     
