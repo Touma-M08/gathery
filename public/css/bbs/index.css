@@ -28,10 +28,14 @@
 
 .place-name {
     font-size: 1.25rem;
+}
+
+a.place-name {
+    font-size: 1.25rem;
     color: #1B47FF;
 }
 
-.place-name:hover {
+a.place-name:hover {
     color: #ff9101;
 }
 

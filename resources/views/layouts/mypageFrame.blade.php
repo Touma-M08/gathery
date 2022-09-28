@@ -36,6 +36,12 @@
                     <li class="list-item">
                         <a href="/mypage/setting">設定</a>
                     </li>
+                    
+                    @if( Auth::user()->admin == 1 )
+                        <li class="list-item">
+                            <a href="/admin">管理者設定</a>
+                        </li>
+                    @endif
                 </ul>
             </section>
             @yield("mypage-content")

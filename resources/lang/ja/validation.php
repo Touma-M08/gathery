@@ -161,6 +161,8 @@ return [
         'review.title' => 'タイトル',
         'review.comment' => '本文',
         'review.score' => 'スコア',
+        'name' => 'カテゴリー名',
+        'type' => '種類'
         ],
 
 ];

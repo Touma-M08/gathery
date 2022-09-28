@@ -72,7 +72,10 @@
                             <p>カテゴリー</p>
                             <select class="input" name="category">
                                 <option value="">カテゴリーを選択</option>
-                                @foreach ($categories as $category)
+                                @foreach ($foodCategories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                                @foreach ($leisureCategories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
@@ -98,7 +101,10 @@
                             <p>カテゴリー</p>
                             <select class="input" name="category">
                                 <option value="">カテゴリーを選択</option>
-                                @foreach ($categories as $category)
+                                @foreach ($foodCategories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                                @foreach ($leisureCategories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>

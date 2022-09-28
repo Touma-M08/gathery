@@ -12,6 +12,13 @@
 Route::get('/', 'HomeController@index'); //トップページ
 
 Route::group(['middleware' => ['auth']], function(){
+    //管理者
+    Route::get('/admin', 'HomeController@add'); //カテゴリー追加
+    Route::post('/admin/category', 'HomeController@store'); //カテゴリー保存
+    Route::get('/admin/place', 'HomeController@search'); //場所検索
+    Route::get('/admin/{place}/edit', 'HomeController@edit'); //場所情報編集
+    Route::put('/admin/{place}/', 'HomeController@update'); //場所情報保存
+     
     //マイページ
     Route::get('/mypage/wants', 'WantController@want'); //行きたい！一覧
     Route::get('/mypage/reviews', 'ReviewController@index'); //自分の投稿した評価一覧

@@ -188,15 +188,13 @@
                         <div class="category-wrap">
                             <p class="category-ttl">飲食店</p>
                             <ul class="category-list">
-                                @foreach ($categories as $category)
-                                    @if ($category->id >= 1 && $category->id <= 19)
-                                        <li class="category-item">
-                                            <form method="get" action="/places/search">
-                                                <input type="hidden" name="category" value="{{ $category->id }}">
-                                                <input class="category-name" type="submit" value="{{ $category->name }}">
-                                            </form>
-                                        </li>
-                                    @endif
+                                @foreach ($foodCategories as $category)
+                                    <li class="category-item">
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="category" value="{{ $category->id }}">
+                                            <input class="category-name" type="submit" value="{{ $category->name }}">
+                                        </form>
+                                    </li>
                                 @endforeach
                             </ul>
                             
@@ -205,10 +203,8 @@
                                     <select class="select-box" name="category">
                                         <option value="">カテゴリーを選択してください</option>
                                         
-                                        @foreach ($categories as $category)
-                                            @if ($category->id >= 1 && $category->id <= 19)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endif
+                                        @foreach ($foodCategories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                     
@@ -218,15 +214,13 @@
                             
                             <p class="category-ttl">レジャー施設</p>
                             <ul class="category-list">
-                                @foreach ($categories as $category) 
-                                    @if ($category->id >= 20 && $category->id <= 28)
-                                        <li class="category-item">
-                                            <form method="get" action="/places/search">
-                                                <input type="hidden" name="category" value="{{ $category->id }}">
-                                                <input class="category-name" type="submit" value="{{ $category->name }}">
-                                            </form>
-                                        </li>
-                                    @endif
+                                @foreach ($leisureCategories as $category) 
+                                    <li class="category-item">
+                                        <form method="get" action="/places/search">
+                                            <input type="hidden" name="category" value="{{ $category->id }}">
+                                            <input class="category-name" type="submit" value="{{ $category->name }}">
+                                        </form>
+                                    </li>
                                 @endforeach
                             </ul>
                             
@@ -234,11 +228,8 @@
                                 <form method="get" action="/places/search">
                                     <select class="select-box" name="category">
                                         <option value="">カテゴリーを選択してください</option>
-                                        
-                                        @foreach ($categories as $category)
-                                            @if ($category->id >= 20 && $category->id <= 28)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endif
+                                        @foreach ($leisureCategories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                     

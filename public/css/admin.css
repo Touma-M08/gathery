@@ -1,0 +1,53 @@
+.content {
+    padding: 20px;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category p {
+    padding: 2px 5px;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+.input-area {
+    border: 1px solid #333;
+    width: 300px;
+    display: block;
+    margin-top: 10px;
+    padding: 3px;
+}
+
+select.input-area {
+    -webkit-appearance: listbox;
+}
+
+.submit-btn {
+    font-weight: bold;
+    display: inline-block;
+    background-color: #020e7e;
+    color: #fff;
+    padding: 5px 8px;
+    margin: 10px 0 0 252px;
+}
+
+.mt0 {
+    margin-top: 0;
+}
+
+.type {
+    margin-top: 10px;    
+}
+
+.places {
+    margin-top: 20px;
+}
+
+.place + .place{
+    margin-top: 10px;
+}
