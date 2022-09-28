@@ -62,7 +62,10 @@
                             <p>カテゴリー:</p>
                             <select class="input" id="category" name="place[category_id]">
                                 <option value="">カテゴリーを選択してください</option>
-                                @foreach ($categories as $category)
+                                @foreach ($foodCategories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                                @foreach ($leisureCategories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select><br>

@@ -42,7 +42,8 @@ class PlaceController extends Controller
         
         return view("places/search")->with([
             "places" => $places->orderBy('created_at', 'desc')->paginate(20),
-            "categories" => $category->get(),
+            "foodCategories" => $category->foodCategory(),
+            "leisureCategories" => $category->leisureCategory(),
             "prefectures" => $prefecture->get(),
             "key_name" => $key_name,
             "key_city" => $key_city,
@@ -53,7 +54,10 @@ class PlaceController extends Controller
     
     public function create(Category $category)
     {
-        return view("places/create")->with(['categories' => $category->get()]);
+        return view("places/create")->with([
+            "foodCategories" => $category->foodCategory(),
+            "leisureCategories" => $category->leisureCategory()    
+        ]);
     }
     
     public function store(PlaceRequest $request, Place $place)
